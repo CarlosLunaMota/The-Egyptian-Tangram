@@ -1,0 +1,482 @@
+\documentclass[a4paper,11pt]{article}
+
+    % Layout
+    \usepackage[
+        a4paper,
+        left=15mm,
+        right=15mm,
+        top=15mm,
+        bottom=25mm]{geometry}
+    \usepackage{multicol}
+    \setlength\columnsep{20pt}
+    %\usepackage{fancyhdr}
+
+    % Català
+    \usepackage[catalan]{babel}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+
+    %Definició de la ela geminada per tal que accepti el punt volat del teclat
+    \def\xgem{%
+        \ifmmode
+            \csname normal@char\string"\endcsname l%
+        \else
+            \leftllkern=0pt\rightllkern=0pt\raiselldim=0pt
+            \setbox0\hbox{l}\setbox1\hbox{l\/}\setbox2\hbox{.}%
+            \advance\raiselldim by \the\fontdimen5\the\font
+            \advance\raiselldim by -\ht2
+            \leftllkern=-.25\wd0%
+            \advance\leftllkern by \wd1
+            \advance\leftllkern by -\wd0
+            \rightllkern=-.25\wd0%
+            \advance\rightllkern by -\wd1
+            \advance\rightllkern by \wd0
+            \allowhyphens\discretionary{-}{}%
+            {\kern\leftllkern\raise\raiselldim\hbox{.}%
+            \kern\rightllkern}\allowhyphens
+        \fi
+    }
+    \def\Xgem{%
+        \ifmmode
+            \csname normal@char\string"\endcsname L%
+        \else
+            \leftllkern=0pt\rightllkern=0pt\raiselldim=0pt
+            \setbox0\hbox{L}\setbox1\hbox{L\/}\setbox2\hbox{.}%
+            \advance\raiselldim by .5\ht0
+            \advance\raiselldim by -.5\ht2
+            \leftllkern=-.125\wd0%
+            \advance\leftllkern by \wd1
+            \advance\leftllkern by -\wd0
+            \rightllkern=-\wd0%
+            \divide\rightllkern by 6
+            \advance\rightllkern by -\wd1
+            \advance\rightllkern by \wd0
+            \allowhyphens\discretionary{-}{}%
+            {\kern\leftllkern\raise\raiselldim\hbox{.}%
+            \kern\rightllkern}\allowhyphens
+        \fi
+    }
+    \DeclareTextCommand{\textperiodcentered}{T1}[1]{%
+        \ifnum\spacefactor=998
+            \Xgem
+        \else
+            \xgem
+        \fi#1}
+
+    % Imatges
+    \usepackage{graphicx}
+    \usepackage{subfigure}
+
+    % Mates
+    \usepackage{amsthm, amsmath, amssymb, amsfonts}
+
+    % Sagnats
+    \usepackage{parskip}
+    \frenchspacing
+
+    % Taules
+    \usepackage{array}
+    \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+    \newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+    \newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+    \newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+    % Links
+    \usepackage[pagebackref=false, hidelinks]{hyperref}
+    \hypersetup {
+        pdfauthor    = {Carlos Luna-Mota},
+        pdfsubject   = {The Egyptian Tangram Designer's Diary},
+        pdftitle     = {El tangram egipci: diari de disseny},
+        pdfkeywords  = {Tangram, Tangram Egipci, Egyptian Tangram, Tangram Egipcio, Ägyptischer Tangram, Tangram Égyptien},
+        pdfcreator   = {LaTeX},
+        pdfproducer  = {pdflatex, bibtex, ghostscript \& python}
+    }
+
+\begin{document}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \title{El tangram egipci: diari de disseny}
+    \author{\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{\includegraphics[scale=0.15]{cc/cc.pdf}\includegraphics[scale=0.15]{cc/by.pdf}\includegraphics[scale=0.15]{cc/nc.pdf}\includegraphics[scale=0.15]{cc/sa.pdf}}
+    \href{https://github.com/CarlosLunaMota}{Carlos Luna-Mota} (\href{https://mmaca.cat/}{MMACA})\\ \href{mailto:carlos.luna@mmaca.cat}{carlos.luna@mmaca.cat}}
+    \date{8 de juny de 2019}
+    \maketitle
+
+    \begin{multicols}{2}
+        En aquest article explorem una família de trencaclosques, els tangrams, per tal d'entendre quines qualitats els fan més interessants des dels punts de vista lúdic i educatiu. A continuació, il·lustrarem aquestes idees amb un nou disseny, el tangram egipci, del qual estudiarem les principals propietats matemàtiques.
+
+        \textbf{Paraules clau:} tangram, tangram egipci.
+
+        \columnbreak
+
+        In this paper we explore a family of puzzles, the tangrams, in order to understand which features make them interesting from a ludic and educational point of view. After that, we will illustrate these ideas with a new design, the Egyptian tangram, whose main mathematical qualities are studied.
+
+        \textbf{Keywords:} tangram, Egyptian tangram.
+    \end{multicols}
+
+    \bigskip
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{multicols}{2}
+
+        \section{Què és un tangram?}
+
+            El tangram que tots coneixem és un trencaclosques d'origen xinès format per set peces planes, cinc triangles i dos quadrilàters, amb les quals es poden crear un gran nombre de figures \cite{gardner1988time}.
+
+            \begin{center}
+                \includegraphics[height=20ex]{figures/figura001.pdf} \\
+                \footnotesize{\textbf{Fig. 1:} Tangram xinès}
+            \end{center}
+
+            En la seva vessant més lúdica, el tangram s'acompanya d'un llibret on apareixen les siluetes de diverses figures, i el repte consisteix a recobrir completament cadascuna de les siluetes fent servir les set peces sense que sobresurtin de la figura o s'encavalquin entre elles. Sovint, les figures representen objectes o persones amb gran realisme, cosa sorprenent si tenim en compte la simplicitat geomètrica de les peces del tangram \cite{loyd2007sam}.
+
+            \begin{center}
+                \includegraphics[scale=0.55]{figures/figura002a.pdf} \includegraphics[scale=0.55]{figures/figura002b.pdf} \\
+                \footnotesize{\textbf{Fig. 2:} Tangram xinès: silueta realista i solució}
+            \end{center}
+
+            Des d'un punt de vista educatiu, resulta interessant estudiar les propietats matemàtiques de les seves peces. Fent servir com a unitat de mesura el costat de la peça quadrada, es pot determinar que totes les longituds que apareixen són potències de $\sqrt{2}$, que tots els angles són múltiples de $45^\circ$ i que totes les àrees són múltiples de $\tfrac{1}{2}$.
+
+            També podem fer-nos preguntes sobre les figures que es poden formar amb les peces del tangram i demostrar que no és possible crear un triangle equilàter amb elles o que només tretze d'aquestes figures són polígons convexos \cite{hsiung2001selected}.
+
+            \begin{center}
+                \includegraphics[scale=0.35]{figures/figura003a.pdf}\qquad
+                \includegraphics[scale=0.35]{figures/figura003d.pdf}\qquad
+                \includegraphics[scale=0.35]{figures/figura003e.pdf}\qquad
+                \includegraphics[scale=0.35]{figures/figura003f.pdf}\\ \medskip
+                \begin{tabular}{ccc}
+                    \includegraphics[scale=0.35]{figures/figura003g.pdf} &
+                    \includegraphics[scale=0.35]{figures/figura003h.pdf} &
+                    \includegraphics[scale=0.35]{figures/figura003i.pdf} \\[1ex]
+                    \includegraphics[scale=0.35]{figures/figura003b.pdf} &
+                    \includegraphics[scale=0.35]{figures/figura003j.pdf} &
+                    \includegraphics[scale=0.35]{figures/figura003k.pdf} \\[1ex]
+                    \includegraphics[scale=0.35]{figures/figura003c.pdf} &
+                    \includegraphics[scale=0.35]{figures/figura003m.pdf} &
+                    \includegraphics[scale=0.35]{figures/figura003l.pdf} \\[1ex]
+                \end{tabular}\\
+                \footnotesize{\textbf{Fig. 3:} Tangram xinès: les tretze figures convexes}
+            \end{center}
+
+            A mig camí entre la vessant lúdica i la purament matemàtica hi ha un bon grapat de reptes que autors com Sam Loyd o Henry Dudeney han incorporat als seus llibres d'enigmes. Potser els més destacables són les anomenades paradoxes, parells de figures que semblen iguals però tenen un tret distintiu que fa que sembli impossible que totes dues facin servir les set peces del tangram \cite{loyd2007sam}.
+
+            \begin{center}
+                \includegraphics[scale=0.55]{figures/figura004a.pdf}\quad\includegraphics[scale=0.55]{figures/figura004b.pdf} \\ \smallskip
+                \includegraphics[scale=0.55]{figures/figura004c.pdf}\quad\includegraphics[scale=0.55]{figures/figura004d.pdf} \\
+                \footnotesize{\textbf{Fig. 4:} Tangram xinès: paradoxa amb solució}
+            \end{center}
+
+            El tangram s'emmarca en una família més àmplia de trencaclosques, les disseccions, que consisteixen a tallar una figura en un nombre reduït de peces, de manera que, en reordenar-les, es formi una altra figura amb la mateixa àrea (sovint un quadrat). La majoria de disseccions, però, es limiten a buscar la manera més senzilla i elegant de transformar una figura en una altra sense tenir en compte la possibilitat de formar altres figures amb aquestes mateixes peces \cite{frederickson1997dissections}.
+
+            \begin{center}
+                \includegraphics[scale=0.55]{figures/figura005b.pdf}\qquad\includegraphics[scale=0.55]{figures/figura005a.pdf} \\
+                \footnotesize{\textbf{Fig. 5:} La dissecció dodecàgon-quadrat permet deduir\\ que l'àrea del dodecàgon val $3R^2$ (on $R$ és el seu radi)}
+            \end{center}
+
+            Tanmateix, hi ha molts altres trencaclosques que segueixen la mateixa premissa que el tangram xinès: un nombre reduït de peces, de natura geomètrica senzilla, que donen peu a un gran nombre de figures interessants. Tots s'agrupen sota el nom genèric de tangram i se'ls afegeix un cognom que els distingeix.
+
+            Així, a banda del tangram xinès, del qual ja hem parlat, trobem altres disseccions del quadrat, com ara el tangram japonès \cite{gardner1988time} o el tangram Double Square \cite{stegmann2019}.
+
+            \begin{center}
+                \includegraphics[width=0.3\linewidth]{figures/figura006a.pdf}\qquad\includegraphics[width=0.3\linewidth]{figures/figura006b.pdf} \\
+                \footnotesize{\textbf{Fig. 6:} Tangram japonès i tangram Double Square}
+            \end{center}
+
+            També trobem disseccions de rectangles de diferents mides, com ara el tangram V \& Diamond \cite{ito2006tangraphy}, de proporcions ${\sqrt{3}:2}$, o el tangram de Brügner \cite{brugner1984three}, de proporcions ${1:\sqrt{\phi}}$.
+
+            \begin{center}
+                \includegraphics[height=12ex]{figures/figura007a.pdf}\qquad\includegraphics[height=12ex]{figures/figura007b.pdf} \\
+                \footnotesize{\textbf{Fig. 7:} Tangram V \& Diamond i tangram de Brügner}
+            \end{center}
+
+            I fins i tot és possible trobar disseccions de figures corbes, com ara el tangram de l'ou o el tangram del cor \cite{demarchi2012libro}.
+
+            \begin{center}
+                \includegraphics[height=15ex]{figures/figura008a.pdf}\quad\includegraphics[height=15ex]{figures/figura008b.pdf} \\
+                \footnotesize{\textbf{Fig. 8:} Tangram de l'ou i tangram del cor}
+            \end{center}
+
+            Tots aquests tangrams comparteixen algunes propietats interessants que enumerarem a continuació i que mirarem de reproduir amb un nou disseny: el tangram egipci.
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \section{Com és un bon tangram?}
+
+            De tangrams n'hi ha de molts tipus. Alguns tenen molt poques peces, com ara el tangram de Brügner, que només en té tres. D'altres en tenen moltes, com l'Ostomachion d'Arquimedes, que en té catorze \cite{netz2009archimedes}.
+
+            \begin{center}
+                \includegraphics[height=20ex]{figures/figura009b.pdf} \\
+                \footnotesize{\textbf{Fig. 9:} Ostomachion d'Arquimedes}
+            \end{center}
+
+            El nombre de peces d'un tangram és generalment reduït per diversos motius. D'una banda, és més fàcil construir i manipular un tangram amb poques peces que un que en tingui moltes. D'altra banda, és evident que, donats dos tangrams que tinguin el mateix grau de versatilitat, considerarem més interessant i enginyós el que tingui menys peces.
+
+            D'altra banda, semblen més interessants els tangrams que permeten crear figures simètriques a partir d'un nombre senar de peces que no pas els que en fan servir un nombre parell. Així, no és estrany que la majoria dels tangrams tinguin cinc o set peces. De fet, cinc sembla un nombre interessant de peces, especialment si ens fixem en tres dels tangrams amb una millor ràtio de versatilitat per peça: el subtangram xinès (format per les cinc peces petites del tangram xinès), el tangram de la creu de Sam Loyd \cite{coffin2006geometric} i el tangram dels cinc triangles \cite{brinnitzer2017juego, mmaca2018puzles}.
+
+            \begin{center}
+                \includegraphics[height=13ex]{figures/figura010a.pdf}\quad\includegraphics[height=13ex]{figures/figura010b.pdf}\quad\includegraphics[height=13ex]{figures/figura010c.pdf} \\
+                \footnotesize{\textbf{Fig. 10:} Subtangram xinès, tangram de la creu\\ i tangram dels cinc triangles}
+            \end{center}
+
+            Si el nombre de peces és un factor important, el disseny d'aquestes peces no ho és menys. En general és desitjable que un tangram tingui poques peces repetides (o cap). També és raonable demanar que siguin totes d'àrea similar i d'igual complexitat geomètrica. Sovint aquestes dues propietats entren en conflicte. Per exemple, si comparem el tangram de la creu i el subtangram xinès veurem que el primer sembla millor pel fet de no tenir peces repetides però, d'altra banda, les peces del segon són totes triangles i quadrilàters convexos d'àrees similars, mentre que al tangram de la creu l'hexàgon còncau és set vegades més gran que el triangle petit.
+
+            Per tal de poder crear diferents figures és important que les peces es puguin encaixar de moltes maneres. Per això, a l'hora de dibuixar les peces és preferible fer servir segments de recta més que no pas corbes, que són més difícils de tallar i quedaran inevitablement relegades al perímetre de les figures. També és molt important que les longituds d'aquests segments siguin tan compatibles com sigui possible. Si portem a l'extrem aquesta darrera observació imposant la condició que tots els segments tinguin una mida que sigui múltiple d'una longitud donada, obtindrem peces formades per la unió de polígons regulars, com ara els dotze pentòminos (unió de cinc quadrats) o els dotze hexamants (unió de sis triangles equilàters). Aquest tipus de trencaclosques també són molt interessants però s'allunyen de l'esperit original dels tangrams \cite{coffin2006geometric}.
+
+            \begin{center}
+                \includegraphics[height=12ex]{figures/figura011a.pdf}\qquad\includegraphics[height=12ex]{figures/figura011b.pdf} \\
+                \footnotesize{\textbf{Fig. 11:} Els dotze pentòminos i els dotze hexamants}
+            \end{center}
+
+            Si som una mica més laxos amb les mides de les nostres peces podem permetre longituds del tipus $a \cdot w + b \cdot x$, on $w$ i $x$ són nombres incommensurables i $a$ i $b$ són nombres enters. Si escollim $w$ com a unitat de mesura (fixant $w=1$), $x$ serà, tot sovint, l'arrel quadrada d'un enter. Per exemple, $x = \sqrt{2}$ al subtangram xinès i $x = \sqrt{5}$ al tangram de la creu.
+
+            \begin{center}
+                \includegraphics[height=15ex]{figures/figura012a.pdf}\qquad\includegraphics[height=15ex]{figures/figura012b.pdf} \\
+                \footnotesize{\textbf{Fig. 12:} Costats incommensurables del subtangram xinès\\ i del tangram de la creu}
+            \end{center}
+
+            Podem, també, afegir un tercer terme, $a + b \cdot x + c \cdot y$, com passa amb el tangram dels cinc triangles ($x = \sqrt{2}$ i $y = \sqrt{5}$), o fins i tot un quart terme, $a + b \cdot x + c \cdot y + d \cdot z$, però cal tenir en compte que com més termes tingui l'expressió, més difícil serà trobar un disseny que permeti que les peces encaixin entre si de moltes maneres diferents.
+
+            Anàlogament, la commensurabilitat dels angles incrementa la versatilitat d'un tangram. De nou, busquem angles de la forma $m \cdot \alpha + n \cdot \beta$, on $\alpha$ i $\beta$ normalment seran l'arc tangent d'una fracció. Al tangram xinès tots els angles són de la forma $m \cdot \arctan{(\tfrac{1}{1})}$, mentre que al tangram de la creu són de la forma $a \cdot \arctan{(\tfrac{1}{0})} + b \cdot \arctan{(\tfrac{1}{2})}$.
+
+            Una manera fàcil d'assolir un alt grau de commensurabilitat de costats i angles és dissenyar les peces a partir de la intersecció de dues o més retícules superposades \cite{coffin2006geometric}. Una altra seria dissenyar les peces com a unió d'unitats bàsiques menors \cite{Horn2016family}.
+
+            Si fem una mica d'enginyeria inversa, podem mirar d'endevinar quina estructura subjacent ha inspirat alguns dels tangrams dels quals hem estat parlant fins ara i ens adonarem que sovint només cal superposar dues o tres retícules per generar-los.
+
+            \begin{center}
+                \includegraphics[height=15ex]{figures/figura013a.pdf}\qquad\includegraphics[height=15ex]{figures/figura013b.pdf} \\
+                \footnotesize{\textbf{Fig. 13:} Retícules del subtangram xinès\\ i del tangram de la creu}
+            \end{center}
+
+            Des d'un punt de vista pràctic, cal tenir en compte que, a l'hora de manufacturar o de fer servir un tangram, és millor evitar els angles massa petits (menors de $20^\circ$) i els massa grans (majors de $240^\circ$) perquè requereixen una gran precisió en el tall, tendeixen a trencar-se i són difícils d'encaixar. Més en general, evitar el tall de corbes i angles còncaus o evitar fer servir coordenades irracionals a l'hora de definir les peces són factors que faciliten la producció material d'un tangram. Tanmateix, és important que els angles i les longituds que són teòricament incommensurables siguin fàcilment distingibles, de manera que petits errors en la producció del material no enganyin l'usuari. És útil, doncs, que el tangram no tingui peces massa petites, ja que les seves proporcions es veurien afectades més severament per qualsevol petit error en el tall.
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \section{El tangram egipci}
+
+            Amb tot el que hem après fins ara, ja estem preparats per presentar un nou tangram i estudiar-ne les propietats.
+
+            Aquest nou tangram va sorgir a partir de l'estudi d'alguns dels tangrams esmentats abans. Més concretament, de l'estudi del tangram de la creu i el tangram dels cinc triangles. L'observació clau va ser que bona part de la versatilitat d'aquests dos tangrams rau en un únic tall:
+
+            \begin{center}
+                \includegraphics[height=15ex]{figures/figura014.pdf} \\
+                \footnotesize{\textbf{Fig. 14:} Tangram de dues peces}
+            \end{center}
+
+            Aquest senzill tangram de dues peces dona lloc a cinc figures matemàticament interessants: un quadrat, un trapezi isòsceles, un paral·lelogram, un triangle rectangle i un quadrilàter irregular.
+
+            \begin{center}
+                \includegraphics[height=8ex]{figures/figura015a.pdf}\quad\includegraphics[height=8ex]{figures/figura015b.pdf}\quad\includegraphics[height=8ex]{figures/figura015c.pdf} \\ \medskip
+                \includegraphics[height=8ex]{figures/figura015d.pdf}\quad\includegraphics[height=8ex]{figures/figura015e.pdf} \\
+                \footnotesize{\textbf{Fig. 15:} Cinc figures per al tangram de dues peces}
+            \end{center}
+
+            Probablement es tracta del tall més interessant que es pot fer en un quadrat amb vista a obtenir un tangram de dues peces, i sembla raonable fer-lo servir de base per al disseny d'un nou tangram.
+
+            Podem preguntar-nos ara quin seria el següent millor tall que podríem afegir a aquest tangram de dues peces. Aquest tipus de disseny incremental \emph{voraç} (on a cada pas triem l'opció que millora més el producte) no garanteix, en general, que trobem el millor dels dissenys possibles, però constitueix una bona heurística de disseny, especialment en dominis tan restringits com el que ens ocupa.
+
+            L'exploració inicial permet destacar tres opcions que generen figures interessants, així que, \emph{a priori}, podríem continuar el procés a partir de qualsevol d'elles.
+
+            \begin{center}
+                \includegraphics[height=12ex]{figures/figura016a.pdf}\quad\includegraphics[height=12ex]{figures/figura016b.pdf}\quad\includegraphics[height=12ex]{figures/figura016c.pdf} \\ \medskip
+                \includegraphics[height=12ex]{figures/figura016d.pdf}\quad\includegraphics[height=12ex]{figures/figura016e.pdf}\quad\includegraphics[height=12ex]{figures/figura016f.pdf} \\
+                \footnotesize{\textbf{Fig. 16:} Tres tangrams de tres peces\\ i les seves retícules associades}
+            \end{center}
+
+            Una observació més detallada, però, revela que n'hi ha dues que comparteixen la mateixa retícula base i són, per tant, més compatibles entre si que no pas amb la tercera opció. A més, l'estrella de vuit puntes que apareix en aquesta retícula és una figura coneguda per les seves interessants propietats geomètriques \cite{pol1998nucli}. Sembla natural, doncs, explorar la interacció d'aquestes dues opcions.
+
+            \begin{center}
+                \includegraphics[height=20ex]{figures/figura017.pdf} \\
+                \footnotesize{\textbf{Fig. 17:} Tangram egipci}
+            \end{center}
+
+            Si observem la figura resultant ens adonarem, per primera vegada, que tenim un candidat a tangram que compleix moltes de les propietats desitjables descrites a la secció anterior:
+
+            \begin{itemize}
+                \item Té un nombre raonable de peces (cinc) i són fàcils de definir i retallar.
+                \item Totes les peces són polígons senzills (quatre triangles rectangles i un quadrilàter irregular).
+                \item Totes les peces són diferents però tenen àrees similars (concretament: 1, 4, 4, 5 i 6).
+                \item Totes les longituds són de la forma:
+                    \begin{center}$a + b \cdot \sqrt{5}$ \qquad(amb $a$ i $b$ enters)\end{center}
+                \item Tots els angles són de la forma:
+                    \begin{center}$m \cdot 90^\circ + n \cdot \arctan{(\tfrac{1}{2})}$ \quad(amb $m$ i $n$ enters)\end{center}
+            \end{itemize}
+
+            És hora, doncs, d'estudiar de manera més detallada les peculiaritats d'aquest tangram.
+
+            Inicialment destaca el fet que quatre de les cinc peces poden descompondre's en un conjunt de triangles rectangles congruents de proporcions ${1:2:\sqrt{5}}$ (com també passa amb les peces del tangram de la creu).
+
+            \begin{center}
+                \includegraphics[height=15ex]{figures/figura018a.pdf}\qquad\includegraphics[height=15ex]{figures/figura018b.pdf} \\
+                \footnotesize{\textbf{Fig. 18:} Descomposició de les peces del tangram egipci\\ i del tangram de la creu en triangles congruents}
+            \end{center}
+
+            El triangle gran no pot descompondre's d'aquesta manera i trenca la regularitat del disseny. Es podria esperar que les seves proporcions fossin d'allò més irregulars sent com és l'excedent d'un patró regular. Res més lluny de la veritat: es tracta d'un triangle rectangle de proporcions ${3:4:5}$, també conegut com a triangle egipci, i la seva \emph{sorprenent} aparició en una composició dominada pels triangles del tipus ${1:2:\sqrt{5}}$ és el motiu que ens ha portat a donar a aquesta dissecció el nom de tangram egipci.
+
+            L'altra peça que destaca, evidentment, és el quadrilàter. Tot i ser un quadrilàter irregular de costats ${1:3:\sqrt{5}:\sqrt{5}}$, no és difícil demostrar (tenint en compte que els seus angles oposats sumen $180^\circ$) que el podem inscriure en un cercle. Aquest, de fet, no és l'únic cercle notable del tangram egipci: hi ha tres cercles més que passen pel vèrtex interior de la figura, i un d'aquests passa pel centre de tots els altres.
+
+            \begin{center}
+                \includegraphics[height=20ex]{figures/figura019.pdf} \\
+                \footnotesize{\textbf{Fig. 19:} Quatre cercles notables del tangram egipci}
+            \end{center}
+
+            Si estudiem les mides de les peces trobarem una manera fàcil de referir-nos-hi. Tenim quatre triangles rectangles que anomenarem T1, T4, T5 i T6 en referència a les seves àrees, i un quadrilàter que anomenarem Q4 pel mateix motiu.
+
+            \begin{center}
+                \begin{tabular}{c|c|l|l}
+                    \textbf{Peça} & \textbf{Àrea} & \textbf{Mides} & \textbf{Angles} \\ \hline
+                    \textbf{T1}   & 1    & $1$, $2$, $x$      & $\alpha$, $\beta$, $\alpha$-$\beta$   \\ \hline
+                    \textbf{T4}   & 4    & $2$, $4$, $2x$     & $\alpha$, $\beta$, $\alpha$-$\beta$   \\ \hline
+                    \textbf{T5}   & 5    & $x$, $2x$, $5$     & $\alpha$, $\beta$, $\alpha$-$\beta$   \\ \hline
+                    \textbf{T6}   & 6    & $3$, $4$, $5$      & $\alpha$, $\alpha$-$2\beta$, $2\beta$ \\ \hline
+                    \textbf{Q4}   & 4    & $1$, $3$, $x$, $x$ & $\alpha$, $\alpha$-$\beta$, $\alpha$, $\alpha\!+\!\beta$
+                \end{tabular}
+            \end{center}
+
+            \begin{tabular}{ll}
+                Amb & $x = \sqrt{5} \simeq 2,\!236$\\
+                    & $\alpha = 90^\circ$ \\
+                    & $\beta = \arctan{\left(\tfrac{1}{2}\right)} \simeq 26,\!565^\circ$
+            \end{tabular}
+
+            Si ens fixem ara en les figures que podem crear fent servir el tangram egipci, trobarem que, malgrat que les seves peces són totes diferents i asimètriques, hi ha combinacions que són intercanviables o presenten algun tipus de simetria.
+
+            \begin{center}
+                \includegraphics[height=10ex]{figures/figura020a.pdf}\quad\includegraphics[height=10ex]{figures/figura020b.pdf}\quad\includegraphics[height=10ex]{figures/figura020c.pdf}\qquad
+                \includegraphics[height=10ex]{figures/figura020h.pdf}\quad\includegraphics[height=10ex]{figures/figura020i.pdf} \\ \bigskip
+                \includegraphics[height=10ex]{figures/figura020d.pdf}\quad\includegraphics[height=10ex]{figures/figura020f.pdf} \quad \includegraphics[height=10ex]{figures/figura020e.pdf}\quad\includegraphics[height=10ex]{figures/figura020g.pdf} \\ \bigskip
+                \includegraphics[height=4.5ex]{figures/figura020k.pdf}\quad\includegraphics[height=4.5ex]{figures/figura020j.pdf} \\ \medskip
+                \includegraphics[height=4.5ex]{figures/figura020m.pdf}\quad\includegraphics[height=4.5ex]{figures/figura020l.pdf} \\\footnotesize{\textbf{Fig. 20:} Equivalències i simetries}
+            \end{center}
+
+            Aquestes equivalències i simetries impliquen que la solució d'alguns dels reptes no serà única. La no-unicitat és una propietat poc desitjable en els trencaclosques en general, però força comuna entre els tangrams, ja que en aquest cas es valora més la versatilitat que proporciona la combinatòria de peces que no pas la unicitat de les solucions.
+
+            El quadrat, en particular, té tres solucions essencialment diferents, però que tenen una interessant propietat en comú: en tots els casos, quatre dels sis angles rectes que tenen les peces resten a l'interior de la figura, mentre que dues de les cantonades del quadrat estan formades per una suma d'angles aguts. Aquest fet fa una mica més difícil i contraintuïtiva la resolució d'aquesta figura.
+
+            \begin{center}
+                \includegraphics[height=12ex]{figures/figura021a.pdf}\quad\includegraphics[height=12ex]{figures/figura021b.pdf}\quad\includegraphics[height=12ex]{figures/figura021c.pdf} \\
+                \footnotesize{\textbf{Fig. 21:} Tangram egipci: les tres solucions del quadrat}
+            \end{center}
+
+            A banda del quadrat, hi ha moltes altres figures que es poden formar amb el tangram egipci. A continuació presentem una selecció de les més interessants i animem el lector a intentar trobar totes les solucions possibles per a cada silueta.
+
+            Altres reptes serien: trobar totes les figures amb solució única, trobar tots els quadrilàters que es poden formar amb les cinc peces o bé determinar quin és el mínim nombre de peces que cal moure per transformar una figura en qualsevol de les altres.
+
+            \begin{center}
+                \begin{tabular}{lll}
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022a.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022b.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022f.pdf}} \\[3ex]
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022d.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022c.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022e.pdf}} \\[2ex]
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022v.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022w.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022x.pdf}} \\[2ex]
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022g.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022h.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022i.pdf}} \\[1ex]
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022u.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022k.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022j.pdf}} \\[2ex]
+                    \raisebox{1ex}{\includegraphics[scale=0.25]{figures/figura022m.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022n.pdf}} &
+                    \raisebox{0.4ex}{\includegraphics[scale=0.25]{figures/figura022o.pdf}} \\[2ex]
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022s.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022t.pdf}} &
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022r.pdf}} \\[0ex]
+                    \raisebox{0ex}{\includegraphics[scale=0.25]{figures/figura022l.pdf}} &
+                    \raisebox{-1ex}{\includegraphics[scale=0.25]{figures/figura022p.pdf}} &
+                    \raisebox{0.5ex}{\includegraphics[scale=0.25]{figures/figura022q.pdf}} \\
+                \end{tabular}\\
+                \footnotesize{\textbf{Fig. 22:} Tangram egipci: figures amb les cinc peces}
+            \end{center}
+
+            Si relaxem la condició de fer servir totes cinc peces, apareixen un bon grapat de nous reptes. En particular, si fem servir només els quatre triangles podem formar diverses figures geomètricament interessants. Tant és així que aquest conjunt de peces, que anomenarem el subtangram egipci, ja es pot considerar un trencaclosques notable per si mateix.
+
+            \begin{center}
+                \begin{tabular}{ccc}
+                    \includegraphics[scale=0.25]{figures/figura023a.pdf} &
+                    \includegraphics[scale=0.25]{figures/figura023b.pdf} &
+                    \includegraphics[scale=0.25]{figures/figura023c.pdf} \\[3ex]
+                    \includegraphics[scale=0.25]{figures/figura023d.pdf} &
+                    \includegraphics[scale=0.25]{figures/figura023f.pdf} &
+                    \includegraphics[scale=0.25]{figures/figura023h.pdf} \\[2ex]
+                    \includegraphics[scale=0.25]{figures/figura023e.pdf} &
+                    \includegraphics[scale=0.25]{figures/figura023g.pdf} &
+                    \includegraphics[scale=0.25]{figures/figura023i.pdf} \\
+                \end{tabular}\\
+                \footnotesize{\textbf{Fig. 23:} Subtangram egipci: figures amb els quatre triangles}
+            \end{center}
+
+            Altres reptes que impliquen un nombre variable de peces són el de formar tots els possibles triangles rectangles semblants (de proporcions ${1:2:\sqrt{5}}$):
+
+            \begin{center}
+                \includegraphics[scale=0.25]{figures/figura024f.pdf}\quad
+                \includegraphics[scale=0.25]{figures/figura024e.pdf}\quad
+                \includegraphics[scale=0.25]{figures/figura024d.pdf}\quad
+                \includegraphics[scale=0.25]{figures/figura024c.pdf}\quad
+                \includegraphics[scale=0.25]{figures/figura024b.pdf}\quad
+                \includegraphics[scale=0.25]{figures/figura024a.pdf}\\
+                \footnotesize{\textbf{Fig. 24:} Sis triangles ${1:2:\sqrt{5}}$ que es poden\\ construir amb les peces del tangram egipci}
+            \end{center}
+
+            o resoldre les següents sumes de figures semblants:
+
+            \begin{center}
+                \Huge
+                \begin{tabular}{ccccc}
+                    \includegraphics[scale=0.2]{figures/figura025a.pdf} & $=$ &
+                    \includegraphics[scale=0.2]{figures/figura025b.pdf} & $\!+\!$ &
+                    \includegraphics[scale=0.2]{figures/figura025c.pdf}\\
+                    \includegraphics[scale=0.2]{figures/figura025d.pdf} & $=$ &
+                    \includegraphics[scale=0.2]{figures/figura025e.pdf} & $\!+\!$ &
+                    \includegraphics[scale=0.2]{figures/figura025f.pdf}\\
+                \end{tabular}\\
+                \footnotesize{\textbf{Fig. 25:} Suma de figures semblants:\\ \{T1, T4, T5, T6, Q4\} = \{T1, T5, T6, Q4\} + T4\phantom{.}\\ \{T1, T4, T5, T6, Q4\} = \{T1, T4, T5, T6\} + Q4}
+            \end{center}
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \section{Conclusions i futurs reptes}
+
+            L'estudi d'una família de trencaclosques, els tangrams, ens ha dut a comprendre les propietats que caracteritzen els millors representants d'aquesta família i, fixant-nos en els elements que tenen en comú dos d'aquests representants notables, a trobar un nou candidat a tangram, que hem anomenat tangram egipci.
+
+            Les propietats geomètriques i combinatòries del tangram egipci permeten fer-ne un ús recreatiu i educatiu i el situen al nivell d'altres tangrams més coneguts.
+
+            A partir d'aquest treball s'obren diverses línies d'investigació:
+
+            \begin{itemize}
+                \item Aprofundir en l'estudi general de les propietats dels tangrams i definir un criteri objectiu que permeti avaluar la qualitat del seu disseny automàticament.
+                \item Ampliar la cerca de nous tangrams per incloure-hi també els basats en retícules isomètriques (angles múltiples de $30^\circ$ i distàncies de la forma $a + b \cdot \sqrt{3}$), com el tangram del triangle equilàter o el tangram de l'hexàgon regular, tots dos encara en fase de desenvolupament.
+                    \begin{center}
+                        \includegraphics[height=12ex]{figures/figura026a.pdf}\qquad\includegraphics[height=12ex]{figures/figura026b.pdf} \\
+                        \footnotesize{\textbf{Fig. 26:} Tangram del triangle equilàter\\ i tangram de l'hexàgon regular}
+                    \end{center}
+                \item Desenvolupar nous reptes per al tangram egipci: trobar noves figures de caire realista o geomètric, cercar parelles paradoxals, trobar tots els quadrilàters o totes les figures convexes possibles, etc.
+                \item Dissenyar activitats matemàtiques relacionades amb el tangram egipci: teorema de Pitàgores, classificació de quadrilàters, estudi de triangles rectangles inscrits i quadrilàters cíclics, fórmules d'Heron i Brahmagupta, etc.
+                \item Adaptar el tangram egipci a l'entorn museístic: triar un material resistent i agradable al tacte, determinar quines mides ha de tenir per poder ser manipulat fàcilment, escollir un subconjunt de reptes que resulti atractiu al públic potencial, afegir pistes visuals que ajudin a determinar les dimensions de les peces, etc.
+                    \begin{center}
+                        \includegraphics[height=25ex]{figures/figura027.jpg} \\
+                        \footnotesize{\textbf{Fig. 27:} Prototip de tangram egipci al MMACA\\ que mostra que $5+0 = 4+1 = 3+2$}
+                    \end{center}
+            \end{itemize}
+
+            Finalment, volem puntualitzar que ens sorprèn que un trencaclosques tan conceptualment senzill com el tangram egipci no hagi aparegut prèviament en l'àmbit de la matemàtica recreativa. Per aquest motiu, estarem molt agraïts a qui ens aporti informació d'usos anteriors d'aquesta dissecció del quadrat.
+
+            Els trencaclosques més propers al tangram egipci que hem trobat fins ara són el puzle egipci \cite{stegmann2019} i Tangents, un disseny de Jean-Philippe Rossinelli per a l'empresa Naef Spiele. El primer és una dissecció del quadrat estructuralment semblant al tangram de la creu, mentre que el segon afegeix un tall addicional al tangram egipci, que divideix les peces Q4, T5 i T6.
+
+            \begin{center}
+                \includegraphics[height=15ex]{figures/figura028a.pdf}\qquad\includegraphics[height=15ex]{figures/figura028b.pdf} \\
+                \footnotesize{\textbf{Fig. 28:} El puzle egipci i Tangents}
+            \end{center}
+
+        \vfill\null
+        \columnbreak
+        \appendix
+        \bibliographystyle{apalike-catala}
+        \bibliography{bibliografia}
+        \vfill\null
+
+    \end{multicols}
+\end{document}
