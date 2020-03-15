@@ -12,9 +12,9 @@ In this repository you can find:
 
 * The slides used in the talk [**Parlem de tangrams: De la Xina a Egipte passant per Cornellà**](/Parlem%20de%20Tangrams%20-%20De%20la%20Xina%20a%20Egipte%20passant%20per%20Cornell%C3%A0/Parlem%20de%20tangrams.pdf) (in catalan, *Let's talk about tangrams: from China to Egypt passing through Cornellà*) that was performed in the Catalan Museum of Mathematics ([MMACA](http://mmaca.cat/)) on January 29th 2020.
 
-* The [**Egyptian Tangram Guide**](/The%20Egyptian%20Tangram%20-%20Guide) (*work in progress*) an exhaustive compilation of all the mathematical properties of the Egyptian Tangram we are aware of (please submit new properties for inclusion in future versions of this guide).
+* The [**Egyptian Tangram Guide**](/The%20Egyptian%20Tangram%20-%20Guide/The%20Egyptian%20Tangram%20Guide.pdf) (*work in progress*) an exhaustive compilation of all the mathematical properties of the Egyptian Tangram we are aware of (please submit new properties for inclusion in future versions of this guide).
 
-* The [**Egyptian Tangram Print & Play flyer**](/The%20Egyptian%20Tangram%20-%20Printable%20Edition) (permission granted for personal or educational use only).
+* The [**Egyptian Tangram Print & Play flyer**](/The%20Egyptian%20Tangram%20-%20Printable%20Edition/The%20Egyptian%20Tangram%20-%20Printable%20Edition.pdf) (permission granted for personal or educational use only).
 
 * The [**STL files**](/The%20Egyptian%20Tangram%20-%20STL) you need to print a copy of the Egyptian Tangram in a 3D printer (permission granted for personal or educational use only).
 
