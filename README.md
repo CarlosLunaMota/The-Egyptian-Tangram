@@ -14,7 +14,7 @@ In this repository you can find:
 
 * The **Egyptian Tangram Guide** (*under preparation*) an exhaustive compilation of all the mathematical properties of the Egyptian Tangram we are aware of (please submit new properties for inclusion in future versions of this guide).
 
-* The [Egyptian Tangram Print & Play flyer](/The%20Egyptian%20Tangram%20-%20Printable%20Edition) (permission granted for personal or educational use only).
+* The [**Egyptian Tangram Print & Play flyer**](/The%20Egyptian%20Tangram%20-%20Printable%20Edition) (permission granted for personal or educational use only).
 
 * The [**STL files**](/The%20Egyptian%20Tangram%20-%20STL) you need to print a copy of the Egyptian Tangram in a 3D printer (permission granted for personal or educational use only).
 
