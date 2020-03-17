@@ -2385,6 +2385,10 @@ def figure019e():
     drawing = []
     drawing.append((path.path(path.moveto(*B), path.arc(X/2.0,X, X/2.0, 180, 360)), BASE+COLOR(BLUE)))
     drawing.append((path.path(path.moveto(*D),
+                              path.lineto(*J),
+                              path.lineto(*A),
+                              path.closepath()), BASE+ULTRATHIN+[deco.filled([YELLOW, color.transparency(0.75)])]+[YELLOW, color.transparency(0.75)]))
+    drawing.append((path.path(path.moveto(*D),
                               path.lineto(*J)), BASE+THIN+DASHED))
     drawing.append((path.path(path.moveto(*B),
                               path.lineto(*E),
@@ -5222,6 +5226,62 @@ def figure029r():
     mycanvas.writePDFfile(name)
 
 
+def figure030a():
+    '''Golden Rectangle'''
+
+    name = "figures/figure030a"
+
+    X = 2*R5
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    J = w_point(E,C, 5-R5, R5)
+    K = ((X*(1.0+R5))/2., 0)
+    L = ((X*(1.0+R5))/2., X)
+    drawing = []
+
+
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*L),
+                              path.lineto(*K),
+                              path.closepath()), BASE+THICK+DASHED))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*I),
+                              path.lineto(*C),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*F),
+                              path.lineto(*I),
+                              path.lineto(*E),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*I),
+                              path.lineto(*F),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*J),
+                              path.lineto(*K),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*C),
+                              path.lineto(*I),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE+THICK))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
 
 ################################################################################
 
@@ -5363,3 +5423,4 @@ if __name__ == "__main__":
     figure026n()
     figure026o()
     figure028a()
+    figure030a()
