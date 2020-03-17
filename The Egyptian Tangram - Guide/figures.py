@@ -1617,10 +1617,10 @@ def figure004g():
     name = "figures/figure004g"
 
     X = 1 # Scale #
-    A = (  0,  0)
-    B = (  0,4*X)
-    C = (1*X,4*X)
-    D = (4*X,  0)
+    A = (   0,  0)
+    B = (   0,4*X)
+    C = (-1*X,4*X)
+    D = (-4*X,  0)
 
     drawing = []
     drawing.append((path.path(path.moveto(*A),
@@ -1709,10 +1709,10 @@ def figure004k():
     name = "figures/figure004k"
 
     X = 1.0 # Scale #
-    A = (  0,  0)
-    B = (2*X,  0)
-    C = (2*X,4*X)
-    D = (  0,5*X)
+    A = (   0,  0)
+    B = (-2*X,  0)
+    C = (-2*X,4*X)
+    D = (   0,5*X)
 
     E = w_point(C,D, 1,4)
     F = s_point((0,4*X),E, 1)
@@ -4322,6 +4322,349 @@ def figure026c():
     mycanvas.writePDFfile(name)
 
 
+def figure026d():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026d"
+
+    X = 1.0 # Scale #
+    A = (     0,          0)
+    B = (1*X*R5,     2*X*R5)
+    C = (2*X*R5,          0)
+    D = (1*X*R5-5*X, 2*X*R5)
+    E = (1*X*R5+5*X, 2*X*R5)
+    F = w_point(A,B, X*R5, 5-X*R5)
+    G = w_point(C,B, X*R5, 5-X*R5)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*F),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*G),
+                              path.lineto(*C),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026e():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026e"
+
+    X = 1.0 # Scale #
+    A = (     0,      0)
+    B = (     0, 1*X*R5)
+    C = (1*X*R5, 3*X*R5)
+    D = (2*X*R5, 1*X*R5)
+    E = (2*X*R5,      0)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026f():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026f"
+
+    X = 1.0 # Scale #
+    A = (      0,      0)
+    C = (-1*X*R5, 2*X*R5)
+    D = ( 1*X*R5, 2*X*R5)
+
+    I = w_point(A,C, 1,4)
+    J = w_point(A,D, 1,4)
+    K = w_point(C,D, 1,1)
+    B = s_point(K,I, 1)
+    E = s_point(K,J, 1)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026g():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026g"
+
+    X = 1.0 # Scale #
+    A = (  0,  0)
+    B = (2*X,4*X)
+    C = (2*X,6*X)
+    D = (4*X,6*X)
+    E = (4*X,4*X)
+    F = (6*X,  0)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026h():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026h"
+
+    X = 1.0 # Scale #
+
+
+    A  = (         0,       0)
+    B  = (1*X*R5,       2*X*R5)
+    A1 = (2*X*R5-4*X,       0)
+    A2 = (2*X*R5-4*X,     2*X)
+    A3 = w_point(A,B, 3,2)
+    C  = (2*X*R5-3*X,   2*X*R5)
+    D  = (2*X*R5-3*X,   2*X*R5+1*X)
+    E  = (2*X*R5-1*X,   2*X*R5+2*X)
+    F  = (2*X*R5-1.25*X,   2*X*R5+2.5*X)
+    G  = (2*X*R5-0.25*X,   2*X*R5+2.5*X)
+    H  = (2*X*R5-0.25*X,   2*X*R5+0.5*X)
+    I  = (2*X*R5,       2*X*R5)
+    J  = (2*X*R5,       0)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A1),
+                              path.lineto(*A2),
+                              path.lineto(*A3),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.lineto(*I),
+                              path.lineto(*J),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026i():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026i"
+
+    X = 1.0 # Scale #
+    A = (     0,     0)
+    B = (     0,2*X*R5)
+    C = (-2*X*R5,1*X*R5)
+    D = (-2*X*R5,2*X*R5)
+    E = (-4*X*R5,1*X*R5)
+    F = (-2*X*R5,     0)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*C),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026j():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026j"
+
+    X = 1.0 # Scale #
+    A = (     0,     0)
+    B = (     0,2*X*R5)
+    C = (2*X*R5,1*X*R5)
+
+    D = (    0-X*R3,      0)
+    E = (    0-X*R3, 2*X*R5)
+    F = (-X*R5-X*R3, 2*X*R5)
+    G = (-X*R5-X*R3,      0)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    drawing.append((path.path(path.moveto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026k():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026k"
+
+    X = 1.0 # Scale #
+    A = (     0,     0)
+    B = (     0,2*X*R5)
+    C = (2*X*R5,1*X*R5)
+    D = (2*X*R5,2*X*R5)
+    E = (4*X*R5,1*X*R5)
+    F = (2*X*R5,     0)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*C),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026l():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026l"
+
+    X = 1.0 # Scale #
+    A = (      0,     0)
+    B = (      0,2*X*R5)
+    C = (-4*X*R5,     0)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026m():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026m"
+
+    X = 1.0 # Scale #
+    A = (      0,      0)
+    B = (      0, 2*X*R5)
+    C = ( 2*X*R5, 2*X*R5)
+    D = ( 2*X*R5,      0)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026n():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026n"
+
+    X = 1.0 # Scale #
+    A = (     0,     0)
+    B = (     0,2*X*R5)
+    C = (2*X*R5,1*X*R5)
+    D = (2*X*R5,2*X*R5)
+    E = (3*X*R5,2*X*R5)
+    F = (3*X*R5,     0)
+    G = (2*X*R5,     0)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*C),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026o():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026o"
+
+    X = 1.0 # Scale #
+    A = (     0,     0)
+    B = (     0,2*X*R5)
+    C = (-2*X*R5,1*X*R5)
+    D = (-2*X*R5,2*X*R5)
+    E = (-3*X*R5,2*X*R5)
+    F = (-3*X*R5,     0)
+    G = (-2*X*R5,     0)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*C),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure028a():
     '''El Puzzle Egipci'''
 
@@ -5007,4 +5350,16 @@ if __name__ == "__main__":
     figure026a()
     figure026b()
     figure026c()
+    figure026d()
+    figure026e()
+    figure026f()
+    figure026g()
+    figure026h()
+    figure026i()
+    figure026j()
+    figure026k()
+    figure026l()
+    figure026m()
+    figure026n()
+    figure026o()
     figure028a()
