@@ -63,7 +63,8 @@ def COLOR(color):
 
 # AUXILIARY FUNCTIONS
 def w_point((x1,x2), (y1,y2), Wx, Wy): return ((Wx*x1+Wy*y1)/(Wx+Wy), (Wx*x2+Wy*y2)/(Wx+Wy))
-def s_point((x1,x2), (y1,y2), W): return ((W*(y1-x1))+y1 , (W*(y2-x2))+y2)
+def s_point((x1,x2), (y1,y2), W): return ((W*(y1-x1))+y1, (W*(y2-x2))+y2)
+def r_point((p1,p2), (c1,c2), A): return (c1+(p1-c1)*cos(A)-(p2-c2)*sin(A), c2+(p1-c1)*sin(A)+(p2-c2)*cos(A))
 
 ################################################################################
 
@@ -2406,6 +2407,44 @@ def figure019e():
     mycanvas.writePDFfile(name)
 
 
+def figure019f():
+    '''The Egyptian Tangram'''
+
+    name = "figures/figure019f"
+
+    X   = 2*R5
+    PHI = X*(1.0+R5)/2.0
+    
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    O = w_point(C,(0,2*X-PHI), 1,1)
+    R = 2*(X-O[1])/(1.0+R5)
+    drawing = []
+
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE))
+    drawing.append((path.circle(O[0], O[1], X-O[1]), BASE+COLOR(GREEN)))
+    drawing.append((path.circle(X-R, R, R), BASE+COLOR(GREEN)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure020a():
     '''T1+Q4'''
 
@@ -4669,6 +4708,81 @@ def figure026o():
     mycanvas.writePDFfile(name)
 
 
+def figure026p():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026p"
+
+    X = 1.0 # Scale #
+    A = (     0,  0)
+    B = (     0,5*X)
+    D = (1*X*R5,2*X*R5)
+    F = (2*X*R5,5*X)
+    G = (2*X*R5,  0)
+    C = w_point(A,D, 5-2*X*R5, 2*X*R5)
+    E = w_point(G,D, 5-2*X*R5, 2*X*R5)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026q():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026q"
+
+    X = 1.0 # Scale #
+    a1 = -pi+2*atan2(2,1)+atan2(3,4)
+    A = (0,1*X)
+    B = (0,5*X)
+    C = r_point((0,7*X), B ,a1)
+    D = r_point((4*X,7*X), B ,a1)
+    E = w_point(D,B, 1,1)
+    F = (3*X,2*X)
+    H = (2*X+R5*X,0)
+    I = (2*X,0)
+    G = w_point(F,I, X, R5-X)
+
+    A = r_point(A, (0.0,0.0) , a1/3.0)
+    B = r_point(B, (0.0,0.0) , a1/3.0)
+    C = r_point(C, (0.0,0.0) , a1/3.0)
+    D = r_point(D, (0.0,0.0) , a1/3.0)
+    E = r_point(E, (0.0,0.0) , a1/3.0)
+    F = r_point(F, (0.0,0.0) , a1/3.0)
+    G = r_point(G, (0.0,0.0) , a1/3.0)
+    H = r_point(H, (0.0,0.0) , a1/3.0)
+    I = r_point(I, (0.0,0.0) , a1/3.0)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.lineto(*I),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure028a():
     '''El Puzzle Egipci'''
 
@@ -4978,9 +5092,6 @@ def figure029i():
     drawing.append((path.path(path.moveto(*D),
                               path.arc(E[0],E[1], X*5/R2, -18.43, 198.43)), BASE+DASHED+THICK+COLOR(BLACK)))
 
-
-    print BETA
-
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -5283,6 +5394,327 @@ def figure030a():
     mycanvas.writePDFfile(name)
 
 
+def figure030b():
+    '''Golden Rectangle'''
+
+    name = "figures/figure030b"
+
+    X = 2*R5
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    J = w_point(E,C, 5-R5, R5)
+    K = ((X*(1.0+R5))/2., 0)
+    L = ((X*(1.0+R5))/2., X)
+    drawing = []
+
+
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*L),
+                              path.lineto(*K),
+                              path.closepath()), BASE+THICK+DASHED))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*I),
+                              path.lineto(*C),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*F),
+                              path.lineto(*I),
+                              path.lineto(*E),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*I),
+                              path.lineto(*F),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*C),
+                              path.lineto(*I),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE+THICK))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure030c():
+    '''Golden Rectangle'''
+
+    name = "figures/figure030c"
+
+    X = 2*R5
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    J = w_point(E,C, 5-R5, R5)
+    K = ((X*(1.0+R5))/2., 0)
+    L = ((X*(1.0+R5))/2., X)
+    M = (K[0]+C[0]-J[0], K[1]+C[1]-J[1])
+    N = w_point(J,K, 1, R5-1)
+    O = (J[0]+L[0]-N[0], J[1]+L[1]-N[1])
+    Q = (    0, X/2.0-X/(2*R5))
+    R = (-X/R5, X/2.0-X/(2*R5))
+    S = (-X/R5, 0)
+    T = (R[0]+B[0]-I[0], R[1]+B[1]-I[1])
+    drawing = []
+
+
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*I),
+                              path.lineto(*R),
+                              path.lineto(*T),
+                              path.closepath()), BASE+THICK+DASHED))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*Q),
+                              path.lineto(*R),
+                              path.lineto(*S),
+                              path.closepath()), BASE+THICK+DASHED))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*I),
+                              path.lineto(*C),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*F),
+                              path.lineto(*I),
+                              path.lineto(*E),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(*Q),
+                              path.lineto(*R),
+                              path.lineto(*F),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*C),
+                              path.lineto(*E),
+                              path.lineto(*D),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*C),
+                              path.lineto(*I),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE+THICK))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure030d():
+    '''Golden Rectangle'''
+
+    name = "figures/figure030d"
+
+    X = 2*R5
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    J = w_point(E, C, 5-R5, R5)
+    K = ((X*(1.0+R5))/2., 0)
+    L = ((X*(1.0+R5))/2., X)
+    M = (K[0]+C[0]-J[0], K[1]+C[1]-J[1])
+    N = w_point(J,K, 1, R5-1)
+    O = (J[0]+L[0]-N[0], J[1]+L[1]-N[1])
+    Q = (    0, X/2.0-X/(2*R5))
+    R = (-X/R5, X/2.0-X/(2*R5))
+    S = (-X/R5, 0)
+    T = (R[0]+B[0]-I[0], R[1]+B[1]-I[1])
+    drawing = []
+
+
+    drawing.append((path.path(path.moveto(*O),
+                              path.lineto(*L),
+                              path.lineto(*N),
+                              path.lineto(*J),
+                              path.closepath()), BASE+THICK+DASHED))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*I),
+                              path.lineto(*C),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*F),
+                              path.lineto(*I),
+                              path.lineto(*E),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*I),
+                              path.lineto(*F),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*J),
+                              path.lineto(*K),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*K),
+                              path.lineto(*L),
+                              path.lineto(*N),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*I),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE+THICK))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure030e():
+    '''Golden Rectangle'''
+
+    name = "figures/figure030e"
+
+    X = 2*R5
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    J = w_point(E,C, 5-R5, R5)
+    K = ((X*(1.0+R5))/2., 0)
+    L = ((X*(1.0+R5))/2., X)
+    M = (K[0]+C[0]-J[0], K[1]+C[1]-J[1])
+    N = w_point(J,K, 1, R5-1)
+    O = (J[0]+L[0]-N[0], J[1]+L[1]-N[1])
+    Q = (    0, X/2.0-X/(2*R5))
+    R = (-X/R5, X/2.0-X/(2*R5))
+    S = (-X/R5, 0)
+    T = (R[0]+B[0]-I[0], R[1]+B[1]-I[1])
+    drawing = []
+
+
+    drawing.append((path.path(path.moveto(*C),
+                              path.lineto(*M),
+                              path.lineto(*K),
+                              path.lineto(*J),
+                              path.closepath()), BASE+THICK+DASHED))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*I),
+                              path.lineto(*C),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*F),
+                              path.lineto(*I),
+                              path.lineto(*E),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*I),
+                              path.lineto(*F),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*J),
+                              path.lineto(*K),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*C),
+                              path.lineto(*I),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE+THICK))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure030f():
+    '''Golden Rectangle'''
+
+    name = "figures/figure030f"
+
+    X = 2*R5
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    J = w_point(E, C, 5-R5, R5)
+    K = ((X*(1.0+R5))/2., 0)
+    L = ((X*(1.0+R5))/2., X)
+    M = (K[0]+C[0]-J[0], K[1]+C[1]-J[1])
+    N = w_point(J,K, 1, R5-1)
+    O = (J[0]+L[0]-N[0], J[1]+L[1]-N[1])
+    Q = (    0, X/2.0-X/(2*R5))
+    R = (-X/R5, X/2.0-X/(2*R5))
+    S = (-X/R5, 0)
+    T = (R[0]+B[0]-I[0], R[1]+B[1]-I[1])
+    U = w_point(D,C, 1, R5-1)
+    V = (U[0]+2*X/R5, U[1])
+    W = (V[0],           0)
+    drawing = []
+
+
+    drawing.append((path.path(path.moveto(*D),
+                              path.lineto(*U),
+                              path.lineto(*V),
+                              path.lineto(*W),
+                              path.closepath()), BASE+THICK+DASHED))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*I),
+                              path.lineto(*C),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*F),
+                              path.lineto(*I),
+                              path.lineto(*E),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*I),
+                              path.lineto(*F),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*C),
+                              path.lineto(*E),
+                              path.lineto(*D),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*C),
+                              path.lineto(*U),
+                              path.lineto(*V),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*I),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE+THICK))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 ################################################################################
 
 if __name__ == "__main__":
@@ -5336,12 +5768,12 @@ if __name__ == "__main__":
     figure006h()
     figure007a()
     figure007b()
-
     figure019()
     figure019b()
     figure019c()
     figure019d()
     figure019e()
+    figure019f()
     figure020a()
     figure020b()
     figure020c()
@@ -5422,5 +5854,12 @@ if __name__ == "__main__":
     figure026m()
     figure026n()
     figure026o()
+    figure026p()
+    figure026q()
     figure028a()
     figure030a()
+    figure030b()
+    figure030c()
+    figure030d()
+    figure030e()
+    figure030f()
