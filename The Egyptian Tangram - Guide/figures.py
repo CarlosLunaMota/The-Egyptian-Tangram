@@ -1971,9 +1971,10 @@ def figure006e():
     name = "figures/figure006e"
 
     X   = 1.0 # Scale #
-    A   = (  0,   0)
-    B   = (  0, 4*X)
-    C   = (8*X,   0)
+    PHI = (1.0+R5)/2.0
+    A   = (             0,             0)
+    B   = (             0, 1*(PHI+1.0)*X)
+    C   = ( 2*(PHI+1.0)*X,             0)
     D   = w_point(B,C, 1,1)
     E   = w_point(A,C, 5,3)
 
@@ -2428,6 +2429,9 @@ def figure019f():
     R = 2*(X-O[1])/(1.0+R5)
     drawing = []
 
+    drawing.append((path.circle(X/2.0, X/2.0, X/2.0), BASE+COLOR(PINK)))
+    drawing.append((path.circle(O[0], O[1], X-O[1]), BASE+COLOR(PINK)))
+    drawing.append((path.circle(X-R, R, R), BASE+COLOR(PINK)))
     drawing.append((path.path(path.moveto(*B),
                               path.lineto(*E),
                               path.lineto(*C),
@@ -2437,12 +2441,106 @@ def figure019f():
                               path.lineto(*C),
                               path.lineto(*D),
                               path.closepath()), BASE))
-    drawing.append((path.circle(O[0], O[1], X-O[1]), BASE+COLOR(GREEN)))
-    drawing.append((path.circle(X-R, R, R), BASE+COLOR(GREEN)))
     
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
+
+
+def figure019g():
+    '''El Tangram Egípci - 2 circumcircles and 1 incircle'''
+
+    name = "figures/figure019g"
+
+    X = 2.0*R5
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    J = w_point(F, B, 1,1)
+
+    C1 = w_point(C, E, 1,1)
+    C2 = w_point(F, E, 1,1)
+    C3 = G
+    C4 = D
+
+    drawing = []
+
+    drawing.append((path.path(path.moveto(*B), path.arc(X/2.0,X, X/2.0, 180, 360)), BASE+COLOR(BLUE)))
+
+    drawing.append((path.circle(C2[0], C2[1], X/(2*R2)), BASE+COLOR(ORANGE)))
+
+    drawing.append((path.circle(X/2.0, X/2.0, X/(2.0*R5)), BASE+COLOR(YELLOW)))
+
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE))
+
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure019h():
+    '''The Egyptian Tangram'''
+
+    name = "figures/figure019h"
+
+    X   = 2*R5
+    PHI = (1.0+R5)/2.0
+    
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    O = (I[0] + (I[0]-X/2.0)/(PHI*PHI), I[1] + (I[1]-X/2.0)/(PHI*PHI)) 
+    drawing = []
+
+    drawing.append((path.circle(X/2.0, X/2.0, X/(2*R5)), BASE+COLOR(PINK)))
+    drawing.append((path.circle(O[0], O[1], X/(2*R5*PHI*PHI)), BASE+COLOR(PINK)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+    """
+    >>> for x in X: print x, "->", x*phi, "->", x*phi*phi
+    ... 
+    0.38 -> 0.614852915725 -> 0.994852915725
+    0.76 -> 1.22970583145  -> 1.98970583145
+    0.85 -> 1.37532889044  -> 2.22532889044
+    1.00 -> 1.61803398875  -> 2.61803398875
+    1.38 -> 2.23288690447  -> 3.61288690447
+    2.24 -> 3.6243961348   -> 5.8643961348
+
+    """
 
 
 def figure020a():
@@ -5774,6 +5872,8 @@ if __name__ == "__main__":
     figure019d()
     figure019e()
     figure019f()
+    figure019g()
+    figure019h()
     figure020a()
     figure020b()
     figure020c()
