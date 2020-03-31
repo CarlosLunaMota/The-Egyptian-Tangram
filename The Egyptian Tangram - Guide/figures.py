@@ -3870,6 +3870,31 @@ def figure022x():
     mycanvas.writePDFfile(name)
 
 
+def figure022y():
+    '''El Tangram Egípci - Figura 22'''
+
+    name = "figures/figure022y"
+
+    X = 1 # Scale #
+    A = (  0,  0)
+    B = (  0,4*X)
+    C = (4*X,2*X)
+    D = (6*X,2*X)
+    E = (10*X,0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure023a():
     '''El Subtangram Egípci - Figura 1'''
 
@@ -7396,6 +7421,7 @@ if __name__ == "__main__":
     figure022v()
     figure022w()
     figure022x()
+    figure022y()
     figure023a()
     figure023b()
     figure023c()
