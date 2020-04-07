@@ -5571,6 +5571,72 @@ def figure026ab():
     mycanvas.writePDFfile(name)
 
 
+def figure026ac():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026ac"
+
+    X = 1.0 # Scale #
+    A = (0, 0)
+    B = (2*R5*X,   0)
+    C = r_point((2*R5*X, 5*X), B, pi/2.0 - atan2(4,3)  - atan2(1,2))
+    D = (0, R5*X)
+    E = ((1-R5)*X, R5*X)
+    F = (-R5*X, (R5+2)*X)
+    G = (-R5*X, R5*X)
+    H = r_point((-3*X,0), A, -pi/2 + atan2(1,3) + atan2(1,1))
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure026ad():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure026ad"
+
+    X = 1.0 # Scale #
+    A = (     0,      0)
+    B = (     0, 1*X*R5)
+    C = (1*X*R5, 3*X*R5)
+    D = (2*X*R5, 1*X*R5)
+    E = (2*X*R5,      0)
+
+    Y = (5-2*R5)*X/2.0
+
+    F = (-Y,     X*R5)
+    G = (-Y+5*X, X*R5)
+    H = r_point((-Y+5*X, 5*X + R5*X), G, pi/2.0 - atan2(4,3))
+    H = r_point((-Y, 5*X + R5*X), F, -pi/2.0 + atan2(4,3))
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure028a():
     '''Quadrilaters del Tangram Egípci - Figura 1'''
 
@@ -7555,6 +7621,8 @@ if __name__ == "__main__":
     figure026z()
     figure026aa()
     figure026ab()
+    figure026ac()
+    figure026ad()
     figure028a()
     figure028b()
     figure028c()
