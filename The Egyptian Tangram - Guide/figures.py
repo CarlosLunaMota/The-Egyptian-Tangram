@@ -2615,6 +2615,57 @@ def figure019h():
     """
 
 
+def figure019i():
+    '''The Egyptian Tangram'''
+
+    name = "figures/figure019i"
+
+    X   = 2*R5
+    PHI = (1.0+R5)/2.0
+    
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    O = (X/2.0, X/2.0 - 1.0 - X/(2*R5*PHI*PHI)) 
+
+    drawing = []
+    
+    drawing.append((path.circle(O[0], O[1], X/(2*R5*PHI*PHI)), BASE+COLOR(RED)))
+    drawing.append((path.circle(X/2.0, X/2.0, X/(2*R5)), BASE+COLOR(YELLOW)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+    """
+    >>> for x in X: print x, "->", x*phi, "->", x*phi*phi
+    ... 
+    0.38 -> 0.614852915725 -> 0.994852915725
+    0.76 -> 1.22970583145  -> 1.98970583145
+    0.85 -> 1.37532889044  -> 2.22532889044
+    1.00 -> 1.61803398875  -> 2.61803398875
+    1.38 -> 2.23288690447  -> 3.61288690447
+    2.24 -> 3.6243961348   -> 5.8643961348
+
+    """
+
+
 def figure020a():
     '''T1+Q4'''
 
@@ -7408,6 +7459,7 @@ if __name__ == "__main__":
     figure019f()
     figure019g()
     figure019h()
+    figure019i()
     figure020a()
     figure020b()
     figure020c()
