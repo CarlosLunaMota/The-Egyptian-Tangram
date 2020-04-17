@@ -1,0 +1,86 @@
+solid Egyptian Tangram - Q4
+    facet normal 0.000000e+00 0.000000e+00 -1.000000e+00
+        outer loop
+            vertex 1.437500e+02 0.000000e+00 0.000000e+00
+            vertex 6.875000e+01 0.000000e+00 0.000000e+00
+            vertex 6.875000e+01 2.500000e+01 0.000000e+00
+        endloop
+    endfacet
+    facet normal 0.000000e+00 0.000000e+00 -1.000000e+00
+        outer loop
+            vertex 1.437500e+02 0.000000e+00 0.000000e+00
+            vertex 6.875000e+01 2.500000e+01 0.000000e+00
+            vertex 1.187500e+02 5.000000e+01 0.000000e+00
+        endloop
+    endfacet
+    facet normal 0.000000e+00 -1.000000e+00 0.000000e+00
+        outer loop
+            vertex 1.437500e+02 0.000000e+00 0.000000e+00
+            vertex 1.437500e+02 0.000000e+00 5.000000e+00
+            vertex 6.875000e+01 0.000000e+00 0.000000e+00
+        endloop
+    endfacet
+    facet normal -0.000000e+00 -1.000000e+00 0.000000e+00
+        outer loop
+            vertex 1.437500e+02 0.000000e+00 5.000000e+00
+            vertex 6.875000e+01 0.000000e+00 5.000000e+00
+            vertex 6.875000e+01 0.000000e+00 0.000000e+00
+        endloop
+    endfacet
+    facet normal 8.944272e-01 4.472136e-01 -0.000000e+00
+        outer loop
+            vertex 1.187500e+02 5.000000e+01 0.000000e+00
+            vertex 1.187500e+02 5.000000e+01 5.000000e+00
+            vertex 1.437500e+02 0.000000e+00 0.000000e+00
+        endloop
+    endfacet
+    facet normal 8.944272e-01 4.472136e-01 0.000000e+00
+        outer loop
+            vertex 1.187500e+02 5.000000e+01 5.000000e+00
+            vertex 1.437500e+02 0.000000e+00 5.000000e+00
+            vertex 1.437500e+02 0.000000e+00 0.000000e+00
+        endloop
+    endfacet
+    facet normal -4.472136e-01 8.944272e-01 0.000000e+00
+        outer loop
+            vertex 6.875000e+01 2.500000e+01 0.000000e+00
+            vertex 6.875000e+01 2.500000e+01 5.000000e+00
+            vertex 1.187500e+02 5.000000e+01 0.000000e+00
+        endloop
+    endfacet
+    facet normal -4.472136e-01 8.944272e-01 0.000000e+00
+        outer loop
+            vertex 6.875000e+01 2.500000e+01 5.000000e+00
+            vertex 1.187500e+02 5.000000e+01 5.000000e+00
+            vertex 1.187500e+02 5.000000e+01 0.000000e+00
+        endloop
+    endfacet
+    facet normal -1.000000e+00 0.000000e+00 0.000000e+00
+        outer loop
+            vertex 6.875000e+01 0.000000e+00 0.000000e+00
+            vertex 6.875000e+01 0.000000e+00 5.000000e+00
+            vertex 6.875000e+01 2.500000e+01 0.000000e+00
+        endloop
+    endfacet
+    facet normal -1.000000e+00 0.000000e+00 0.000000e+00
+        outer loop
+            vertex 6.875000e+01 0.000000e+00 5.000000e+00
+            vertex 6.875000e+01 2.500000e+01 5.000000e+00
+            vertex 6.875000e+01 2.500000e+01 0.000000e+00
+        endloop
+    endfacet
+    facet normal 0.000000e+00 0.000000e+00 1.000000e+00
+        outer loop
+            vertex 6.875000e+01 2.500000e+01 5.000000e+00
+            vertex 6.875000e+01 0.000000e+00 5.000000e+00
+            vertex 1.437500e+02 0.000000e+00 5.000000e+00
+        endloop
+    endfacet
+    facet normal 0.000000e+00 0.000000e+00 1.000000e+00
+        outer loop
+            vertex 1.187500e+02 5.000000e+01 5.000000e+00
+            vertex 6.875000e+01 2.500000e+01 5.000000e+00
+            vertex 1.437500e+02 0.000000e+00 5.000000e+00
+        endloop
+    endfacet
+endsolid Egyptian Tangram - Q4
