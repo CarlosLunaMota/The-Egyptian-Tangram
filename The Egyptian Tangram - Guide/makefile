@@ -27,7 +27,8 @@ $(INPUTFILE).pdf: *.tex
 	python figures.py
 	pdflatex -shell-escape $(INPUTFILE).tex
 	pdflatex -shell-escape $(INPUTFILE).tex
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4  -dPrinted=false -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$(OUTPUTFILE).pdf $(INPUTFILE).pdf
+	pdftk $(INPUTFILE).pdf cat output $(INPUTFILE)_.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPrinted=false -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$(OUTPUTFILE).pdf $(INPUTFILE)_.pdf
 	rm -rf *.blg
 	rm -rf *.out
 	rm -rf *.bbl
@@ -43,3 +44,4 @@ $(INPUTFILE).pdf: *.tex
 	rm -rf *.nav
 	rm -rf *.snm
 	rm -f ${INPUTFILE}.pdf
+	rm -f ${INPUTFILE}_.pdf
