@@ -12,6 +12,7 @@
 # LIBRARIES
 from pyx import *
 from math import *
+from itertools import product
 
 # CONSTANTS
 BETA = 180*atan2(1,2)/pi
@@ -23,7 +24,9 @@ R10 = sqrt(10.0)
 # COLOR PALETTE
 WHITE    = color.grey.white
 BLACK    = color.grey(0.10)
+D_GREY   = color.grey(0.30)
 GREY     = color.grey(0.50)
+L_GREY   = color.grey(0.70)
 CHALK    = color.grey(0.90)
 
 RED      = color.cmyk.Mahogany
@@ -66,7 +69,14 @@ def COLOR(color):
 def w_point((x1,x2), (y1,y2), Wx, Wy): return ((Wx*x1+Wy*y1)/(Wx+Wy), (Wx*x2+Wy*y2)/(Wx+Wy))
 def s_point((x1,x2), (y1,y2), W): return ((W*(y1-x1))+y1, (W*(y2-x2))+y2)
 def r_point((p1,p2), (c1,c2), A): return (c1+(p1-c1)*cos(A)-(p2-c2)*sin(A), c2+(p1-c1)*sin(A)+(p2-c2)*cos(A))
-
+def flip(P, A, B):
+    M = ((A[0]+B[0])/2.0, (A[1]+B[1])/2.0)  # Midpoint of the A--B segment
+    V = (A[1]-B[1], B[0]-A[0])              # Perpendicular to the A--B line
+    W = (P[0]-M[0], P[1]-M[1])              # Vector M->P
+    k = (V[0]*W[0] + V[1]*W[1]) / (V[0]*V[0] + V[1]*V[1])
+    PPP = (M[0] + k*V[0], M[1] + k*V[1])  # Perpendicular Projection of P
+    return (P[0] + 2*(PPP[0]-P[0]), P[1] + 2*(PPP[1]-P[1]))
+    
 ################################################################################
 
 # FIGURES
@@ -5069,6 +5079,7 @@ def figure009b():
 
     drawing = []
     drawing.append((path.circle(C2[0], C2[1], X/(2*R2)), BASE+COLOR(ORANGE)))
+    drawing.append((path.circle(C1[0], C1[1], X*R5/4.0), BASE+COLOR(color.cmyk.SpringGreen)))
     drawing.append((path.path(path.moveto(*B),
                               path.lineto(*E),
                               path.lineto(*C),
@@ -7088,7 +7099,7 @@ def figure013p():
     B = ( 2*R5*X, -1*R5*X)
     C = (-2*R5*X, -1*R5*X)
     D = w_point((0,0), C, 2,3)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -7113,7 +7124,7 @@ def figure013q():
     D = (2*R5*X-X,    2*X)
     E = (1*R5*X,   2*R5*X)
     F = (0*R5*X,   2*R5*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -7139,7 +7150,7 @@ def figure013r():
     C = (-1*R5*X,  0*R5*X)
     D = (    1*X,  0*R5*X)
     E = w_point((0,0), A, 5-R5,R5)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -9941,7 +9952,7 @@ def figure016bn():
     D = (3*X, 0*X)
     E = (2*X, 2*X)
     F = (1*X, 2*X)
-        
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -9949,6 +9960,86 @@ def figure016bn():
                               path.lineto(*D),
                               path.lineto(*E),
                               path.lineto(*F),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure016bo():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure016bo"
+
+    X = 1.0 # Scale #
+
+    A = (0*X, 0*X)
+    B = (4*X, 0*X)
+    C = (4*X, 2*X)
+    D = (9*X, 2*X)
+    E = r_point((9*X, 8*X), D, atan2(4,3))
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure016bp():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure016bp"
+
+    X = 1.0 # Scale #
+
+    Y = 0.75*X
+
+    A = ( 0*X, 0*X)
+    B = ( 4*X, 0*X)
+    C = ( 4*X, 0*X+Y)
+    D = ( 6*X, 0*X+Y)
+    E = ( 6*X, 0*X+Y+Y)
+    F = (10*X, 0*X+Y+Y)
+    G = ( 6*X, 2*X+Y+Y)
+    H = ( 6*X, 2*X+Y)
+    I = ( 4*X, 3*X+Y)
+    J = ( 4*X, 3*X)
+    K = ( 2*X, 4*X)
+
+    a = atan2(1,2)/2.0 - pi/2.0
+
+    A = r_point(A, A, a)
+    B = r_point(B, A, a)
+    C = r_point(C, A, a)
+    D = r_point(D, A, a)
+    E = r_point(E, A, a)
+    F = r_point(F, A, a)
+    G = r_point(G, A, a)
+    H = r_point(H, A, a)
+    I = r_point(I, A, a)
+    J = r_point(J, A, a)
+    K = r_point(K, A, a)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.lineto(*I),
+                              path.lineto(*J),
+                              path.lineto(*K),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
 
     mycanvas = canvas.canvas()
@@ -11782,6 +11873,75 @@ def figure020f():
     mycanvas.writePDFfile(name)
 
 
+def figure021():
+    '''All 32 classes of figures'''
+
+    name = "figures/figure021"
+    
+    c_T1 = [color.grey(0.80), color.grey(0.50)]
+    c_T4 = [color.grey(0.80), color.grey(0.50)]
+    c_T5 = [color.grey(0.80), color.grey(0.50)]
+    c_T6 = [color.grey(0.80), color.grey(0.50)]
+    c_Q4 = [color.grey(0.80), color.grey(0.50)]
+    
+    X = 1.0
+
+    for (T1,T4,T5,T6,Q4) in product((0,1), repeat=5):
+
+        A = (3*X, 0*X)
+        B = (0*X, 4*X)
+        C = (4*X, 2*X)
+        D = (0*X, 0*X)
+        E = (2*X, 4*X)
+        F = (2*X, 3*X)
+        G = (6*X, 3*X)
+        H = (6*X, 1*X)
+        I = (6*X, 0*X)
+
+        if T1+T5 == 1: E = flip(E, B,F)
+        if T4+T5 == 1: G = flip(G, F,H)
+        if T6+T5 == 1: D = flip(D, A,B)
+        if Q4+T5 == 1: I = flip(I, A,H)
+        if T5:
+            A = (-A[0], A[1])
+            B = (-B[0], B[1])
+            C = (-C[0], C[1])
+            D = (-D[0], D[1])
+            E = (-E[0], E[1])
+            F = (-F[0], F[1])
+            G = (-G[0], G[1])
+            H = (-H[0], H[1])
+            I = (-I[0], I[1])
+            
+        drawing = []
+        drawing.append((path.path(path.moveto(*A),
+                                  path.lineto(*B),
+                                  path.lineto(*D),
+                                  path.closepath()), BASE+ULTRATHIN+COLOR(BLACK)+FILLED(c_T6[T6])))
+        drawing.append((path.path(path.moveto(*A),
+                                  path.lineto(*B),
+                                  path.lineto(*C),
+                                  path.closepath()), BASE+ULTRATHIN+COLOR(BLACK)+FILLED(c_T5[T5])))
+        drawing.append((path.path(path.moveto(*F),
+                                  path.lineto(*G),
+                                  path.lineto(*H),
+                                  path.closepath()), BASE+ULTRATHIN+COLOR(BLACK)+FILLED(c_T4[T4])))   
+        drawing.append((path.path(path.moveto(*B),
+                                  path.lineto(*E),
+                                  path.lineto(*F),
+                                  path.closepath()), BASE+ULTRATHIN+COLOR(BLACK)+FILLED(c_T1[T1])))
+        drawing.append((path.path(path.moveto(*A),
+                                  path.lineto(*C),
+                                  path.lineto(*H),
+                                  path.lineto(*I),
+                                  path.closepath()), BASE+ULTRATHIN+COLOR(BLACK)+FILLED(c_Q4[Q4])))
+
+        mycanvas = canvas.canvas()
+        for (p, s) in drawing: mycanvas.stroke(p, s)
+        code = "".join("nr"[i] for i in (T1,T4,T5,T6,Q4))
+        mycanvas.writePDFfile(name+code)
+
+
 ################################################################################
 
 if __name__ == "__main__":
@@ -12018,6 +12178,8 @@ if __name__ == "__main__":
     figure016bl()
     figure016bm()
     figure016bn()
+    figure016bo()
+    figure016bp()
     figure018a()
     figure018b()
     figure018c()
@@ -12084,3 +12246,4 @@ if __name__ == "__main__":
     figure020d()
     figure020e()
     figure020f()
+    figure021()
