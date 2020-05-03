@@ -1943,6 +1943,29 @@ def figure004k():
     mycanvas.writePDFfile(name)
 
 
+def figure004l():
+    '''T1+T4+T5 - Figura l'''
+
+    name = "figures/figure004l"
+
+    X = 1.0 # Scale #
+    A = (0*X*R5, 0*X*R5)
+    B = (3*X*R5, 0*X*R5)
+    C = (1*X*R5, 1*X*R5)
+    D = (1*X*R5, 2*X*R5)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure005a():
     '''T1+T4+T5 - Pythagoras of T5'''
 
@@ -11985,6 +12008,7 @@ if __name__ == "__main__":
     figure004i()
     figure004j()
     figure004k()
+    figure004l()
     figure005a()
     figure005b()
     figure005c()

@@ -28,7 +28,7 @@ $(INPUTFILE).pdf: *.tex
 	pdflatex -shell-escape $(INPUTFILE).tex
 	pdflatex -shell-escape $(INPUTFILE).tex
 	pdftk $(INPUTFILE).pdf cat output $(INPUTFILE)_.pdf
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPrinted=false -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$(OUTPUTFILE).pdf $(INPUTFILE)_.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPrinted=false -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$(OUTPUTFILE).pdf $(INPUTFILE)_.pdf pdfmark
 	rm -rf *.blg
 	rm -rf *.out
 	rm -rf *.bbl
