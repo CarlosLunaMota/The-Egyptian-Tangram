@@ -10492,6 +10492,46 @@ def figure016cc():
     mycanvas.writePDFfile(name)
 
 
+def figure016cd():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure016cd"
+
+    X = 1.0 # Scale #
+
+    Y = (R5+0.5)*X/(R5)
+
+    A = (0*R5*X, 0*R5*X)
+    B = (2*R5*X, 0*R5*X)
+    C = (2*R5*X, 1*R5*X)
+    D = (0*R5*X, 1*R5*X)
+
+    E = (2*R5*X+X, 3*X-Y)
+    F = (2*R5*X  , 3*X-Y)
+    G = (2*R5*X  ,    -Y)
+    H = r_point((G[0]+(3+R5)*X, G[1]),     G, atan2(1,2))
+    I = r_point((H[0],          H[1]+5*X), H, atan2(2,1))
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.lineto(*I),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+figure016cd()
+
 def figure018a():
     '''Quadrilaters del Tangram Egípci - Figura 1'''
 
