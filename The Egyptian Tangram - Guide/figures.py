@@ -76,7 +76,7 @@ def flip(P, A, B):
     k = (V[0]*W[0] + V[1]*W[1]) / (V[0]*V[0] + V[1]*V[1])
     PPP = (M[0] + k*V[0], M[1] + k*V[1])  # Perpendicular Projection of P
     return (P[0] + 2*(PPP[0]-P[0]), P[1] + 2*(PPP[1]-P[1]))
-    
+
 ################################################################################
 
 # FIGURES
@@ -10050,7 +10050,7 @@ def figure016bp():
     I = r_point(I, A, a)
     J = r_point(J, A, a)
     K = r_point(K, A, a)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10085,7 +10085,7 @@ def figure016bq():
     F = ( 7*X, 1*X)
     G = ( 3*X, 1*X)
     H = ( 3*X, 0*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10121,7 +10121,7 @@ def figure016br():
     D = (-D[0], -D[1])
     E = (-E[0], -E[1])
     F = (-F[0], -F[1])
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10156,7 +10156,7 @@ def figure016bs():
     D = (-D[0], -D[1])
     E = (-E[0], -E[1])
     F = (-F[0], -F[1])
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10186,7 +10186,7 @@ def figure016bt():
     F = ((2-R5)*X, 0*X)
     G = ((2-R5)*X, R5*X)
     H = w_point(A, (2*X,0), 3, 2*R5-3)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10223,7 +10223,7 @@ def figure016bu():
     D = (-D[0], -D[1])
     E = (-E[0], -E[1])
     F = (-F[0], -F[1])
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10252,7 +10252,7 @@ def figure016bv():
     D = r_point((-3*X, R5*X), A, a)
     F = r_point((-(3+R5)*X,  0*X), A, a)
     E = r_point(r_point((-(3+R5)*X, 3*X), (-(3+R5)*X, 0*X), -atan2(1,2)), A, a)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10284,7 +10284,7 @@ def figure016bw():
     E = (-1*X, 3*X)
     G = r_point((-(3+R5)*X,  0*X), A, -atan2(1,2))
     F = (G[0]+2*R5*X, G[1]+1*R5*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10315,8 +10315,8 @@ def figure016bx():
     F = (2*R5*X, 1*R5*X)
     G = r_point((2*R5*X, (2*R5+3)*X), F, atan2(1,2))
     H = r_point((G[0], G[1]-5*X), G, -atan2(1,2))
-    
-    
+
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10387,7 +10387,7 @@ def figure016bz():
     F = ( (3+R5)*X, 0*X)
     G = ( (3+R5)*X, (4-R5)*X)
     H = w_point(A, C, 3, 2*R5-3)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10416,7 +10416,7 @@ def figure016ca():
     C = (   0*X,  4*X)
     D = (   0*X, R5*X)
     E = r_point((A[0], A[1]+3*X), A, -atan2(1,2))
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10444,7 +10444,7 @@ def figure016cb():
     E = r_point((2*R5*X, (R5-3)*X), D, atan2(1,2))
     F = (E[0]-3*X, E[1])
     G = (E[0]-3*X, E[1]+X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10475,7 +10475,7 @@ def figure016cc():
     F = (  6*X,   2*X)
     G = (  4*X,  -2*X)
     H = w_point(C, G, 2*R5-3, 3)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -10530,7 +10530,84 @@ def figure016cd():
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
 
-figure016cd()
+
+def figure016ce():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure016ce"
+
+    X = 1.0 # Scale #
+
+    A = (0*X, 0*X)
+    B = (4*X, 0*X)
+    C = (4*X, 2*X)
+    D = (0*X, 4*X)
+
+    E = (2*X-1*R5*X, 0*X)
+    F = (   -1*R5*X, 0*X)
+    G = (   -1*R5*X, 4*X)
+    H = (    0*R5*X, 4*X)
+    I = (    0*R5*X, 4*X-R5*X)
+    J = w_point(E, G, 3, R5*2-3)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.lineto(*I),
+                              path.lineto(*J),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure016cf():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure016cf"
+
+    X = 1.0 # Scale #
+
+    A = (0*X, 0*X)
+    B = (4*X, 0*X)
+    C = (2*X, 4*X)
+    D = (0*X, 4*X)
+
+    E = (2*X-1*R5*X, 0*X)
+    F = (   -1*R5*X, 0*X)
+    G = (   -1*R5*X, 4*X)
+    H = (    0*R5*X, 4*X)
+    I = (    0*R5*X, 4*X-R5*X)
+    J = w_point(E, G, 3, R5*2-3)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.lineto(*I),
+                              path.lineto(*J),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
 
 def figure018a():
     '''Quadrilaters del Tangram Egípci - Figura 1'''
@@ -12362,13 +12439,13 @@ def figure021():
     '''All 32 classes of figures'''
 
     name = "figures/figure021"
-    
+
     c_T1 = [color.grey(0.80), color.grey(0.50)]
     c_T4 = [color.grey(0.80), color.grey(0.50)]
     c_T5 = [color.grey(0.80), color.grey(0.50)]
     c_T6 = [color.grey(0.80), color.grey(0.50)]
     c_Q4 = [color.grey(0.80), color.grey(0.50)]
-    
+
     X = 1.0
 
     for (T1,T4,T5,T6,Q4) in product((0,1), repeat=5):
@@ -12397,7 +12474,7 @@ def figure021():
             G = (-G[0], G[1])
             H = (-H[0], H[1])
             I = (-I[0], I[1])
-            
+
         drawing = []
         drawing.append((path.path(path.moveto(*A),
                                   path.lineto(*B),
@@ -12410,7 +12487,7 @@ def figure021():
         drawing.append((path.path(path.moveto(*F),
                                   path.lineto(*G),
                                   path.lineto(*H),
-                                  path.closepath()), BASE+ULTRATHIN+COLOR(BLACK)+FILLED(c_T4[T4])))   
+                                  path.closepath()), BASE+ULTRATHIN+COLOR(BLACK)+FILLED(c_T4[T4])))
         drawing.append((path.path(path.moveto(*B),
                                   path.lineto(*E),
                                   path.lineto(*F),
@@ -12679,6 +12756,9 @@ if __name__ == "__main__":
     figure016ca()
     figure016cb()
     figure016cc()
+    figure016cd()
+    figure016ce()
+    figure016cf()
     figure018a()
     figure018b()
     figure018c()
