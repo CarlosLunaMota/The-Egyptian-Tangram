@@ -1966,6 +1966,37 @@ def figure004l():
     mycanvas.writePDFfile(name)
 
 
+def figure004m():
+    '''T1+T4+T5 - Figura m'''
+
+    name = "figures/figure004m"
+
+    X = 1.0 # Scale #
+    A = (0*X, 0*X)
+    B = (5*X, 0*X)
+    C = (5*X, 2*X)
+    D = (0*X, 2*X)
+    E = (1*X, 2*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*E),
+                              path.lineto(*D),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure005a():
     '''T1+T4+T5 - Pythagoras of T5'''
 
@@ -7187,6 +7218,42 @@ def figure013r():
     mycanvas.writePDFfile(name)
 
 
+def figure013s():
+    '''El Subtangram Egípci - Figura 12'''
+
+    name = "figures/figure013s"
+
+    X = 1 # Scale #
+    A = (0*X, 4*X)
+    B = (4*X, 4*X)
+    C = (4*X, 0*X)
+    D = (0*X, 0*X)
+    E = (0*X, 2*X)
+    F = (1*X, 0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+VERYTHICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.closepath()), BASE+VERYTHICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.closepath()), BASE+VERYTHICK+FILLED(RED)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure014a():
     '''El Tangram Egípci - Triangle 1:2'''
 
@@ -10609,6 +10676,39 @@ def figure016cf():
     mycanvas.writePDFfile(name)
 
 
+def figure016cg():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure016cg"
+
+    X = 1.0 # Scale #
+
+    A = (4*X,      0*X)
+    B = (0*X,      0*X)
+    C = (0*X,      4*X)
+    D = ((2+R5)*X, 4*X)
+    E = ((4+R5)*X, 0*X)
+    F = ((2+R5)*X, 0*X)
+    G = ((2+R5)*X, (4-R5)*X)
+    H = w_point(A, (2*X,4*X), 3, R5*2-3)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+figure016cg()
+
 def figure018a():
     '''Quadrilaters del Tangram Egípci - Figura 1'''
 
@@ -12548,6 +12648,7 @@ if __name__ == "__main__":
     figure004j()
     figure004k()
     figure004l()
+    figure004m()
     figure005a()
     figure005b()
     figure005c()
@@ -12659,6 +12760,7 @@ if __name__ == "__main__":
     figure013p()
     figure013q()
     figure013r()
+    figure013s()
     figure014a()
     figure014b()
     figure014c()
