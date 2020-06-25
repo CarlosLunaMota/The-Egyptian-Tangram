@@ -1997,6 +1997,162 @@ def figure004m():
     mycanvas.writePDFfile(name)
 
 
+def figure004n():
+    '''T1+T4+T5 - Figura n'''
+
+    name = "figures/figure004n"
+
+    X = 1.0*R5 # Scale #
+    A = ( 0*X,-1*X)
+    B = (-2*X, 0*X)
+    C = ( 2*X, 0*X)
+    D = ( 0*X, 1*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure004o():
+    '''T1+T4+T5 - Figura o'''
+
+    name = "figures/figure004o"
+
+    X = 1.0*R5 # Scale #
+    A = ( 0*X,-1*X)
+    B = (-2*X,-1*X)
+    C = ( 2*X, 1*X)
+    D = ( 0*X, 1*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure004p():
+    '''T1+T4+T5 - Figura p'''
+
+    name = "figures/figure004p"
+
+    X = 1.0*R5 # Scale #
+    A = ( 2*X,-1*X)
+    B = ( 2*X, 0*X)
+    C = (-2*X, 0*X)
+    D = (-2*X, 1*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure004q():
+    '''T1+T4+T5 - Figura q'''
+
+    name = "figures/figure004q"
+
+    X = 1.0*R5 # Scale #
+    A = ( 0*X,-1*X)
+    B = (-2*X, 0*X)
+    C = ( 1*X, 0*X)
+    D = ( 0*X, 2*X)
+
+    A = r_point(A, (0,0), -atan2(1,1))
+    B = r_point(B, (0,0), -atan2(1,1))
+    C = r_point(C, (0,0), -atan2(1,1))
+    D = r_point(D, (0,0), -atan2(1,1))
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+ 
+
+def figure004r():
+    '''T1+T4+T5 - Figura r'''
+
+    name = "figures/figure004r"
+
+    X = 1.0 # Scale #
+    A = (-1*R5*X, 2*R5*X)
+    B = (-1*R5*X, 0*R5*X)
+    C = (    5*X,    0*X)
+    D = (    1*X,   -2*X)
+
+    alpha = atan2(2,1)/2.0
+    A = r_point(A, (0,0), alpha)
+    B = r_point(B, (0,0), alpha)
+    C = r_point(C, (0,0), alpha)
+    D = r_point(D, (0,0), alpha)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+ 
+
+def figure004s():
+    '''T1+T4+T5 - Figura s'''
+
+    name = "figures/figure004s"
+
+    X = 1.0 # Scale #
+    A = (-2*X*R5, 1*X*R5)
+    B = (-2*X*R5, 0*X*R5)
+    C = ( 5*X,    0*X)
+    D = ( 4*X,   -2*X)
+
+    alpha = atan2(1,2)/2.0
+    A = r_point(A, (0,0), alpha)
+    B = r_point(B, (0,0), alpha)
+    C = r_point(C, (0,0), alpha)
+    D = r_point(D, (0,0), alpha)
+
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+    
+
 def figure005a():
     '''T1+T4+T5 - Pythagoras of T5'''
 
@@ -10707,7 +10863,6 @@ def figure016cg():
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
 
-figure016cg()
 
 def figure018a():
     '''Quadrilaters del Tangram Egípci - Figura 1'''
@@ -12649,6 +12804,12 @@ if __name__ == "__main__":
     figure004k()
     figure004l()
     figure004m()
+    figure004n()
+    figure004o()
+    figure004p()
+    figure004q()
+    figure004r()
+    figure004s()
     figure005a()
     figure005b()
     figure005c()
@@ -12861,6 +13022,7 @@ if __name__ == "__main__":
     figure016cd()
     figure016ce()
     figure016cf()
+    figure016cg()
     figure018a()
     figure018b()
     figure018c()
