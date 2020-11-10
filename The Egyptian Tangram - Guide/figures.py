@@ -60,15 +60,14 @@ DASHED     = [style.linestyle.dashed]
 DOTTED     = [style.linestyle.dotted]
 DASHDOTTED = [style.linestyle.dashdotted]
 
-def FILLED(color):
-    return [deco.filled([color])]
-def COLOR(color):
-    return [color]
+def FILLED(color): return [deco.filled([color])]
+def COLOR(color):  return [color]
 
 # AUXILIARY FUNCTIONS
-def w_point((x1,x2), (y1,y2), Wx, Wy): return ((Wx*x1+Wy*y1)/(Wx+Wy), (Wx*x2+Wy*y2)/(Wx+Wy))
-def s_point((x1,x2), (y1,y2), W): return ((W*(y1-x1))+y1, (W*(y2-x2))+y2)
-def r_point((p1,p2), (c1,c2), A): return (c1+(p1-c1)*cos(A)-(p2-c2)*sin(A), c2+(p1-c1)*sin(A)+(p2-c2)*cos(A))
+def w_point(x, y, Wx, Wy): return ((Wx*x[0]+Wy*y[0])/(Wx+Wy), (Wx*x[1]+Wy*y[1])/(Wx+Wy))
+def s_point(x, y, W): return ((W*(y[0]-x[0]))+y[0], (W*(y[1]-x[1]))+y[1])
+def r_point(p, c, A): return (c[0]+(p[0]-c[0])*cos(A)-(p[1]-c[1])*sin(A), c[1]+(p[0]-c[0])*sin(A)+(p[1]-c[1])*cos(A))
+    
 def flip(P, A, B):
     M = ((A[0]+B[0])/2.0, (A[1]+B[1])/2.0)  # Midpoint of the A--B segment
     V = (A[1]-B[1], B[0]-A[0])              # Perpendicular to the A--B line
@@ -7410,6 +7409,349 @@ def figure013s():
     mycanvas.writePDFfile(name)
 
 
+def figure013t():
+    '''El Subtangram Egípci - Rectangle 2:1'''
+
+    name = "figures/figure013t"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (0*X, 4*X)
+    C = (8*X, 4*X)
+    D = (8*X, 0*X)
+    E = (4*X, 0*X)
+    F = (4*X, 4*X)
+    G = (3*X, 0*X)
+    H = (5*X, 4*X)
+    I = (4*X, 2*X)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+VERYTHICK))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure013u():
+    '''El Subtangram Egípci - Rectangle 2:1'''
+
+    name = "figures/figure013u"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (0*X, 4*X)
+    C = (8*X, 4*X)
+    D = (8*X, 0*X)
+    E = (4*X, 0*X)
+    F = (4*X, 4*X)
+    G = (3*X, 0*X)
+    H = (5*X, 4*X)
+    I = (4*X, 2*X)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*B),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*G),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*G),
+                              path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*H),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*I),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.closepath()), BASE+VERYTHICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*H),
+                              path.lineto(*I),
+                              path.lineto(*D),
+                              path.closepath()), BASE+VERYTHICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*C),
+                              path.lineto(*D),
+                              path.lineto(*H),
+                              path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*G),
+                              path.lineto(*E),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(RED)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure013v():
+    '''El Subtangram Egípci - Rectangle 2:1'''
+
+    name = "figures/figure013v"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (0*X, 4*X)
+    C = (8*X, 4*X)
+    D = (8*X, 0*X)
+    E = (4*X, 0*X)
+    F = (4*X, 4*X)
+    G = (3*X, 0*X)
+    H = (5*X, 4*X)
+    I = (4*X, 2*X)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E)), BASE+DOTTED))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*F),
+                              path.lineto(*E),
+                              path.closepath()), BASE+VERYTHICK))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure013w():
+    '''El Subtangram Egípci - Rectangle 2:1'''
+
+    name = "figures/figure013w"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (0*X, 4*X)
+    C = (8*X, 4*X)
+    D = (8*X, 0*X)
+    E = (4*X, 0*X)
+    F = (4*X, 4*X)
+    G = (3*X, 0*X)
+    H = (5*X, 4*X)
+    I = (4*X, 2*X)
+    #A, B = B, A
+    #C = flip(C, A, B)
+    #D = flip(D, A, B)
+    #E = flip(E, A, B)
+    #F = flip(F, A, B)
+    #G = flip(G, A, B)
+    #H = flip(H, A, B)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*B),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*G),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*G),
+                              path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*G),
+                              path.lineto(*E),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E)), BASE+DOTTED))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure013x():
+    '''El Subtangram Egípci - Rectangle 2:1'''
+
+    name = "figures/figure013x"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (0*X, 4*X)
+    C = (8*X, 4*X)
+    D = (8*X, 0*X)
+    E = (4*X, 0*X)
+    F = (4*X, 4*X)
+    G = (3*X, 0*X)
+    H = (5*X, 4*X)
+    I = (4*X, 2*X)
+    CC = flip(C, B, D)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*H),
+                              path.lineto(*B)), BASE+DASHED))
+    drawing.append((path.path(path.moveto(*H),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*G)), BASE+DOTTED))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+VERYTHICK))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*H),
+                              path.lineto(*CC),
+                              path.closepath()), BASE+VERYTHICK))
+                              
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure013y():
+    '''El Subtangram Egípci - Rectangle 2:1'''
+
+    name = "figures/figure013y"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (0*X, 4*X)
+    C = (8*X, 4*X)
+    D = (8*X, 0*X)
+    E = (4*X, 0*X)
+    F = (4*X, 4*X)
+    G = (3*X, 0*X)
+    H = (5*X, 4*X)
+    I = (4*X, 2*X)
+    CC = flip(C, B, D)
+    #A, CC, = CC, A
+    #C, D = D, C
+    #G, H = H, G
+    #F = flip(F, G, H)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*H),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*G)), BASE+DOTTED))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*B),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*G),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*G),
+                              path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*H),
+                              path.lineto(*I),
+                              path.lineto(*F),
+                              path.closepath()), BASE+VERYTHICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*H),
+                              path.lineto(*CC),
+                              path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
+                              
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure013z():
+    '''El Subtangram Egípci - Rectangle 2:1'''
+
+    name = "figures/figure013z"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (0*X, 4*X)
+    C = (8*X, 4*X)
+    D = (8*X, 0*X)
+    E = (4*X, 0*X)
+    F = (4*X, 4*X)
+    G = (3*X, 0*X)
+    H = (5*X, 4*X)
+    I = (4*X, 2*X)
+    CC = flip(C, B, D)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*H),
+                              path.lineto(*B)), BASE+DASHED))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*A),
+                              path.lineto(*D)), BASE+DOTTED))
+    drawing.append((path.path(path.moveto(*H),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+VERYTHICK))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*D),
+                              path.lineto(*CC),
+                              path.closepath()), BASE+VERYTHICK))
+                              
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure013zz():
+    '''El Subtangram Egípci - Rectangle 2:1'''
+
+    name = "figures/figure013zz"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (0*X, 4*X)
+    C = (8*X, 4*X)
+    D = (8*X, 0*X)
+    E = (4*X, 0*X)
+    F = (4*X, 4*X)
+    G = (3*X, 0*X)
+    H = (5*X, 4*X)
+    I = (4*X, 2*X)
+    CC = flip(C, B, D)
+    #CC, C = C, CC
+    #D, B = B, D
+    #F = flip(F, B, D)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*A),
+                              path.lineto(*D)), BASE+DOTTED))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*B),
+                              path.lineto(*I),
+                              path.closepath()), BASE+VERYTHICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*H),
+                              path.lineto(*I),
+                              path.lineto(*D),
+                              path.closepath()), BASE+VERYTHICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*C),
+                              path.lineto(*D),
+                              path.lineto(*H),
+                              path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*H),
+                              path.lineto(*I),
+                              path.lineto(*F),
+                              path.closepath()), BASE+VERYTHICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*H),
+                              path.lineto(*CC),
+                              path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
+                              
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure014a():
     '''El Tangram Egípci - Triangle 1:2'''
 
@@ -12922,6 +13264,14 @@ if __name__ == "__main__":
     figure013q()
     figure013r()
     figure013s()
+    figure013t()
+    figure013u()
+    figure013v()
+    figure013w()
+    figure013x()
+    figure013y()
+    figure013z()
+    figure013zz()
     figure014a()
     figure014b()
     figure014c()
