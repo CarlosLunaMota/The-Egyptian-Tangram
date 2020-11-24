@@ -420,11 +420,11 @@
                 \;\includegraphics[scale=0.20]{figures/figure016h.pdf}\; \\
                 Gnome & Handmaid & \!\!Mountain range\!\! & Fish tail & Teddy bear \\[1.5ex]
                 \;\includegraphics[scale=0.20]{figures/figure016ao.pdf}\; &
+                \;\;\;\includegraphics[scale=0.20]{figures/figure016ch.pdf}\; &
                 \;\;\;\includegraphics[scale=0.20]{figures/figure016x.pdf}\; &
-                \;\!\!\!\!\includegraphics[scale=0.20]{figures/figure016ag.pdf}\; &
                 \;\includegraphics[scale=0.20]{figures/figure016ac.pdf}\; &
                 \;\includegraphics[scale=0.20]{figures/figure016ap.pdf}\;  \\
-                Cat & Cow\;\; & \!\!\!\!Crab claw & Snail & Fennec Fox \\[1.5ex]
+                Cat & Dromedary & Cow\;\; & Snail & Fennec Fox \\[1.5ex]
                 \;\includegraphics[scale=0.20]{figures/figure016q.pdf}\!\!\!\!\; &
                 \;\;\;\includegraphics[scale=0.20]{figures/figure016y.pdf}\; &
                 \;\includegraphics[scale=0.20]{figures/figure016w.pdf}\; &
@@ -474,6 +474,85 @@
 
             {\small Complete the path moving just one or two pieces at a time}
         \end{center}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}{Geometric figures}
+        \begin{center}        
+            \begin{minipage}{0.5\textwidth}%\vspace{2ex}
+                \centering \includegraphics[scale=0.70]{figures/figure022a.pdf}
+            \end{minipage}\hfill\begin{minipage}{0.49\textwidth} \small
+                All the figures from the previous page, but one, can be drawn with their vertices lying on this lattice.
+
+                \bigskip
+
+                Moreover, their solutions can be drawn with the vertices of all 5 pieces lying on the same lattice.
+
+                \bigskip
+
+                These conditions simplify the task of finding perimeters and areas.
+            \end{minipage}
+
+            \bigskip \bigskip
+
+            Could you find which is the only figure\\that requires a finer-grained lattice?
+        \end{center}
+        
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}{Geometric figures}
+        \begin{center}        
+            \begin{minipage}{0.5\textwidth}%\vspace{2ex}
+                \centering \includegraphics[scale=0.70]{figures/figure022b.pdf}
+            \end{minipage}\hfill\begin{minipage}{0.49\textwidth} \footnotesize
+
+                \hspace{-0.5em}\begin{tabular}{ll}                
+                    Top       & $\!\!\!\!\!= \sqrt{1^2 + 2^2} = \sqrt{5}$              \\[1.5ex]
+                    Left      & $\!\!\!\!\!= \sqrt{3^2 + 4^2} = \sqrt{25} = 5$         \\[1.5ex]
+                    Bottom    & $\!\!\!\!\!= \sqrt{3^2 + 6^2} = \sqrt{45} = 3\sqrt{5}$ \\[1.5ex]
+                    Right     & $\!\!\!\!\!= 5$ \quad (just count them!)               \\[4ex]
+                    Perimeter & $\!\!\!\!\!= $ sum of all sides                        \\[1.5ex]
+                              & $\!\!\!\!\!= 10 + 4\sqrt{5}$                 
+                \end{tabular}
+            \end{minipage}
+
+            \bigskip \bigskip
+
+            Could you use the Pythagorean theorem\\to compute the perimeter of these figures?
+        \end{center}
+        
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}{Geometric figures}
+        \begin{center}        
+            \begin{minipage}{0.5\textwidth}%\vspace{2ex}
+                \centering \includegraphics[scale=0.70]{figures/figure022c.pdf}
+            \end{minipage}\hfill\begin{minipage}{0.49\textwidth} \footnotesize
+                \begin{tabular}{ll}
+                    {\small \textbf{Pick's Theorem:}}  &                   \\[4ex]                
+                    lattice points in the interior & $\!\!\!\!\! = 16$ \\[2ex]
+                    lattice points on the boundary & $\!\!\!\!\! = 10$ \\
+                \end{tabular}
+                
+                \bigskip \medskip
+            
+                \begin{tabular}{ll}                
+                    Area & $\!\!\!\!\!= \text{interior} + \frac{\text{boundary}}{2} - 1$ \\[2ex]
+                         & $\!\!\!\!\!= 16 + \frac{10}{2} - 1 = 20$                 
+                \end{tabular}
+                
+            \end{minipage}
+
+            \bigskip \bigskip
+
+            Could you use Pick's theorem\\to compute the area of these figures?
+        \end{center}
+        
     \end{frame}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

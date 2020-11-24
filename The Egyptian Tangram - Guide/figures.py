@@ -11206,6 +11206,66 @@ def figure016cg():
     mycanvas.writePDFfile(name)
 
 
+def figure016ch():
+    '''El Tangram Egípci - Figura realista'''
+
+    name = "figures/figure016ch"
+
+    X = 1.0 # Scale #
+    Y = (2.0*R5+3.0) / (R5*X)
+    Z = (4-R5/2.0)*X
+
+    b = atan2(1,2)
+    c = pi/2.0 - atan2(3,4)
+    
+    A = ( 0*X, 0*X)
+    B = ( 0*X, 3*X)
+    C = r_point((B[0]+4*X, B[1] + 2*X), B, b)
+    D = r_point((B[0]+5*X, B[1]), B, b)
+    J = ( 3*X, 2*X)
+    I = r_point((3*X, (R5-2)*X), J, b)
+    E = r_point((6*X, (R5+2)*X), J, b)
+    H = w_point(E, I, 2, 3)
+    G = (H[0] + 4*X, H[1])
+    F = (G[0] , G[1] + 2*X)
+    F = r_point(F, H, c)
+    G = r_point(G, H, c)
+    K = ( 1*X, 2*X)
+    
+
+    a = atan2(A[1]-I[1],I[0]-A[0])    
+
+    A = r_point(A, (0.0,0.0) , a)
+    B = r_point(B, (0.0,0.0) , a)
+    C = r_point(C, (0.0,0.0) , a)
+    D = r_point(D, (0.0,0.0) , a)
+    E = r_point(E, (0.0,0.0) , a)
+    F = r_point(F, (0.0,0.0) , a)
+    G = r_point(G, (0.0,0.0) , a)
+    H = r_point(H, (0.0,0.0) , a)
+    I = r_point(I, (0.0,0.0) , a)
+    J = r_point(J, (0.0,0.0) , a)
+    K = r_point(K, (0.0,0.0) , a)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.lineto(*H),
+                              path.lineto(*I),
+                              path.lineto(*J),
+                              path.lineto(*K),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure018a():
     '''Quadrilaters del Tangram Egípci - Figura 1'''
 
@@ -13101,6 +13161,344 @@ def figure021():
         mycanvas.writePDFfile(name+code)
 
 
+def figure022a():
+    '''Areas and Perimeters'''
+
+    name = "figures/figure022a"
+
+    X  = 1
+    A  = (0*X,-0.5*X)
+    B  = (1*X,-0.5*X)
+    C  = (2*X,-0.5*X)
+    D  = (3*X,-0.5*X)
+    E  = (4*X,-0.5*X)
+    F  = (5*X,-0.5*X)
+    G  = (6*X,-0.5*X)
+    AA = (0*X, 6.5*X)
+    BB = (1*X, 6.5*X)
+    CC = (2*X, 6.5*X)
+    DD = (3*X, 6.5*X)
+    EE = (4*X, 6.5*X)
+    FF = (5*X, 6.5*X)
+    GG = (6*X, 6.5*X)
+
+    H  = (-0.5*X, 0*X)
+    I  = (-0.5*X, 1*X)
+    J  = (-0.5*X, 2*X)
+    K  = (-0.5*X, 3*X)
+    L  = (-0.5*X, 4*X)
+    M  = (-0.5*X, 5*X)
+    N  = (-0.5*X, 6*X)
+    HH = ( 6.5*X, 0*X)
+    II = ( 6.5*X, 1*X)
+    JJ = ( 6.5*X, 2*X)
+    KK = ( 6.5*X, 3*X)
+    LL = ( 6.5*X, 4*X)
+    MM = ( 6.5*X, 5*X)
+    NN = ( 6.5*X, 6*X)
+
+    O = (0*X, 3*X)
+    P = (6*X, 0*X)
+    Q = (6*X, 5*X)
+    R = (4*X, 6*X)
+
+    S = (4*X, 1*X)
+    T = (4*X, 3*X)
+    U = (5*X, 3*X)
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(*O),
+                              path.lineto(*T),
+                              path.lineto(*R),
+                              path.closepath()), BASE+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*Q),
+                              path.lineto(*R),
+                              path.lineto(*T),
+                              path.lineto(*U),
+                              path.closepath()), BASE+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(*T),
+                              path.lineto(*U),
+                              path.lineto(*S),
+                              path.closepath()), BASE+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*P),
+                              path.lineto(*Q),
+                              path.lineto(*S),
+                              path.closepath()), BASE+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*T),
+                              path.lineto(*O),
+                              path.lineto(*S),
+                              path.closepath()), BASE+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*O),
+                              path.lineto(*P),
+                              path.lineto(*Q),
+                              path.lineto(*R),
+                              path.closepath()), BASE))
+
+    drawing.append((path.path(path.moveto(*A), path.lineto(*AA),
+                              path.moveto(*B), path.lineto(*BB),
+                              path.moveto(*C), path.lineto(*CC),
+                              path.moveto(*D), path.lineto(*DD),
+                              path.moveto(*E), path.lineto(*EE),
+                              path.moveto(*F), path.lineto(*FF),
+                              path.moveto(*G), path.lineto(*GG),
+                              path.moveto(*H), path.lineto(*HH),
+                              path.moveto(*I), path.lineto(*II),
+                              path.moveto(*J), path.lineto(*JJ),
+                              path.moveto(*K), path.lineto(*KK),
+                              path.moveto(*L), path.lineto(*LL),
+                              path.moveto(*M), path.lineto(*MM),
+                              path.moveto(*N), path.lineto(*NN)), BASE+DOTTED+THIN))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure022b():
+    '''Areas and Perimeters'''
+
+    name = "figures/figure022b"
+
+    X  = 1
+    A  = (0*X,-0.5*X)
+    B  = (1*X,-0.5*X)
+    C  = (2*X,-0.5*X)
+    D  = (3*X,-0.5*X)
+    E  = (4*X,-0.5*X)
+    F  = (5*X,-0.5*X)
+    G  = (6*X,-0.5*X)
+    AA = (0*X, 6.5*X)
+    BB = (1*X, 6.5*X)
+    CC = (2*X, 6.5*X)
+    DD = (3*X, 6.5*X)
+    EE = (4*X, 6.5*X)
+    FF = (5*X, 6.5*X)
+    GG = (6*X, 6.5*X)
+
+    H  = (-0.5*X, 0*X)
+    I  = (-0.5*X, 1*X)
+    J  = (-0.5*X, 2*X)
+    K  = (-0.5*X, 3*X)
+    L  = (-0.5*X, 4*X)
+    M  = (-0.5*X, 5*X)
+    N  = (-0.5*X, 6*X)
+    HH = ( 6.5*X, 0*X)
+    II = ( 6.5*X, 1*X)
+    JJ = ( 6.5*X, 2*X)
+    KK = ( 6.5*X, 3*X)
+    LL = ( 6.5*X, 4*X)
+    MM = ( 6.5*X, 5*X)
+    NN = ( 6.5*X, 6*X)
+
+    BBB  = (1*X, 2.50*X)
+    CCC  = (2*X, 2.00*X)
+    DDD  = (3*X, 1.50*X)
+    EEE  = (4*X, 1.00*X)
+    FFF  = (5*X, 0.50*X)
+    BBBB = (1*X, 3.75*X)
+    CCCC = (2*X, 4.50*X)
+    DDDD = (3*X, 5.25*X)
+    EEEE = (4*X, 6.00*X)
+    FFFF = (5*X, 5.50*X)
+    
+    III  = (4.000*X, 1*X)
+    JJJ  = (2.000*X, 2*X)
+    KKK  = (0.000*X, 3*X)
+    LLL  = (1.333*X, 4*X)
+    MMM  = (2.666*X, 5*X)
+    IIII = (6.000*X, 1*X)
+    JJJJ = (6.000*X, 2*X)
+    KKKK = (6.000*X, 3*X)
+    LLLL = (6.000*X, 4*X)
+    MMMM = (6.000*X, 5*X)
+
+    O = (0*X, 3*X)
+    P = (6*X, 0*X)
+    Q = (6*X, 5*X)
+    R = (4*X, 6*X)
+
+    S = (2*X, 2*X)
+    T = (4*X, 1*X)
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(*A), path.lineto(*AA),
+                              path.moveto(*B), path.lineto(*BB),
+                              path.moveto(*C), path.lineto(*CC),
+                              path.moveto(*D), path.lineto(*DD),
+                              path.moveto(*E), path.lineto(*EE),
+                              path.moveto(*F), path.lineto(*FF),
+                              path.moveto(*G), path.lineto(*GG),
+                              path.moveto(*H), path.lineto(*HH),
+                              path.moveto(*I), path.lineto(*II),
+                              path.moveto(*J), path.lineto(*JJ),
+                              path.moveto(*K), path.lineto(*KK),
+                              path.moveto(*L), path.lineto(*LL),
+                              path.moveto(*M), path.lineto(*MM),
+                              path.moveto(*N), path.lineto(*NN)), BASE+DOTTED+THIN))
+
+    drawing.append((path.path(path.moveto(*O),
+                              path.lineto(*P),
+                              path.lineto(*Q),
+                              path.lineto(*R),
+                              path.closepath()), BASE+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(*BBB), path.lineto(*BBBB),
+                              path.moveto(*CCC), path.lineto(*CCCC),
+                              path.moveto(*DDD), path.lineto(*DDDD),
+                              path.moveto(*EEE), path.lineto(*EEEE),
+                              path.moveto(*FFF), path.lineto(*FFFF),
+                              path.moveto(*III), path.lineto(*IIII),
+                              path.moveto(*JJJ), path.lineto(*JJJJ),
+                              path.moveto(*KKK), path.lineto(*KKKK),
+                              path.moveto(*LLL), path.lineto(*LLLL),
+                              path.moveto(*MMM), path.lineto(*MMMM)), BASE+DOTTED+THIN+COLOR(BLACK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure022c():
+    '''Areas and Perimeters'''
+
+    name = "figures/figure022c"
+
+    X  = 1
+    Y  = 0.125
+    A  = (0*X,-0.5*X)
+    B  = (1*X,-0.5*X)
+    C  = (2*X,-0.5*X)
+    D  = (3*X,-0.5*X)
+    E  = (4*X,-0.5*X)
+    F  = (5*X,-0.5*X)
+    G  = (6*X,-0.5*X)
+    AA = (0*X, 6.5*X)
+    BB = (1*X, 6.5*X)
+    CC = (2*X, 6.5*X)
+    DD = (3*X, 6.5*X)
+    EE = (4*X, 6.5*X)
+    FF = (5*X, 6.5*X)
+    GG = (6*X, 6.5*X)
+
+    H  = (-0.5*X, 0*X)
+    I  = (-0.5*X, 1*X)
+    J  = (-0.5*X, 2*X)
+    K  = (-0.5*X, 3*X)
+    L  = (-0.5*X, 4*X)
+    M  = (-0.5*X, 5*X)
+    N  = (-0.5*X, 6*X)
+    HH = ( 6.5*X, 0*X)
+    II = ( 6.5*X, 1*X)
+    JJ = ( 6.5*X, 2*X)
+    KK = ( 6.5*X, 3*X)
+    LL = ( 6.5*X, 4*X)
+    MM = ( 6.5*X, 5*X)
+    NN = ( 6.5*X, 6*X)
+
+    BBB  = (1*X, 2.50*X)
+    CCC  = (2*X, 2.00*X)
+    DDD  = (3*X, 1.50*X)
+    EEE  = (4*X, 1.00*X)
+    FFF  = (5*X, 0.50*X)
+    BBBB = (1*X, 3.75*X)
+    CCCC = (2*X, 4.50*X)
+    DDDD = (3*X, 5.25*X)
+    EEEE = (4*X, 6.00*X)
+    FFFF = (5*X, 5.50*X)
+    
+    III  = (4.000*X, 1*X)
+    JJJ  = (2.000*X, 2*X)
+    KKK  = (0.000*X, 3*X)
+    LLL  = (1.333*X, 4*X)
+    MMM  = (2.666*X, 5*X)
+    IIII = (6.000*X, 1*X)
+    JJJJ = (6.000*X, 2*X)
+    KKKK = (6.000*X, 3*X)
+    LLLL = (6.000*X, 4*X)
+    MMMM = (6.000*X, 5*X)
+
+    O = (0*X, 3*X)
+    P = (6*X, 0*X)
+    Q = (6*X, 5*X)
+    R = (4*X, 6*X)
+
+    S = (2*X, 2*X)
+    T = (4*X, 1*X)
+    
+
+    drawing = []
+
+    drawing.append((path.path(path.moveto(*A), path.lineto(*AA),
+                              path.moveto(*B), path.lineto(*BB),
+                              path.moveto(*C), path.lineto(*CC),
+                              path.moveto(*D), path.lineto(*DD),
+                              path.moveto(*E), path.lineto(*EE),
+                              path.moveto(*F), path.lineto(*FF),
+                              path.moveto(*G), path.lineto(*GG),
+                              path.moveto(*H), path.lineto(*HH),
+                              path.moveto(*I), path.lineto(*II),
+                              path.moveto(*J), path.lineto(*JJ),
+                              path.moveto(*K), path.lineto(*KK),
+                              path.moveto(*L), path.lineto(*LL),
+                              path.moveto(*M), path.lineto(*MM),
+                              path.moveto(*N), path.lineto(*NN)), BASE+DOTTED+THIN))
+
+    drawing.append((path.path(path.moveto(*O),
+                              path.lineto(*P),
+                              path.lineto(*Q),
+                              path.lineto(*R),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(*BBB), path.lineto(*BBBB),
+                              path.moveto(*CCC), path.lineto(*CCCC),
+                              path.moveto(*DDD), path.lineto(*DDDD),
+                              path.moveto(*EEE), path.lineto(*EEEE),
+                              path.moveto(*FFF), path.lineto(*FFFF),
+                              path.moveto(*III), path.lineto(*IIII),
+                              path.moveto(*JJJ), path.lineto(*JJJJ),
+                              path.moveto(*KKK), path.lineto(*KKKK),
+                              path.moveto(*LLL), path.lineto(*LLLL),
+                              path.moveto(*MMM), path.lineto(*MMMM)), BASE+DOTTED+THIN+COLOR(BLACK)))
+
+    INTERIOR = BASE+THIN+COLOR(BLACK)+FILLED(BLUE)
+    BOUNDARY = BASE+THIN+COLOR(BLACK)+FILLED(YELLOW)
+
+    drawing.append((path.circle(6*X, 0*X, Y), BOUNDARY))
+    drawing.append((path.circle(6*X, 1*X, Y), BOUNDARY))
+    drawing.append((path.circle(6*X, 2*X, Y), BOUNDARY))
+    drawing.append((path.circle(6*X, 3*X, Y), BOUNDARY))
+    drawing.append((path.circle(6*X, 4*X, Y), BOUNDARY))
+    drawing.append((path.circle(6*X, 5*X, Y), BOUNDARY))
+    drawing.append((path.circle(4*X, 1*X, Y), BOUNDARY))
+    drawing.append((path.circle(2*X, 2*X, Y), BOUNDARY))
+    drawing.append((path.circle(0*X, 3*X, Y), BOUNDARY))
+    drawing.append((path.circle(4*X, 6*X, Y), BOUNDARY))
+    
+    drawing.append((path.circle(3*X, 5*X, Y), INTERIOR))
+    drawing.append((path.circle(4*X, 5*X, Y), INTERIOR))
+    drawing.append((path.circle(5*X, 5*X, Y), INTERIOR))
+    drawing.append((path.circle(2*X, 4*X, Y), INTERIOR))
+    drawing.append((path.circle(3*X, 4*X, Y), INTERIOR))
+    drawing.append((path.circle(4*X, 4*X, Y), INTERIOR))
+    drawing.append((path.circle(5*X, 4*X, Y), INTERIOR))
+    drawing.append((path.circle(1*X, 3*X, Y), INTERIOR))
+    drawing.append((path.circle(2*X, 3*X, Y), INTERIOR))
+    drawing.append((path.circle(3*X, 3*X, Y), INTERIOR))
+    drawing.append((path.circle(4*X, 3*X, Y), INTERIOR))
+    drawing.append((path.circle(5*X, 3*X, Y), INTERIOR))
+    drawing.append((path.circle(3*X, 2*X, Y), INTERIOR))
+    drawing.append((path.circle(4*X, 2*X, Y), INTERIOR))
+    drawing.append((path.circle(5*X, 2*X, Y), INTERIOR))
+    drawing.append((path.circle(5*X, 1*X, Y), INTERIOR))
+
+
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
 ################################################################################
 
 if __name__ == "__main__":
@@ -13373,6 +13771,7 @@ if __name__ == "__main__":
     figure016ce()
     figure016cf()
     figure016cg()
+    figure016ch()
     figure018a()
     figure018b()
     figure018c()
@@ -13440,3 +13839,6 @@ if __name__ == "__main__":
     figure020e()
     figure020f()
     figure021()
+    figure022a()
+    figure022b()
+    figure022c()
