@@ -14373,10 +14373,10 @@ def figure022c():
     mycanvas.writePDFfile(name)
 
 
-def figure023():
+def figure023a():
     '''Cairo Tiling'''
 
-    name = "figures/figure023"
+    name = "figures/figure023a"
 
     SCALE  = 1
     WIDTH  = 4
@@ -14434,6 +14434,441 @@ def figure023():
                               path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
                               path.lineto(4*SCALE,      8*HEIGHT*SCALE),
                               path.closepath()), BASE+VERYTHICK))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure023b():
+    '''Cairo Tiling'''
+
+    name = "figures/figure023b"
+
+    SCALE  = 1
+    WIDTH  = 4
+    HEIGHT = 2
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+VERYTHICK+FILLED(ORANGE)))
+
+    """for x in range(5,8*WIDTH):
+        drawing.append((path.path(path.moveto(x*SCALE,4*SCALE),
+                                  path.lineto(x*SCALE,8*HEIGHT*SCALE)), BASE+THIN+DOTTED+COLOR(BLACK)))
+
+    for y in range(5,8*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*SCALE)), BASE+THIN+DOTTED+COLOR(BLACK)))
+    """
+    for x in range(1,2*WIDTH):
+        drawing.append((path.path(path.moveto(x*4*SCALE,4*SCALE),
+                                  path.lineto(x*4*SCALE,8*HEIGHT*SCALE)), BASE+VERYTHICK))
+
+    for y in range(1,2*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*4*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*4*SCALE)), BASE+VERYTHICK))
+
+    for x in range(4, 8*WIDTH, 8):
+        for y in range(4, 8*HEIGHT, 8):
+
+            drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))    
+            drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
+                                      path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+VERYTHICK))
+            if x+7 < 8*WIDTH:
+                drawing.append((path.path(path.moveto((x+7)*SCALE, (y+0)*SCALE),
+                                          path.lineto((x+5)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+1)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+VERYTHICK))
+            if y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+VERYTHICK))                                      
+                drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))    
+            if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+VERYTHICK))                                      
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+VERYTHICK))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure023c():
+    '''Cairo Tiling'''
+
+    name = "figures/figure023c"
+
+    SCALE  = 1
+    WIDTH  = 4
+    HEIGHT = 2
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+
+    for x in range(5,8*WIDTH):
+        drawing.append((path.path(path.moveto(x*SCALE,4*SCALE),
+                                  path.lineto(x*SCALE,8*HEIGHT*SCALE)), BASE+THIN+DOTTED))
+
+    for y in range(5,8*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*SCALE)), BASE+THIN+DOTTED))
+    
+    for x in range(1,2*WIDTH):
+        drawing.append((path.path(path.moveto(x*4*SCALE,4*SCALE),
+                                  path.lineto(x*4*SCALE,8*HEIGHT*SCALE)), BASE+ULTRATHICK))
+
+    for y in range(1,2*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*4*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*4*SCALE)), BASE+ULTRATHICK))
+
+    for x in range(4, 8*WIDTH, 8):
+        for y in range(4, 8*HEIGHT, 8):
+
+            drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+ULTRATHICK))    
+            drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
+                                      path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+ULTRATHICK))
+            if x+7 < 8*WIDTH:
+                drawing.append((path.path(path.moveto((x+7)*SCALE, (y+0)*SCALE),
+                                          path.lineto((x+5)*SCALE, (y+4)*SCALE)), BASE+ULTRATHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+1)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+ULTRATHICK))
+            if y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+ULTRATHICK))                                      
+                drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))    
+            if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+ULTRATHICK))                                      
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+ULTRATHICK))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure023d():
+    '''Cairo Tiling'''
+
+    name = "figures/figure023d"
+
+    SCALE  = 1
+    WIDTH  = 4
+    HEIGHT = 2
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+VERYTHICK))
+
+    for x in range(5,8*WIDTH):
+        drawing.append((path.path(path.moveto(x*SCALE,4*SCALE),
+                                  path.lineto(x*SCALE,8*HEIGHT*SCALE)), BASE+THIN+DOTTED))
+
+    for y in range(5,8*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*SCALE)), BASE+THIN+DOTTED))
+    
+    for x in range(1,2*WIDTH):
+        drawing.append((path.path(path.moveto(x*4*SCALE,4*SCALE),
+                                  path.lineto(x*4*SCALE,8*HEIGHT*SCALE)), BASE+VERYTHICK))
+
+    for y in range(1,2*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*4*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*4*SCALE)), BASE+VERYTHICK))
+
+    for x in range(4, 8*WIDTH, 8):
+        for y in range(4, 8*HEIGHT, 8):
+
+            drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))    
+            drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
+                                      path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+VERYTHICK))
+            if x+7 < 8*WIDTH:
+                drawing.append((path.path(path.moveto((x+7)*SCALE, (y+0)*SCALE),
+                                          path.lineto((x+5)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+1)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+VERYTHICK))
+            if y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+VERYTHICK))                                      
+                drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))    
+            if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+VERYTHICK))                                      
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+VERYTHICK))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure023e():
+    '''Cairo Tiling'''
+
+    name = "figures/figure023e"
+
+    SCALE  = 1
+    WIDTH  = 4
+    HEIGHT = 2
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+
+    for x in range(5,8*WIDTH):
+        drawing.append((path.path(path.moveto(x*SCALE,4*SCALE),
+                                  path.lineto(x*SCALE,8*HEIGHT*SCALE)), BASE+THIN+DOTTED))
+
+    for y in range(5,8*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*SCALE)), BASE+THIN+DOTTED))
+    
+    for x in range(1,2*WIDTH):
+        drawing.append((path.path(path.moveto(x*4*SCALE,4*SCALE),
+                                  path.lineto(x*4*SCALE,8*HEIGHT*SCALE)), BASE+ULTRATHICK))
+
+    for y in range(1,2*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*4*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*4*SCALE)), BASE+ULTRATHICK))
+
+    for x in range(4, 8*WIDTH, 8):
+        for y in range(4, 8*HEIGHT, 8):
+
+            drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+ULTRATHICK))    
+            drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
+                                      path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+ULTRATHICK))
+            if x+7 < 8*WIDTH:
+                drawing.append((path.path(path.moveto((x+7)*SCALE, (y+0)*SCALE),
+                                          path.lineto((x+5)*SCALE, (y+4)*SCALE)), BASE+ULTRATHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+1)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+ULTRATHICK))
+            if y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+ULTRATHICK))                                      
+                drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))    
+            if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+ULTRATHICK))                                      
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+ULTRATHICK))
+
+    drawing.append((path.path(path.moveto( 6*SCALE, 4*SCALE),
+                              path.lineto(30*SCALE,16*SCALE)), BASE+COLOR(BLACK)+DOTTED))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure023f():
+    '''Cairo Tiling'''
+
+    name = "figures/figure023f"
+
+    SCALE = 1
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto( 0*SCALE, 0*SCALE),
+                              path.lineto( 2*SCALE, 0*SCALE),
+                              path.lineto( 2*SCALE, 4*SCALE),
+                              path.lineto( 0*SCALE, 4*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto( 2*SCALE, 2*SCALE),
+                              path.lineto( 6*SCALE, 2*SCALE),
+                              path.lineto( 6*SCALE, 6*SCALE),
+                              path.lineto( 2*SCALE, 6*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto( 6*SCALE, 4*SCALE),
+                              path.lineto(10*SCALE, 4*SCALE),
+                              path.lineto(10*SCALE, 8*SCALE),
+                              path.lineto( 6*SCALE, 8*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(10*SCALE, 6*SCALE),
+                              path.lineto(14*SCALE, 6*SCALE),
+                              path.lineto(14*SCALE,10*SCALE),
+                              path.lineto(10*SCALE,10*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(14*SCALE, 8*SCALE),
+                              path.lineto(18*SCALE, 8*SCALE),
+                              path.lineto(18*SCALE,12*SCALE),
+                              path.lineto(14*SCALE,12*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(18*SCALE,10*SCALE),
+                              path.lineto(22*SCALE,10*SCALE),
+                              path.lineto(22*SCALE,12*SCALE),
+                              path.lineto(18*SCALE,12*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+
+    drawing.append((path.path(path.moveto( 4*SCALE, 0*SCALE),
+                              path.lineto( 8*SCALE, 0*SCALE),
+                              path.lineto( 8*SCALE, 2*SCALE),
+                              path.lineto( 4*SCALE, 2*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto( 8*SCALE, 0*SCALE),
+                              path.lineto(12*SCALE, 0*SCALE),
+                              path.lineto(12*SCALE, 4*SCALE),
+                              path.lineto( 8*SCALE, 4*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(12*SCALE, 2*SCALE),
+                              path.lineto(16*SCALE, 2*SCALE),
+                              path.lineto(16*SCALE, 6*SCALE),
+                              path.lineto(12*SCALE, 6*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(16*SCALE, 4*SCALE),
+                              path.lineto(20*SCALE, 4*SCALE),
+                              path.lineto(20*SCALE, 8*SCALE),
+                              path.lineto(16*SCALE, 8*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(20*SCALE, 6*SCALE),
+                              path.lineto(24*SCALE, 6*SCALE),
+                              path.lineto(24*SCALE,10*SCALE),
+                              path.lineto(20*SCALE,10*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(24*SCALE, 8*SCALE),
+                              path.lineto(28*SCALE, 8*SCALE),
+                              path.lineto(28*SCALE,12*SCALE),
+                              path.lineto(24*SCALE,12*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+
+    drawing.append((path.path(path.moveto(14*SCALE, 0*SCALE),
+                              path.lineto(18*SCALE, 0*SCALE),
+                              path.lineto(18*SCALE, 2*SCALE),
+                              path.lineto(14*SCALE, 2*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(18*SCALE, 0*SCALE),
+                              path.lineto(22*SCALE, 0*SCALE),
+                              path.lineto(22*SCALE, 4*SCALE),
+                              path.lineto(18*SCALE, 4*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(22*SCALE, 2*SCALE),
+                              path.lineto(26*SCALE, 2*SCALE),
+                              path.lineto(26*SCALE, 6*SCALE),
+                              path.lineto(22*SCALE, 6*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(26*SCALE, 4*SCALE),
+                              path.lineto(28*SCALE, 4*SCALE),
+                              path.lineto(28*SCALE, 8*SCALE),
+                              path.lineto(26*SCALE, 8*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+
+    drawing.append((path.path(path.moveto(24*SCALE, 0*SCALE),
+                              path.lineto(28*SCALE, 0*SCALE),
+                              path.lineto(28*SCALE, 2*SCALE),
+                              path.lineto(24*SCALE, 2*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+
+    drawing.append((path.path(path.moveto( 0*SCALE, 6*SCALE),
+                              path.lineto( 4*SCALE, 6*SCALE),
+                              path.lineto( 4*SCALE,10*SCALE),
+                              path.lineto( 0*SCALE,10*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto( 4*SCALE, 8*SCALE),
+                              path.lineto( 8*SCALE, 8*SCALE),
+                              path.lineto( 8*SCALE,12*SCALE),
+                              path.lineto( 4*SCALE,12*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto( 8*SCALE,10*SCALE),
+                              path.lineto(12*SCALE,10*SCALE),
+                              path.lineto(12*SCALE,12*SCALE),
+                              path.lineto( 8*SCALE,12*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+
+    drawing.append((path.path(path.moveto( 0*SCALE,10*SCALE),
+                              path.lineto( 2*SCALE,10*SCALE),
+                              path.lineto( 2*SCALE,12*SCALE),
+                              path.lineto( 0*SCALE,12*SCALE),
+                              path.closepath()), BASE+ULTRATHICK+FILLED(ORANGE)))
+
+
+    for x in range(1,28):
+        drawing.append((path.path(path.moveto(x*SCALE, 0*SCALE),
+                                  path.lineto(x*SCALE,12*SCALE)), BASE+THIN+DOTTED))
+    for y in range(1,12):
+        drawing.append((path.path(path.moveto( 0*SCALE,y*SCALE),
+                                  path.lineto(28*SCALE,y*SCALE)), BASE+THIN+DOTTED))
+    
+    drawing.append((path.path(path.moveto( 0*SCALE, 2*SCALE),
+                              path.lineto( 1*SCALE, 0*SCALE),
+                              path.moveto( 0*SCALE,12*SCALE),
+                              path.lineto( 6*SCALE, 0*SCALE),
+                              path.moveto( 5*SCALE,12*SCALE),
+                              path.lineto(11*SCALE, 0*SCALE),
+                              path.moveto(10*SCALE,12*SCALE),
+                              path.lineto(16*SCALE, 0*SCALE),
+                              path.moveto(15*SCALE,12*SCALE),
+                              path.lineto(21*SCALE, 0*SCALE),
+                              path.moveto(20*SCALE,12*SCALE),
+                              path.lineto(26*SCALE, 0*SCALE),
+                              path.moveto(25*SCALE,12*SCALE),
+                              path.lineto(28*SCALE, 6*SCALE),
+                              path.moveto( 0*SCALE, 7*SCALE),
+                              path.lineto(10*SCALE,12*SCALE),
+                              path.moveto( 0*SCALE, 2*SCALE),
+                              path.lineto(20*SCALE,12*SCALE),
+                              path.moveto( 6*SCALE, 0*SCALE),
+                              path.lineto(28*SCALE,11*SCALE),
+                              path.moveto(16*SCALE, 0*SCALE),
+                              path.lineto(28*SCALE, 6*SCALE),
+                              path.moveto(26*SCALE, 0*SCALE),
+                              path.lineto(28*SCALE, 1*SCALE)), BASE+ULTRATHICK))
+
+    drawing.append((path.path(path.moveto( 0*SCALE, 0*SCALE),
+                              path.lineto(28*SCALE, 0*SCALE),
+                              path.lineto(28*SCALE,12*SCALE),
+                              path.lineto( 0*SCALE,12*SCALE),
+                              path.closepath()), BASE+ULTRATHICK))
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
@@ -14813,4 +15248,9 @@ if __name__ == "__main__":
     figure022a()
     figure022b()
     figure022c()
-    figure023()
+    figure023a()
+    figure023b()
+    figure023c()
+    figure023d()
+    figure023e()
+    figure023f()
