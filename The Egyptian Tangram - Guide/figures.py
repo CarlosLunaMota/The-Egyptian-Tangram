@@ -14372,6 +14372,75 @@ def figure022c():
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
 
+
+def figure023():
+    '''Cairo Tiling'''
+
+    name = "figures/figure023"
+
+    SCALE  = 1
+    WIDTH  = 4
+    HEIGHT = 2
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+VERYTHICK))
+
+    """for x in range(5,8*WIDTH):
+        drawing.append((path.path(path.moveto(x*SCALE,4*SCALE),
+                                  path.lineto(x*SCALE,8*HEIGHT*SCALE)), BASE+THIN+DOTTED+COLOR(BLACK)))
+
+    for y in range(5,8*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*SCALE)), BASE+THIN+DOTTED+COLOR(BLACK)))
+    """
+    for x in range(1,2*WIDTH):
+        drawing.append((path.path(path.moveto(x*4*SCALE,4*SCALE),
+                                  path.lineto(x*4*SCALE,8*HEIGHT*SCALE)), BASE+VERYTHICK))
+
+    for y in range(1,2*HEIGHT):
+        drawing.append((path.path(path.moveto(4*SCALE,y*4*SCALE),
+                                  path.lineto(8*WIDTH*SCALE,y*4*SCALE)), BASE+VERYTHICK))
+
+    for x in range(4, 8*WIDTH, 8):
+        for y in range(4, 8*HEIGHT, 8):
+
+            drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))    
+            drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
+                                      path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+VERYTHICK))
+            if x+7 < 8*WIDTH:
+                drawing.append((path.path(path.moveto((x+7)*SCALE, (y+0)*SCALE),
+                                          path.lineto((x+5)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+1)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+VERYTHICK))
+            if y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+VERYTHICK))                                      
+                drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))    
+            if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
+                drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
+                                          path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))
+                drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+VERYTHICK))                                      
+
+    drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,4*SCALE),
+                              path.lineto(8*WIDTH*SCALE,8*HEIGHT*SCALE),
+                              path.lineto(4*SCALE,      8*HEIGHT*SCALE),
+                              path.closepath()), BASE+VERYTHICK))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+
 ################################################################################
 
 if __name__ == "__main__":
@@ -14744,3 +14813,4 @@ if __name__ == "__main__":
     figure022a()
     figure022b()
     figure022c()
+    figure023()
