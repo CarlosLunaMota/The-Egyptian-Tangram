@@ -2372,25 +2372,25 @@ def figure006d():
     E   = w_point(A,C, 2.5,1.5)
 
     drawing = []
-    drawing.append((path.path(path.moveto(*E),
-                              path.lineto(*C),
-                              path.lineto(*D),
-                              path.closepath()), BASE+ULTRATHIN+[deco.filled([YELLOW, color.transparency(0.90)])]+[YELLOW, color.transparency(0.90)]))
-    drawing.append((path.path(path.moveto(*D),
-                              path.lineto(*B),
-                              path.lineto(*E),
-                              path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
-    drawing.append((path.path(path.moveto(*A),
-                              path.lineto(*B),
-                              path.lineto(*E),
-                              path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
+    #drawing.append((path.path(path.moveto(*E),
+    #                          path.lineto(*C),
+    #                          path.lineto(*D),
+    #                          path.closepath()), BASE+ULTRATHIN+[deco.filled([YELLOW, color.transparency(0.90)])]+[YELLOW, color.transparency(0.90)]))
+    #drawing.append((path.path(path.moveto(*D),
+    #                          path.lineto(*B),
+    #                          path.lineto(*E),
+    #                          path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
+    #drawing.append((path.path(path.moveto(*A),
+    #                          path.lineto(*B),
+    #                          path.lineto(*E),
+    #                          path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
                               path.lineto(*C),
                               path.closepath()), BASE))
     drawing.append((path.path(path.moveto(*B),
                               path.lineto(*E),
-                              path.lineto(*D)), BASE+THIN+DASHED))
+                              path.lineto(*D)), BASE+VERYTHIN+DASHED))
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
@@ -2412,18 +2412,18 @@ def figure006e():
 
     drawing = []
 
-    drawing.append((path.path(path.moveto(*A),
-                              path.lineto(*B),
-                              path.lineto(*E),
-                              path.closepath()), BASE+ULTRATHIN+[deco.filled([YELLOW, color.transparency(0.90)])]+[YELLOW, color.transparency(0.90)]))
-    drawing.append((path.path(path.moveto(*D),
-                              path.lineto(*B),
-                              path.lineto(*E),
-                              path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
-    drawing.append((path.path(path.moveto(*E),
-                              path.lineto(*C),
-                              path.lineto(*D),
-                              path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
+    #drawing.append((path.path(path.moveto(*A),
+    #                          path.lineto(*B),
+    #                          path.lineto(*E),
+    #                          path.closepath()), BASE+ULTRATHIN+[deco.filled([YELLOW, color.transparency(0.90)])]+[YELLOW, color.transparency(0.90)]))
+    #drawing.append((path.path(path.moveto(*D),
+    #                          path.lineto(*B),
+    #                          path.lineto(*E),
+    #                          path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
+    #drawing.append((path.path(path.moveto(*E),
+    #                          path.lineto(*C),
+    #                          path.lineto(*D),
+    #                          path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
 
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -2431,7 +2431,7 @@ def figure006e():
                               path.closepath()), BASE))
     drawing.append((path.path(path.moveto(*B),
                               path.lineto(*E),
-                              path.lineto(*D)), BASE+THIN+DASHED))
+                              path.lineto(*D)), BASE+VERYTHIN+DASHED))
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
@@ -2569,25 +2569,155 @@ def figure006i():
 
     drawing = []
 
-    drawing.append((path.path(path.moveto(*E),
-                              path.lineto(*B),
-                              path.lineto(*D),
-                              path.closepath()), BASE+ULTRATHIN+[deco.filled([YELLOW, color.transparency(0.90)])]+[YELLOW, color.transparency(0.90)]))
-    drawing.append((path.path(path.moveto(*A),
-                              path.lineto(*B),
-                              path.lineto(*E),
-                              path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
-    drawing.append((path.path(path.moveto(*E),
-                              path.lineto(*C),
-                              path.lineto(*D),
-                              path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
+    #drawing.append((path.path(path.moveto(*E),
+    #                          path.lineto(*B),
+    #                          path.lineto(*D),
+    #                          path.closepath()), BASE+ULTRATHIN+[deco.filled([YELLOW, color.transparency(0.90)])]+[YELLOW, color.transparency(0.90)]))
+    #drawing.append((path.path(path.moveto(*A),
+    #                          path.lineto(*B),
+    #                          path.lineto(*E),
+    #                          path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
+    #drawing.append((path.path(path.moveto(*E),
+    #                          path.lineto(*C),
+    #                          path.lineto(*D),
+    #                          path.closepath()), BASE+ULTRATHIN+[deco.filled([BLUE, color.transparency(0.90)])]+[BLUE, color.transparency(0.90)]))
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
                               path.lineto(*C),
                               path.closepath()), BASE))
     drawing.append((path.path(path.moveto(*B),
                               path.lineto(*E),
-                              path.lineto(*D)), BASE+THIN+DASHED))
+                              path.lineto(*D)), BASE+VERYTHIN+DASHED))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure006j():
+    '''3:4:5 dissection'''
+
+    name = "figures/figure006j"
+
+    X   = 1.0 # Scale #
+    A   = (  0,   0)
+    B   = (  0, 3*X)
+    C   = (4*X,   0)
+    D   = w_point(B,C, 2,3)
+    E   = w_point(A,C, 2.5,1.5)
+    F   = w_point(E,C, 2,3)
+    G   = w_point(D,C, 2.5,1.5)
+    H   = w_point(G,C, 2,3)
+    I   = w_point(F,C, 2.5,1.5)
+    J   = w_point(I,C, 2,3)
+    K   = w_point(H,C, 2.5,1.5)
+    L   = w_point(K,C, 2,3)
+    M   = w_point(J,C, 2.5,1.5)
+    N   = w_point(M,C, 2,3)
+    O   = w_point(L,C, 2.5,1.5)
+    P   = w_point(O,C, 2,3)
+    Q   = w_point(N,C, 2.5,1.5)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*D),
+                              path.moveto(*E),
+                              path.lineto(*G),
+                              path.lineto(*F),
+                              path.moveto(*G),
+                              path.lineto(*I),
+                              path.lineto(*H),
+                              path.moveto(*I),
+                              path.lineto(*K),
+                              path.lineto(*J),
+                              path.moveto(*K),
+                              path.lineto(*M),
+                              path.lineto(*L),
+                              path.moveto(*M),
+                              path.lineto(*O),
+                              path.lineto(*N),
+                              path.moveto(*O),
+                              path.lineto(*Q),
+                              path.lineto(*P)), BASE+VERYTHIN+DASHED))
+
+
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure006k():
+    '''1:2:sqrt(5) dissection'''
+
+    name = "figures/figure006k"
+
+    X   = 1.0 # Scale #
+    PHI = (1.0+R5)/2.0
+    A   = (             0,             0)
+    B   = (             0, 1*(PHI+1.0)*X)
+    C   = ( 2*(PHI+1.0)*X,             0)
+
+    def koch(A, B, C, depth):
+        if depth == 0: yield (A,B,C) 
+        else:
+            D = w_point(B,C, 1,1)
+            E = w_point(A,C, 5,3)
+            yield from koch(D,E,B,depth-1)
+            yield from koch(D,E,C,depth-1)
+
+    drawing = []
+    for P,Q,R in koch(A,B,C, 8):
+        drawing.append((path.path(path.moveto(*P),
+                                  path.lineto(*Q),
+                                  path.lineto(*R),
+                                  path.closepath()), BASE+ULTRATHIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE+ULTRATHIN+DOTTED))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure006l():
+    '''1:2:sqrt(5) dissection'''
+
+    name = "figures/figure006l"
+
+    X   = 1.0 # Scale #
+    PHI = (1.0+R5)/2.0
+    A   = (             0,             0)
+    B   = (             0, 1*(PHI+1.0)*X)
+    C   = ( 2*(PHI+1.0)*X,             0)
+
+    def koch_2(A, B, C, depth):
+        if depth == 0: yield (A,B,C) 
+        else:
+            D = w_point(B,C, 3,2)
+            E = w_point(A,C, 3,1)
+            yield from koch_2(A,E,B,depth-1)
+            yield from koch_2(D,E,C,depth-1)
+
+    drawing = []
+    for P,Q,R in koch_2(A,B,C, 10):
+        drawing.append((path.path(path.moveto(*P),
+                                  path.lineto(*Q),
+                                  path.lineto(*R),
+                                  path.closepath()), BASE+ULTRATHIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE+ULTRATHIN+DOTTED))
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
@@ -14939,6 +15069,9 @@ if __name__ == "__main__":
     figure006g()
     figure006h()
     figure006i()
+    figure006j()
+    figure006k()
+    figure006l()
     figure007a()
     figure007b()
     figure008ag()
