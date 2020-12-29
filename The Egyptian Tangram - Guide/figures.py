@@ -5579,6 +5579,7 @@ def figure009f():
 
     X   = 2*R5
     PHI = X*(1.0+R5)/2.0
+    PHI_2 = 4/(1.0+R5)/(1.0+R5)
 
     A = (0,0)
     B = (0,X)
@@ -5590,12 +5591,14 @@ def figure009f():
     H = w_point(C, D, 1,1)
     I = w_point(B, E, 3,2)
     O = w_point(C,(0,2*X-PHI), 1,1)
-    R = 2*(X-O[1])/(1.0+R5)
+    P = (O[0], O[1]*PHI_2)
+    Q = (P[0], P[1]*PHI_2)
+    R = X-O[1]
     drawing = []
 
-    drawing.append((path.circle(X/2.0, X/2.0, X/2.0), BASE+COLOR(GREEN)))
-    drawing.append((path.circle(O[0], O[1], X-O[1]), BASE+COLOR(GREEN)))
-    drawing.append((path.circle(X-R, R, R), BASE+COLOR(GREEN)))
+    drawing.append((path.circle(O[0], O[1], R), BASE+COLOR(GREEN)))
+    drawing.append((path.circle(P[0], P[1], R*PHI_2), BASE+COLOR(GREEN)))
+    drawing.append((path.circle(Q[0], Q[1], R*PHI_2*PHI_2), BASE+COLOR(GREEN)))
     drawing.append((path.path(path.moveto(*B),
                               path.lineto(*E),
                               path.lineto(*C),
@@ -5756,6 +5759,50 @@ def figure009i():
     2.24 -> 3.6243961348   -> 5.8643961348
 
     """
+
+
+def figure009j():
+    '''The Egyptian Tangram'''
+
+    name = "figures/figure009j"
+
+    X   = 2*R5
+    PHI = X*(1.0+R5)/2.0
+    RHO = 2/(1+R5)
+
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    O = w_point(C,(0,2*X-PHI), 1,1)
+    R = (X-O[1])*RHO
+    S = R*RHO
+    drawing = []
+
+    drawing.append((path.circle(X/2.0, X/2.0, X/2.0), BASE+COLOR(GREEN)))
+    drawing.append((path.circle(O[0], O[1], X-O[1]), BASE+COLOR(GREEN)))
+    drawing.append((path.circle(R, R, R), BASE+COLOR(GREEN)))
+    drawing.append((path.circle(X-S, R+R+S, S), BASE+COLOR(GREEN)))
+    drawing.append((path.path(path.moveto(0,R+R),
+                              path.lineto(X,R+R)), BASE+THIN+DASHED))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
 
 
 def figure010a():
@@ -15111,6 +15158,7 @@ if __name__ == "__main__":
     figure009g()
     figure009h()
     figure009i()
+    figure009j()
     figure010a()
     figure010b()
     figure010c()
