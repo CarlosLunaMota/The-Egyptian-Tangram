@@ -27,7 +27,7 @@ BLACK    = color.grey(0.10)
 D_GREY   = color.grey(0.30)
 GREY     = color.grey(0.50)
 L_GREY   = color.grey(0.70)
-CHALK    = color.grey(0.90)
+CHALK    = color.grey(0.95)
 
 RED      = color.cmyk.Mahogany
 BLUE     = color.cmyk.NavyBlue
@@ -62,6 +62,26 @@ DASHDOTTED = [style.linestyle.dashdotted]
 
 def FILLED(color): return [deco.filled([color])]
 def COLOR(color):  return [color]
+
+# PYX TEXT SETTINGS:
+text.set(text.LatexEngine)
+text.preamble(r"\usepackage[utf8]{inputenc}")
+text.preamble(r"\usepackage[T1]{fontenc}")
+
+text.preamble(r"\usepackage{xcolor}")
+text.preamble(r"\usepackage{lmodern}")
+text.preamble(r"\usepackage{textcomp}")
+text.preamble(r"\usepackage[cm]{sfmath}")
+text.preamble(r"\usepackage[euler]{textgreek}")
+text.preamble(r"\renewcommand{\familydefault}{\sfdefault}")
+
+text.preamble(r"\setlength{\fboxsep}{4pt}")
+text.preamble(r"\setlength{\fboxrule}{0.75pt}")
+
+text.preamble(r"\usepackage{fancybox}")
+text.preamble(r"\newcommand{\button}[1]{\Ovalbox{\parbox[t][1.8ex][c]{2.2em}{\centering #1}}}")
+
+def put_text(x, y, t): return (path.path(path.moveto(x-0.01,y),path.lineto(x+0.01,y)),[deco.curvedtext(t)])
 
 # AUXILIARY FUNCTIONS
 def w_point(x, y, Wx, Wy): return ((Wx*x[0]+Wy*y[0])/(Wx+Wy), (Wx*x[1]+Wy*y[1])/(Wx+Wy))
@@ -452,6 +472,61 @@ def figure001a():
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure001aa():
+    '''The Egyptian Tangram'''
+
+    name = "figures/figure001aa"
+
+    X = 2*R5
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    drawing = []
+
+
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*I),
+                              path.lineto(*C)), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*F),
+                              path.lineto(*I),
+                              path.lineto(*E)), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*I),
+                              path.lineto(*F)), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*C),
+                              path.lineto(*D)), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*C),
+                              path.lineto(*I)), BASE+THICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE+THICK))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+THICK))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.draw(path.path(path.moveto(0.08*X-0.01,0.62*X),path.lineto(0.08*X+0.01,0.62*X)),[deco.curvedtext(r"\textbf{\color{white}{T1}}")])
+    mycanvas.draw(path.path(path.moveto(0.82*X-0.01,0.17*X),path.lineto(0.82*X+0.01,0.17*X)),[deco.curvedtext(r"\large\textbf{\color{white}{T4}}")])
+    mycanvas.draw(path.path(path.moveto(0.30*X-0.01,0.80*X),path.lineto(0.30*X+0.01,0.80*X)),[deco.curvedtext(r"\large\textbf{\color{white}{T5}}")])
+    mycanvas.draw(path.path(path.moveto(0.50*X-0.01,0.45*X),path.lineto(0.50*X+0.01,0.45*X)),[deco.curvedtext(r"\Large\textbf{\color{white}{T6}}")])
+    mycanvas.draw(path.path(path.moveto(0.17*X-0.01,0.17*X),path.lineto(0.17*X+0.01,0.17*X)),[deco.curvedtext(r"\large\textbf{\color{white}{Q4}}")])
     mycanvas.writePDFfile(name)
 
 
@@ -1981,15 +2056,15 @@ def figure004m():
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
                               path.lineto(*E),
-                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+                              path.closepath()), BASE+FILLED(GREEN)))
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*E),
                               path.lineto(*D),
-                              path.closepath()), BASE+THICK+FILLED(RED)))
+                              path.closepath()), BASE+FILLED(RED)))
     drawing.append((path.path(path.moveto(*E),
                               path.lineto(*B),
                               path.lineto(*C),
-                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+                              path.closepath()), BASE+FILLED(BLUE)))
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
@@ -2260,6 +2335,152 @@ def figure005c():
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure005d():
+    '''T1+T4+T5 - Pythagoras'''
+
+    name = "figures/figure005d"
+
+    X = 1.0 # Scale #
+    A = (0*X, 0*X)
+    B = (5*X, 0*X)
+    C = (5*X, 2*X)
+    D = (0*X, 2*X)
+    E = (1*X, 2*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*E),
+                              path.lineto(*D),
+                              path.closepath()), BASE+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE+FILLED(BLUE)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.draw(*put_text(0.50*X, 1.65*X, r"\small\color{white}{$a^2$}"))
+    mycanvas.draw(*put_text(3.10*X, 1.65*X, r"\small\color{white}{$b^2$}"))
+    mycanvas.draw(*put_text(1.80*X, 0.15*X, r"\small\color{white}{$c^2$}"))
+    mycanvas.draw(*put_text(0.70*X, 0.75*X, r"\small\color{white}{$a c$}"))
+    mycanvas.draw(*put_text(2.65*X, 0.75*X, r"\small\color{white}{$b c$}"))
+    mycanvas.draw(*put_text(0.25*X, 1.10*X, r"\small\color{white}{$a b$}"))
+    mycanvas.draw(*put_text(4.75*X, 1.10*X, r"\small\color{white}{$a b$}"))
+    
+    mycanvas.writePDFfile(name)
+
+
+def figure005e():
+    '''T1+T4+T5 - T5'''
+
+    name = "figures/figure005e"
+
+    X = 1.0 # Scale #
+    A = (0*X, 0*X)
+    B = (5*X, 0*X)
+    C = (5*X, 2*X)
+    D = (0*X, 2*X)
+    E = (1*X, 2*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(GREEN)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    
+    mycanvas.draw(*put_text(0.60*X, 0.75*X, r"\small\color{white}{$a$}"))
+    mycanvas.draw(*put_text(2.65*X, 0.75*X, r"\small\color{white}{$b$}"))
+    mycanvas.draw(*put_text(1.80*X, 0.15*X, r"\small\color{white}{$c$}"))
+
+    mycanvas.writePDFfile(name)
+
+
+def figure005f():
+    '''T1+T4+T5 - T1+T4'''
+
+    name = "figures/figure005f"
+
+    X = 1.0 # Scale #
+    A = (0*X, 0*X)
+    B = (5*X, 0*X)
+    C = (5*X, 2*X)
+    D = (0*X, 2*X)
+    E = (1*X, 2*X)
+    F = (1*X, 0*X)
+    
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.closepath()), BASE+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*F),
+                              path.lineto(*B),
+                              path.closepath()), BASE+FILLED(BLUE)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    
+    mycanvas.draw(*put_text(0.60*X, 0.75*X, r"\small\color{white}{$a$}"))
+    mycanvas.draw(*put_text(2.65*X, 0.75*X, r"\small\color{white}{$b$}"))
+    mycanvas.draw(*put_text(0.60*X, 0.15*X, r"\small\color{white}{$x$}"))
+    mycanvas.draw(*put_text(2.00*X, 0.15*X, r"\small\color{white}{$y$}"))
+    mycanvas.draw(*put_text(1.20*X, 0.75*X, r"\small\color{white}{$h$}"))
+
+    mycanvas.writePDFfile(name)
+
+
+def figure005g():
+    '''T1+T4+T5 - Trapezoid'''
+
+    name = "figures/figure005g"
+
+    X = 1.0 # Scale #
+    A = (0*X, 0*X)
+    B = (4*X, 0*X)
+    C = (4*X, 4*X)
+    D = (0*X, 1*X)
+    E = (2*X, 0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*C),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*D),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(RED)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*C),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(BLUE)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    
+    mycanvas.draw(*put_text(3.10*X, 0.13*X, r"\small\color{white}{$\sqrt{\!ab}$}"))
+    mycanvas.draw(*put_text(0.65*X, 0.13*X, r"\small\color{white}{$\sqrt{\!ab}$}"))
+    mycanvas.draw(*put_text(0.15*X, 0.40*X, r"\small\color{white}{$a$}"))
+    mycanvas.draw(*put_text(3.80*X, 1.65*X, r"\small\color{white}{$b$}"))
+    mycanvas.draw(*put_text(2.00*X, 2.00*X, r"\small\color{white}{$a+b$}"))
+
     mycanvas.writePDFfile(name)
 
 
@@ -8552,6 +8773,287 @@ def figure013ao():
     
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure013ba():
+    '''El Subtangram Egípci - Angles'''
+
+    name = "figures/figure013ba"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (4*X, 0*X)
+    C = (4*X, 4*X)
+    D = (0*X, 4*X)
+    E = (4*X, 2*X)
+    F = (3*X, 4*X)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.closepath()), BASE+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*A),
+                              path.lineto(*D),
+                              path.closepath()), BASE+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*F),
+                              path.lineto(*C),
+                              path.closepath()), BASE+FILLED(RED)))
+
+    R = 0.75*X
+    a = atan2(1,2)*180/pi
+    b = atan2(1,2)*180/pi
+
+    drawing.append((path.path(path.moveto(A[0]+R, A[1]),
+                    path.arc(A[0],A[1], R, 0, a+b)), BASE+THIN))
+
+    drawing.append((path.path(path.moveto(F[0]-R, F[1]),
+                    path.arc(F[0],F[1], R, 180, 180+a+b)), BASE+THIN))
+
+    drawing.append((path.path(path.moveto(E[0]-0.2*X, E[1]+0.4*X),
+                              path.lineto(E[0]-0.6*X, E[1]+0.2*X),
+                              path.lineto(E[0]-0.4*X, E[1]-0.2*X)), BASE+THIN))
+
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.draw(*put_text(0.95*X, 0.15*X, r"\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text(0.80*X, 0.60*X, r"\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text(1.80*X, 3.50*X, r"\color{white}{\textalpha+\textbeta}"))
+    mycanvas.draw(*put_text(1.90*X, 1.90*X, r"\color{white}{1}"))
+
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{sin\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(0.25*E[0],0.25*E[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{cos\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(C[0],C[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{sin\,\textalpha\,\,sin\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(C[0],C[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{cos\,\textalpha\,\,sin\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(E[0],E[1]),path.lineto(B[0],B[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{sin\,\textalpha\,\,cos\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
+                  [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{cos\,\textalpha\,\,cos\,\textbeta}}")])
+
+    
+    mycanvas.writePDFfile(name)
+
+
+def figure013bb():
+    '''El Subtangram Egípci - Angles 2'''
+
+    name = "figures/figure013bb"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (4*X, 0*X)
+    C = (4*X, 4*X)
+    D = (0*X, 4*X)
+    E = (4*X, 2*X)
+    F = (3*X, 4*X)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.closepath()), BASE+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*A),
+                              path.lineto(*D),
+                              path.closepath()), BASE+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*F),
+                              path.lineto(*C),
+                              path.closepath()), BASE+FILLED(RED)))
+
+    R = 0.75*X
+    a = atan2(1,2)*180/pi
+    b = atan2(1,2)*180/pi
+
+    RA = r_point((A[0]+R, A[1]), A, atan2(1,2))
+
+    drawing.append((path.path(path.moveto(*RA),
+                    path.arc(A[0],A[1], R, a, 90)), BASE+THIN))
+
+    drawing.append((path.path(path.moveto(E[0], E[1]-R*0.6),
+                    path.arcn(E[0],E[1], R*0.6, 270, 180+a)), BASE+THIN))
+
+    drawing.append((path.path(path.moveto(E[0]-0.2*X, E[1]+0.4*X),
+                              path.lineto(E[0]-0.6*X, E[1]+0.2*X),
+                              path.lineto(E[0]-0.4*X, E[1]-0.2*X)), BASE+THIN))
+
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.draw(*put_text(0.35*X, 0.95*X, r"\color{white}{\textalpha--\textbeta}"))
+    mycanvas.draw(*put_text(0.80*X, 0.60*X, r"\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text(3.65*X, 1.35*X, r"\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text(1.90*X, 1.90*X, r"\color{white}{1}"))
+
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{sin\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(0.25*E[0],0.25*E[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{cos\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(C[0],C[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{cos\,\textalpha\,\,sin\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(C[0],C[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{sin\,\textalpha\,\,sin\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(E[0],E[1]),path.lineto(B[0],B[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{cos\,\textalpha\,\,cos\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
+                  [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{sin\,\textalpha\,\,cos\,\textbeta}}")])
+    
+    mycanvas.writePDFfile(name)
+
+def figure013bc():
+    '''El Subtangram Egípci - Angles 3'''
+
+    name = "figures/figure013bc"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (4*X, 0*X)
+    C = (4*X, 4*X)
+    D = (0*X, 4*X)
+    E = (4*X, 2*X)
+    F = (3*X, 4*X)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.closepath()), BASE+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*A),
+                              path.lineto(*D),
+                              path.closepath()), BASE+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*F),
+                              path.lineto(*C),
+                              path.closepath()), BASE+FILLED(RED)))
+
+    R = 0.75*X
+    a = atan2(1,2)*180/pi
+    b = atan2(1,2)*180/pi
+
+    drawing.append((path.path(path.moveto(A[0]+R, A[1]),
+                    path.arc(A[0],A[1], R, 0, a+b)), BASE+THIN))
+
+    drawing.append((path.path(path.moveto(F[0]-R, F[1]),
+                    path.arc(F[0],F[1], R, 180, 180+a+b)), BASE+THIN))
+
+    drawing.append((path.path(path.moveto(E[0]-0.2*X, E[1]+0.4*X),
+                              path.lineto(E[0]-0.6*X, E[1]+0.2*X),
+                              path.lineto(E[0]-0.4*X, E[1]-0.2*X)), BASE+THIN))
+
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.draw(*put_text(0.95*X, 0.15*X, r"\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text(0.80*X, 0.60*X, r"\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text(1.80*X, 3.50*X, r"\color{white}{\textalpha+\textbeta}"))
+
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(E[0]-0.1*X, E[1]+0.2*X)),
+                  [deco.curvedtext(r"\footnotesize\raisebox{-2ex}{\color{white}{sec\,\textalpha\,\,tan\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(0.25*E[0],0.25*E[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{sec\,\textalpha}}")])
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(C[0],C[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textalpha\,\,tan\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(C[0],C[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(E[0],E[1]),path.lineto(B[0],B[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textalpha}}")])
+    mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
+                  [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{1}}")])
+    
+    mycanvas.writePDFfile(name)
+
+
+def figure013bd():
+    '''El Subtangram Egípci - Angles 4'''
+
+    name = "figures/figure013bd"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (4*X, 0*X)
+    C = (4*X, 4*X)
+    D = (0*X, 4*X)
+    E = (4*X, 2*X)
+    F = (3*X, 4*X)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*E),
+                              path.closepath()), BASE+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.closepath()), BASE+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*F),
+                              path.lineto(*A),
+                              path.lineto(*D),
+                              path.closepath()), BASE+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(*E),
+                              path.lineto(*F),
+                              path.lineto(*C),
+                              path.closepath()), BASE+FILLED(RED)))
+
+    R = 0.75*X
+    a = atan2(1,2)*180/pi
+    b = atan2(1,2)*180/pi
+
+    RA = r_point((A[0]+R, A[1]), A, atan2(1,2))
+
+    drawing.append((path.path(path.moveto(*RA),
+                    path.arc(A[0],A[1], R, a, 90)), BASE+THIN))
+
+    drawing.append((path.path(path.moveto(E[0], E[1]-R*0.6),
+                    path.arcn(E[0],E[1], R*0.6, 270, 180+a)), BASE+THIN))
+
+    drawing.append((path.path(path.moveto(E[0]-0.2*X, E[1]+0.4*X),
+                              path.lineto(E[0]-0.6*X, E[1]+0.2*X),
+                              path.lineto(E[0]-0.4*X, E[1]-0.2*X)), BASE+THIN))
+
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.draw(*put_text(0.35*X, 0.95*X, r"\color{white}{\textalpha--\textbeta}"))
+    mycanvas.draw(*put_text(0.80*X, 0.60*X, r"\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text(3.65*X, 1.35*X, r"\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text(4.20*X, 0.95*X, r"\small\color{white}{1}"))
+
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(E[0]-0.1*X, E[1]+0.2*X)),
+                  [deco.curvedtext(r"\footnotesize\raisebox{-2ex}{\color{white}{sec\,\textalpha\,\,tan\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(0.25*E[0],0.25*E[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{sec\,\textalpha}}")])
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(C[0],C[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(C[0],C[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textalpha\,\,tan\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
+                  [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{tan\,\textalpha}}")])
+    
     mycanvas.writePDFfile(name)
 
 
@@ -15063,6 +15565,7 @@ if __name__ == "__main__":
     figure000d()
     figure000e()
     figure000f()
+    figure001aa()
     figure001a()
     figure001b()
     figure001c()
@@ -15107,6 +15610,10 @@ if __name__ == "__main__":
     figure005a()
     figure005b()
     figure005c()
+    figure005d()
+    figure005e()
+    figure005f()
+    figure005g()
     figure006a()
     figure006b()
     figure006c()
@@ -15251,6 +15758,10 @@ if __name__ == "__main__":
     figure013am()
     figure013an()
     figure013ao()
+    figure013ba()
+    figure013bb()
+    figure013bc()
+    figure013bd()
     figure014a()
     figure014b()
     figure014c()
