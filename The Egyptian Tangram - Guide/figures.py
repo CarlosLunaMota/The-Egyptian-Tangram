@@ -87,7 +87,7 @@ def put_text(x, y, t): return (path.path(path.moveto(x-0.01,y),path.lineto(x+0.0
 def w_point(x, y, Wx, Wy): return ((Wx*x[0]+Wy*y[0])/(Wx+Wy), (Wx*x[1]+Wy*y[1])/(Wx+Wy))
 def s_point(x, y, W): return ((W*(y[0]-x[0]))+y[0], (W*(y[1]-x[1]))+y[1])
 def r_point(p, c, A): return (c[0]+(p[0]-c[0])*cos(A)-(p[1]-c[1])*sin(A), c[1]+(p[0]-c[0])*sin(A)+(p[1]-c[1])*cos(A))
-    
+
 def flip(P, A, B):
     M = ((A[0]+B[0])/2.0, (A[1]+B[1])/2.0)  # Midpoint of the A--B segment
     V = (A[1]-B[1], B[0]-A[0])              # Perpendicular to the A--B line
@@ -522,11 +522,12 @@ def figure001aa():
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
 
-    mycanvas.draw(path.path(path.moveto(0.08*X-0.01,0.62*X),path.lineto(0.08*X+0.01,0.62*X)),[deco.curvedtext(r"\textbf{\color{white}{T1}}")])
-    mycanvas.draw(path.path(path.moveto(0.82*X-0.01,0.17*X),path.lineto(0.82*X+0.01,0.17*X)),[deco.curvedtext(r"\large\textbf{\color{white}{T4}}")])
-    mycanvas.draw(path.path(path.moveto(0.30*X-0.01,0.80*X),path.lineto(0.30*X+0.01,0.80*X)),[deco.curvedtext(r"\large\textbf{\color{white}{T5}}")])
-    mycanvas.draw(path.path(path.moveto(0.50*X-0.01,0.45*X),path.lineto(0.50*X+0.01,0.45*X)),[deco.curvedtext(r"\Large\textbf{\color{white}{T6}}")])
-    mycanvas.draw(path.path(path.moveto(0.17*X-0.01,0.17*X),path.lineto(0.17*X+0.01,0.17*X)),[deco.curvedtext(r"\large\textbf{\color{white}{Q4}}")])
+    mycanvas.draw(*put_text(0.08*X, 0.62*X, r"\textbf{\color{white}{T1}}"))
+    mycanvas.draw(*put_text(0.82*X, 0.17*X, r"\large\textbf{\color{white}{T5}}"))
+    mycanvas.draw(*put_text(0.30*X, 0.80*X, r"\large\textbf{\color{white}{T4}}"))
+    mycanvas.draw(*put_text(0.50*X, 0.45*X, r"\Large\textbf{\color{white}{T6}}"))
+    mycanvas.draw(*put_text(0.17*X, 0.17*X, r"\large\textbf{\color{white}{Q4}}"))
+
     mycanvas.writePDFfile(name)
 
 
@@ -2088,7 +2089,7 @@ def figure004n():
                               path.lineto(*C),
                               path.lineto(*D),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -2111,7 +2112,7 @@ def figure004o():
                               path.lineto(*C),
                               path.lineto(*D),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -2134,7 +2135,7 @@ def figure004p():
                               path.lineto(*C),
                               path.lineto(*D),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -2162,11 +2163,11 @@ def figure004q():
                               path.lineto(*C),
                               path.lineto(*D),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
- 
+
 
 def figure004r():
     '''T1+T4+T5 - Figura r'''
@@ -2191,11 +2192,11 @@ def figure004r():
                               path.lineto(*C),
                               path.lineto(*D),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
- 
+
 
 def figure004s():
     '''T1+T4+T5 - Figura s'''
@@ -2221,11 +2222,11 @@ def figure004s():
                               path.lineto(*C),
                               path.lineto(*D),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
-    
+
 
 def figure005a():
     '''T1+T4+T5 - Pythagoras of T5'''
@@ -2374,7 +2375,7 @@ def figure005d():
     mycanvas.draw(*put_text(2.65*X, 0.75*X, r"\small\color{white}{$b c$}"))
     mycanvas.draw(*put_text(0.25*X, 1.10*X, r"\small\color{white}{$a b$}"))
     mycanvas.draw(*put_text(4.75*X, 1.10*X, r"\small\color{white}{$a b$}"))
-    
+
     mycanvas.writePDFfile(name)
 
 
@@ -2398,7 +2399,7 @@ def figure005e():
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
-    
+
     mycanvas.draw(*put_text(0.60*X, 0.75*X, r"\small\color{white}{$a$}"))
     mycanvas.draw(*put_text(2.65*X, 0.75*X, r"\small\color{white}{$b$}"))
     mycanvas.draw(*put_text(1.80*X, 0.15*X, r"\small\color{white}{$c$}"))
@@ -2418,7 +2419,7 @@ def figure005f():
     D = (0*X, 2*X)
     E = (1*X, 2*X)
     F = (1*X, 0*X)
-    
+
 
     drawing = []
     drawing.append((path.path(path.moveto(*A),
@@ -2436,7 +2437,7 @@ def figure005f():
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
-    
+
     mycanvas.draw(*put_text(0.60*X, 0.75*X, r"\small\color{white}{$a$}"))
     mycanvas.draw(*put_text(2.65*X, 0.75*X, r"\small\color{white}{$b$}"))
     mycanvas.draw(*put_text(0.60*X, 0.15*X, r"\small\color{white}{$x$}"))
@@ -2474,7 +2475,7 @@ def figure005g():
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
-    
+
     mycanvas.draw(*put_text(3.10*X, 0.13*X, r"\small\color{white}{$\sqrt{\!ab}$}"))
     mycanvas.draw(*put_text(0.65*X, 0.13*X, r"\small\color{white}{$\sqrt{\!ab}$}"))
     mycanvas.draw(*put_text(0.15*X, 0.40*X, r"\small\color{white}{$a$}"))
@@ -2838,7 +2839,7 @@ def figure006j():
     O   = w_point(L,C, 2.5,1.5)
     P   = w_point(O,C, 2,3)
     Q   = w_point(N,C, 2.5,1.5)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -2885,7 +2886,7 @@ def figure006k():
     C   = ( 2*(PHI+1.0)*X,             0)
 
     def koch(A, B, C, depth):
-        if depth == 0: yield (A,B,C) 
+        if depth == 0: yield (A,B,C)
         else:
             D = w_point(B,C, 1,1)
             E = w_point(A,C, 5,3)
@@ -2921,7 +2922,7 @@ def figure006l():
     C   = ( 2*(PHI+1.0)*X,             0)
 
     def koch_2(A, B, C, depth):
-        if depth == 0: yield (A,B,C) 
+        if depth == 0: yield (A,B,C)
         else:
             D = w_point(B,C, 3,2)
             E = w_point(A,C, 3,1)
@@ -8042,7 +8043,7 @@ def figure013t():
     G = (3*X, 0*X)
     H = (5*X, 4*X)
     I = (4*X, 2*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8070,7 +8071,7 @@ def figure013u():
     G = (3*X, 0*X)
     H = (5*X, 4*X)
     I = (4*X, 2*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*F),
                               path.lineto(*B),
@@ -8125,7 +8126,7 @@ def figure013v():
     G = (3*X, 0*X)
     H = (5*X, 4*X)
     I = (4*X, 2*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*F),
                               path.lineto(*C),
@@ -8164,7 +8165,7 @@ def figure013w():
     #F = flip(F, A, B)
     #G = flip(G, A, B)
     #H = flip(H, A, B)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*F),
                               path.lineto(*B),
@@ -8208,7 +8209,7 @@ def figure013x():
     H = (5*X, 4*X)
     I = (4*X, 2*X)
     CC = flip(C, B, D)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*H),
                               path.lineto(*B)), BASE+DASHED))
@@ -8225,7 +8226,7 @@ def figure013x():
                               path.lineto(*H),
                               path.lineto(*CC),
                               path.closepath()), BASE+VERYTHICK))
-                              
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8251,7 +8252,7 @@ def figure013y():
     #C, D = D, C
     #G, H = H, G
     #F = flip(F, G, H)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*H),
                               path.lineto(*C),
@@ -8277,7 +8278,7 @@ def figure013y():
                               path.lineto(*H),
                               path.lineto(*CC),
                               path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
-                              
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8299,7 +8300,7 @@ def figure013z():
     H = (5*X, 4*X)
     I = (4*X, 2*X)
     CC = flip(C, B, D)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*H),
                               path.lineto(*B)), BASE+DASHED))
@@ -8314,7 +8315,7 @@ def figure013z():
                               path.lineto(*D),
                               path.lineto(*CC),
                               path.closepath()), BASE+VERYTHICK))
-                              
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8339,7 +8340,7 @@ def figure013zz():
     #CC, C = C, CC
     #D, B = B, D
     #F = flip(F, B, D)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*B),
                               path.lineto(*A),
@@ -8364,7 +8365,7 @@ def figure013zz():
                               path.lineto(*H),
                               path.lineto(*CC),
                               path.closepath()), BASE+VERYTHICK+FILLED(YELLOW)))
-                              
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8430,7 +8431,7 @@ def figure013ac():
     B = (4*R5*X,   0*X)
     C = r_point((4*R5*X,3*X), B, atan2(2,1)+atan2(3,4)-pi/2)
     D = (2*R5*X,1*R5*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8460,7 +8461,7 @@ def figure013ad():
                               path.lineto(*C),
                               path.lineto(*D),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8482,7 +8483,7 @@ def figure013ae():
     C = r_point((C[0],C[1]), A, pi-atan2(2,1))
     D = r_point((D[0],D[1]), A, pi-atan2(2,1))
     E = r_point((E[0],E[1]), A, pi-atan2(2,1))
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8490,7 +8491,7 @@ def figure013ae():
                               path.lineto(*D),
                               path.lineto(*E),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8516,7 +8517,7 @@ def figure013af():
                               path.lineto(*E),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
 
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8560,7 +8561,7 @@ def figure013ah():
     C = (4*X, 4*X)
     D = (0*X, 2*X)
     E = flip((0*X, 0*X), A, D)
-        
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8568,7 +8569,7 @@ def figure013ah():
                               path.lineto(*D),
                               path.lineto(*E),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8588,7 +8589,7 @@ def figure013ai():
     D = flip(D, A, C)
     E = flip(E, A, C)
     D, E = E, D
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8596,7 +8597,7 @@ def figure013ai():
                               path.lineto(*D),
                               path.lineto(*E),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8621,7 +8622,7 @@ def figure013aj():
                               path.lineto(*D),
                               path.lineto(*E),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8652,7 +8653,7 @@ def figure013ak():
                               path.lineto(*D),
                               path.lineto(*E),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8678,7 +8679,7 @@ def figure013al():
                               path.lineto(*E),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
 
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8701,7 +8702,7 @@ def figure013am():
     C = (-C[0],C[1])
     D = (-D[0],D[1])
     E = (-E[0],E[1])
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8709,7 +8710,7 @@ def figure013am():
                               path.lineto(*D),
                               path.lineto(*E),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8761,7 +8762,7 @@ def figure013ao():
     D = (-D[0],D[1])
     E = (-E[0],E[1])
     F = (-F[0],F[1])
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8770,7 +8771,7 @@ def figure013ao():
                               path.lineto(*E),
                               path.lineto(*F),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -8788,7 +8789,7 @@ def figure013ba():
     D = (0*X, 4*X)
     E = (4*X, 2*X)
     F = (3*X, 4*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8821,7 +8822,7 @@ def figure013ba():
                               path.lineto(E[0]-0.6*X, E[1]+0.2*X),
                               path.lineto(E[0]-0.4*X, E[1]-0.2*X)), BASE+THIN))
 
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
 
@@ -8843,7 +8844,7 @@ def figure013ba():
     mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
                   [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{cos\,\textalpha\,\,cos\,\textbeta}}")])
 
-    
+
     mycanvas.writePDFfile(name)
 
 
@@ -8859,7 +8860,7 @@ def figure013bb():
     D = (0*X, 4*X)
     E = (4*X, 2*X)
     F = (3*X, 4*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8894,7 +8895,7 @@ def figure013bb():
                               path.lineto(E[0]-0.6*X, E[1]+0.2*X),
                               path.lineto(E[0]-0.4*X, E[1]-0.2*X)), BASE+THIN))
 
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
 
@@ -8915,8 +8916,9 @@ def figure013bb():
                   [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{cos\,\textalpha\,\,cos\,\textbeta}}")])
     mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
                   [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{sin\,\textalpha\,\,cos\,\textbeta}}")])
-    
+
     mycanvas.writePDFfile(name)
+
 
 def figure013bc():
     '''El Subtangram Egípci - Angles 3'''
@@ -8930,7 +8932,7 @@ def figure013bc():
     D = (0*X, 4*X)
     E = (4*X, 2*X)
     F = (3*X, 4*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -8963,7 +8965,7 @@ def figure013bc():
                               path.lineto(E[0]-0.6*X, E[1]+0.2*X),
                               path.lineto(E[0]-0.4*X, E[1]-0.2*X)), BASE+THIN))
 
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
 
@@ -8983,7 +8985,7 @@ def figure013bc():
                   [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textalpha}}")])
     mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
                   [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{1}}")])
-    
+
     mycanvas.writePDFfile(name)
 
 
@@ -8999,7 +9001,7 @@ def figure013bd():
     D = (0*X, 4*X)
     E = (4*X, 2*X)
     F = (3*X, 4*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -9034,7 +9036,7 @@ def figure013bd():
                               path.lineto(E[0]-0.6*X, E[1]+0.2*X),
                               path.lineto(E[0]-0.4*X, E[1]-0.2*X)), BASE+THIN))
 
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
 
@@ -9053,7 +9055,7 @@ def figure013bd():
                   [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textalpha\,\,tan\,\textbeta}}")])
     mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
                   [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{tan\,\textalpha}}")])
-    
+
     mycanvas.writePDFfile(name)
 
 
@@ -12419,7 +12421,7 @@ def figure016ce():
     H = (    0*R5*X, 4*X)
     I = (    0*R5*X, 4*X-R5*X)
     J = w_point(E, G, 3, R5*2-3)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -12458,7 +12460,7 @@ def figure016cf():
     H = (    0*R5*X, 4*X)
     I = (    0*R5*X, 4*X-R5*X)
     J = w_point(E, G, 3, R5*2-3)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -12494,7 +12496,7 @@ def figure016cg():
     F = ((2+R5)*X, 0*X)
     G = ((2+R5)*X, (4-R5)*X)
     H = w_point(A, (2*X,4*X), 3, R5*2-3)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -12522,7 +12524,7 @@ def figure016ch():
 
     b = atan2(1,2)
     c = pi/2.0 - atan2(3,4)
-    
+
     A = ( 0*X, 0*X)
     B = ( 0*X, 3*X)
     C = r_point((B[0]+4*X, B[1] + 2*X), B, b)
@@ -12536,9 +12538,9 @@ def figure016ch():
     F = r_point(F, H, c)
     G = r_point(G, H, c)
     K = ( 1*X, 2*X)
-    
 
-    a = atan2(A[1]-I[1],I[0]-A[0])    
+
+    a = atan2(A[1]-I[1],I[0]-A[0])
 
     A = r_point(A, (0.0,0.0) , a)
     B = r_point(B, (0.0,0.0) , a)
@@ -12565,7 +12567,7 @@ def figure016ch():
                               path.lineto(*J),
                               path.lineto(*K),
                               path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
-    
+
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
     mycanvas.writePDFfile(name)
@@ -13305,7 +13307,7 @@ def figure018ae():
     B = (10*X,   0)
     C = w_point(B, (4*X,3*X), 5, 3*R5-5)
     D = r_point((4*X + R5*X,3*X), (4*X,3*X), atan2(3,4))
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -14052,7 +14054,7 @@ def figure019ae():
     B = (10*X,   0)
     C = w_point(B, (4*X,3*X), 5, 3*R5-5)
     D = r_point((4*X + R5*X,3*X), (4*X,3*X), atan2(3,4))
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -14461,7 +14463,7 @@ def figure020g():
     J = w_point(A, C, 3, 2)
     K = r_point((J[0], J[1]+1*X+R5*X), J, atan2(1,2)-pi/2)
     L = w_point(H, I, 1, R5-1)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*C),
                               path.lineto(*E),
@@ -14521,7 +14523,7 @@ def figure020h():
     E = r_point(E, C, atan2(1,2))
     F = r_point(F, C, atan2(1,2))
     G = r_point(G, C, atan2(1,2))
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*C),
                               path.lineto(*E),
@@ -14568,7 +14570,7 @@ def figure020i():
     J = r_point(((6+R5)*X,3*X), C, -atan2(1,2))
     K = r_point((7*X,1*X), C, -atan2(1,2))
     L = w_point(I,K,R5-1,1)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*C),
                               path.lineto(*F),
@@ -14615,7 +14617,7 @@ def figure020j():
     J = w_point(F,C,3,2)
     K = (5*X-R5*X,3*X+R5*X)
     L = (5*X-R5*X,5*X+R5*X)
-    
+
     drawing = []
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
@@ -14757,7 +14759,7 @@ def figure022a():
     S = (4*X, 1*X)
     T = (4*X, 3*X)
     U = (5*X, 3*X)
-    
+
     drawing = []
 
     drawing.append((path.path(path.moveto(*O),
@@ -14853,7 +14855,7 @@ def figure022b():
     DDDD = (3*X, 5.25*X)
     EEEE = (4*X, 6.00*X)
     FFFF = (5*X, 5.50*X)
-    
+
     III  = (4.000*X, 1*X)
     JJJ  = (2.000*X, 2*X)
     KKK  = (0.000*X, 3*X)
@@ -14872,7 +14874,7 @@ def figure022b():
 
     S = (2*X, 2*X)
     T = (4*X, 1*X)
-    
+
     drawing = []
 
     drawing.append((path.path(path.moveto(*A), path.lineto(*AA),
@@ -14959,7 +14961,7 @@ def figure022c():
     DDDD = (3*X, 5.25*X)
     EEEE = (4*X, 6.00*X)
     FFFF = (5*X, 5.50*X)
-    
+
     III  = (4.000*X, 1*X)
     JJJ  = (2.000*X, 2*X)
     KKK  = (0.000*X, 3*X)
@@ -14978,7 +14980,7 @@ def figure022c():
 
     S = (2*X, 2*X)
     T = (4*X, 1*X)
-    
+
 
     drawing = []
 
@@ -15027,7 +15029,7 @@ def figure022c():
     drawing.append((path.circle(2*X, 2*X, Y), BOUNDARY))
     drawing.append((path.circle(0*X, 3*X, Y), BOUNDARY))
     drawing.append((path.circle(4*X, 6*X, Y), BOUNDARY))
-    
+
     drawing.append((path.circle(3*X, 5*X, Y), INTERIOR))
     drawing.append((path.circle(4*X, 5*X, Y), INTERIOR))
     drawing.append((path.circle(5*X, 5*X, Y), INTERIOR))
@@ -15060,7 +15062,7 @@ def figure023a():
     SCALE  = 1
     WIDTH  = 4
     HEIGHT = 2
-    
+
     drawing = []
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
@@ -15089,7 +15091,7 @@ def figure023a():
         for y in range(4, 8*HEIGHT, 8):
 
             drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
-                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))    
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))
             drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
                                       path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+VERYTHICK))
             if x+7 < 8*WIDTH:
@@ -15099,14 +15101,14 @@ def figure023a():
                                           path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+VERYTHICK))
             if y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
-                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+VERYTHICK))                                      
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+VERYTHICK))
                 drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
-                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))    
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))
             if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
                                           path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))
                 drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
-                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+VERYTHICK))                                      
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+VERYTHICK))
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
                               path.lineto(8*WIDTH*SCALE,4*SCALE),
@@ -15127,7 +15129,7 @@ def figure023b():
     SCALE  = 1
     WIDTH  = 4
     HEIGHT = 2
-    
+
     drawing = []
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
@@ -15156,7 +15158,7 @@ def figure023b():
         for y in range(4, 8*HEIGHT, 8):
 
             drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
-                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))    
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))
             drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
                                       path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+VERYTHICK))
             if x+7 < 8*WIDTH:
@@ -15166,14 +15168,14 @@ def figure023b():
                                           path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+VERYTHICK))
             if y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
-                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+VERYTHICK))                                      
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+VERYTHICK))
                 drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
-                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))    
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))
             if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
                                           path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))
                 drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
-                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+VERYTHICK))                                      
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+VERYTHICK))
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
                               path.lineto(8*WIDTH*SCALE,4*SCALE),
@@ -15194,7 +15196,7 @@ def figure023c():
     SCALE  = 1
     WIDTH  = 4
     HEIGHT = 2
-    
+
     drawing = []
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
@@ -15210,7 +15212,7 @@ def figure023c():
     for y in range(5,8*HEIGHT):
         drawing.append((path.path(path.moveto(4*SCALE,y*SCALE),
                                   path.lineto(8*WIDTH*SCALE,y*SCALE)), BASE+THIN+DOTTED))
-    
+
     for x in range(1,2*WIDTH):
         drawing.append((path.path(path.moveto(x*4*SCALE,4*SCALE),
                                   path.lineto(x*4*SCALE,8*HEIGHT*SCALE)), BASE+ULTRATHICK))
@@ -15223,7 +15225,7 @@ def figure023c():
         for y in range(4, 8*HEIGHT, 8):
 
             drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
-                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+ULTRATHICK))    
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+ULTRATHICK))
             drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
                                       path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+ULTRATHICK))
             if x+7 < 8*WIDTH:
@@ -15233,14 +15235,14 @@ def figure023c():
                                           path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+ULTRATHICK))
             if y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
-                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+ULTRATHICK))                                      
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+ULTRATHICK))
                 drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
-                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))    
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))
             if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
                                           path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))
                 drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
-                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+ULTRATHICK))                                      
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+ULTRATHICK))
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
                               path.lineto(8*WIDTH*SCALE,4*SCALE),
@@ -15261,7 +15263,7 @@ def figure023d():
     SCALE  = 1
     WIDTH  = 4
     HEIGHT = 2
-    
+
     drawing = []
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
@@ -15277,7 +15279,7 @@ def figure023d():
     for y in range(5,8*HEIGHT):
         drawing.append((path.path(path.moveto(4*SCALE,y*SCALE),
                                   path.lineto(8*WIDTH*SCALE,y*SCALE)), BASE+THIN+DOTTED))
-    
+
     for x in range(1,2*WIDTH):
         drawing.append((path.path(path.moveto(x*4*SCALE,4*SCALE),
                                   path.lineto(x*4*SCALE,8*HEIGHT*SCALE)), BASE+VERYTHICK))
@@ -15290,7 +15292,7 @@ def figure023d():
         for y in range(4, 8*HEIGHT, 8):
 
             drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
-                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))    
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+VERYTHICK))
             drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
                                       path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+VERYTHICK))
             if x+7 < 8*WIDTH:
@@ -15300,14 +15302,14 @@ def figure023d():
                                           path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+VERYTHICK))
             if y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
-                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+VERYTHICK))                                      
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+VERYTHICK))
                 drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
-                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))    
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))
             if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
                                           path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+VERYTHICK))
                 drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
-                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+VERYTHICK))                                      
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+VERYTHICK))
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
                               path.lineto(8*WIDTH*SCALE,4*SCALE),
@@ -15328,7 +15330,7 @@ def figure023e():
     SCALE  = 1
     WIDTH  = 4
     HEIGHT = 2
-    
+
     drawing = []
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
@@ -15344,7 +15346,7 @@ def figure023e():
     for y in range(5,8*HEIGHT):
         drawing.append((path.path(path.moveto(4*SCALE,y*SCALE),
                                   path.lineto(8*WIDTH*SCALE,y*SCALE)), BASE+THIN+DOTTED))
-    
+
     for x in range(1,2*WIDTH):
         drawing.append((path.path(path.moveto(x*4*SCALE,4*SCALE),
                                   path.lineto(x*4*SCALE,8*HEIGHT*SCALE)), BASE+ULTRATHICK))
@@ -15357,7 +15359,7 @@ def figure023e():
         for y in range(4, 8*HEIGHT, 8):
 
             drawing.append((path.path(path.moveto((x+1)*SCALE, (y+0)*SCALE),
-                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+ULTRATHICK))    
+                                      path.lineto((x+3)*SCALE, (y+4)*SCALE)), BASE+ULTRATHICK))
             drawing.append((path.path(path.moveto((x+0)*SCALE, (y+3)*SCALE),
                                       path.lineto((x+4)*SCALE, (y+1)*SCALE)), BASE+ULTRATHICK))
             if x+7 < 8*WIDTH:
@@ -15367,14 +15369,14 @@ def figure023e():
                                           path.lineto((x+8)*SCALE, (y+3)*SCALE)), BASE+ULTRATHICK))
             if y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+0)*SCALE, (y+5)*SCALE),
-                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+ULTRATHICK))                                      
+                                          path.lineto((x+4)*SCALE, (y+7)*SCALE)), BASE+ULTRATHICK))
                 drawing.append((path.path(path.moveto((x+3)*SCALE, (y+4)*SCALE),
-                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))    
+                                          path.lineto((x+1)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))
             if x+7 < 8*WIDTH and y+7 < 8*HEIGHT:
                 drawing.append((path.path(path.moveto((x+5)*SCALE, (y+4)*SCALE),
                                           path.lineto((x+7)*SCALE, (y+8)*SCALE)), BASE+ULTRATHICK))
                 drawing.append((path.path(path.moveto((x+4)*SCALE, (y+7)*SCALE),
-                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+ULTRATHICK))                                      
+                                          path.lineto((x+8)*SCALE, (y+5)*SCALE)), BASE+ULTRATHICK))
 
     drawing.append((path.path(path.moveto(4*SCALE,      4*SCALE),
                               path.lineto(8*WIDTH*SCALE,4*SCALE),
@@ -15396,7 +15398,7 @@ def figure023f():
     name = "figures/figure023f"
 
     SCALE = 1
-    
+
     drawing = []
 
     drawing.append((path.path(path.moveto( 0*SCALE, 0*SCALE),
@@ -15517,7 +15519,7 @@ def figure023f():
     for y in range(1,12):
         drawing.append((path.path(path.moveto( 0*SCALE,y*SCALE),
                                   path.lineto(28*SCALE,y*SCALE)), BASE+THIN+DOTTED))
-    
+
     drawing.append((path.path(path.moveto( 0*SCALE, 2*SCALE),
                               path.lineto( 1*SCALE, 0*SCALE),
                               path.moveto( 0*SCALE,12*SCALE),
@@ -15554,8 +15556,76 @@ def figure023f():
     mycanvas.writePDFfile(name)
 
 
+def figure024a():
+    '''Complex number 2+i'''
+
+    name = "figures/figure024a"
+
+    X = 1
+
+    drawing = []
+
+    drawing.append((path.path(path.moveto(-7*X, 0*X),
+                              path.lineto( 7*X, 0*X)),
+                              BASE+THIN+[deco.earrow(size=0.4)]))
+    drawing.append((path.path(path.moveto( 0*X,-4.5*X),
+                              path.lineto( 0*X, 4.5*X)),
+                              BASE+THIN+[deco.earrow(size=0.4)]))
+
+    drawing.append((path.path(path.moveto( 0*X, 0*X),
+                              path.lineto( 4*X, 2*X)),
+                              BASE+THICK+[deco.earrow(size=0.4)]))
+
+    drawing.append((path.path(path.moveto(2*X,0*X), path.arc(0*X,0*X, 2*X, 0, atan2(1,2)*180/pi)), BASE+THIN+DASHED))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.draw(*put_text(6.70*X, 0.30*X, r"\LARGE\textbf{\color{white}{Re}}"))
+    mycanvas.draw(*put_text(0.60*X, 4.00*X, r"\LARGE\textbf{\color{white}{Im}}"))
+    mycanvas.draw(*put_text(4.50*X, 2.20*X, r"\LARGE\textbf{\color{white}{2+i}}"))
+    mycanvas.draw(*put_text(2.50*X, 0.45*X, r"\LARGE\color{white}{\textalpha}"))
+    mycanvas.draw(path.path(path.moveto(0,0),path.lineto(4,2)),[deco.curvedtext(r"\raisebox{2ex}{\LARGE\color{white}{$\sqrt{5}\;\;$}}")])
+    mycanvas.writePDFfile(name)
+
+
+def figure024b():
+    '''Complex number (2+i)^n'''
+
+    name = "figures/figure024b"
+
+    X = 1
+
+    drawing = []
+
+    drawing.append((path.path(path.moveto(-7*X, 0*X),
+                              path.lineto( 7*X, 0*X)),
+                              BASE+THIN+[deco.earrow(size=0.4)]))
+    drawing.append((path.path(path.moveto( 0*X,-4.5*X),
+                              path.lineto( 0*X, 4.5*X)),
+                              BASE+THIN+[deco.earrow(size=0.4)]))
+
+    drawing.append((path.path(path.moveto( 0*X, 0*X),
+                              path.lineto(-5.27*X,-3.36*X)),
+                              BASE+THICK+[deco.earrow(size=0.4)]))
+
+    drawing.append((path.path(path.moveto(2*X,0*X), path.arc(0*X,0*X, 2*X, 0, 8*atan2(1,2)*180/pi)), BASE+THIN+DASHED))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.draw(*put_text( 6.70*X, 0.30*X, r"\LARGE\textbf{\color{white}{Re}}"))
+    mycanvas.draw(*put_text( 0.60*X, 4.00*X, r"\LARGE\textbf{\color{white}{Im}}"))
+
+    mycanvas.draw(*put_text(-5.20*X,-4.00*X, r"\LARGE\textbf{\color{white}{$($2+i$)^n$}}"))
+    mycanvas.draw(*put_text(-1.70*X, 2.00*X, r"\LARGE\color{white}{$n$\textalpha}"))
+    mycanvas.draw(path.path(path.moveto(-5.27*X,-3.36*X),path.lineto(0,0)),[deco.curvedtext(r"\raisebox{2ex}{\LARGE\color{white}{$\sqrt{5}^n\;\;$}}")])
+
+    mycanvas.writePDFfile(name)
+
 
 ################################################################################
+
 
 if __name__ == "__main__":
 
@@ -15946,3 +16016,5 @@ if __name__ == "__main__":
     figure023d()
     figure023e()
     figure023f()
+    figure024a()
+    figure024b()
