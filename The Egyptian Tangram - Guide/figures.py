@@ -2946,6 +2946,28 @@ def figure006l():
     mycanvas.writePDFfile(name)
 
 
+def figure006m():
+    '''3:4:5'''
+
+    name = "figures/figure006m"
+
+    X   = 1.0 # Scale #
+    A   = (   0,   0)
+    B   = (   0, 3*X)
+    C   = (4*X,   0)
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE+FILLED(YELLOW)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure007a():
     '''Q4 with angles'''
 
@@ -12573,6 +12595,492 @@ def figure016ch():
     mycanvas.writePDFfile(name)
 
 
+def figure017a():
+    '''Quadrilaters del Median Tangram - Figura 1'''
+
+    name = "figures/figure017a"
+
+    X = 1 # Scale #
+    A = (0*X,0*X)
+    B = (0*X,4*X)
+    C = (4*X,4*X)
+    D = (4*X,0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017b():
+    '''Quadrilaters del Median Tangram - Figura 2'''
+
+    name = "figures/figure017b"
+
+    X = 1 # Scale #
+    A = (0*X,0*X)
+    B = (2*X,4*X)
+    C = (4*X,4*X)
+    D = (6*X,0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017c():
+    '''Quadrilaters del Median Tangram - Figura 3'''
+
+    name = "figures/figure017c"
+
+    X = 1 # Scale #
+    A = (0*X,0*X)
+    B = (2*X,4*X)
+    C = (6*X,4*X)
+    D = (4*X,0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017d():
+    '''Quadrilaters del Median Tangram - Figura 4'''
+
+    name = "figures/figure017d"
+
+    X = 1 # Scale #
+    A = (0*X*R5,0*X*R5)
+    B = (0*X*R5,2*X*R5)
+    C = (2*X*R5,2*X*R5)
+    D = (2*X*R5,0*X*R5)
+
+    E = w_point(A,B,1,1)
+    F = w_point(B,C,1,1)
+    G = w_point(C,D,1,1)
+    H = w_point(D,A,1,1)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*F),
+                              path.closepath(),
+                              path.moveto(*B),
+                              path.lineto(*C),
+                              path.lineto(*G),
+                              path.closepath(),
+                              path.moveto(*C),
+                              path.lineto(*D),
+                              path.lineto(*H),
+                              path.closepath(),
+                              path.moveto(*D),
+                              path.lineto(*A),
+                              path.lineto(*E),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017e():
+    '''Quadrilaters del Median Tangram - Figura 5'''
+
+    name = "figures/figure017e"
+
+    X = 1 # Scale #
+    A = (0*X,0*X)
+    B = (2*X,4*X)
+    C = (6*X,2*X)
+    D = (6*X,0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017f():
+    '''Quadrilaters del Median Tangram - Figura 6'''
+
+    name = "figures/figure017f"
+
+    X = 1 # Scale #
+    A = (0*X,2*X)
+    B = (4*X,4*X)
+    C = (8*X,2*X)
+    D = (4*X,0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017g():
+    '''Quadrilaters del Median Tangram - Figura 7'''
+
+    name = "figures/figure017g"
+
+    X = 1 # Scale #
+    A = (0, 0)
+    B = r_point((-2*X*R5, 0), A, -atan2(3,4))
+    C = (0, 2*X*R5)
+    D = r_point(( 2*X*R5, 0), A,  atan2(3,4))
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017h():
+    '''Quadrilaters del Median Tangram - Figura 8'''
+
+    name = "figures/figure017h"
+
+    X = 1 # Scale #
+    A = (0*X,0*X)
+    B = (0*X,2*X)
+    C = (8*X,2*X)
+    D = (8*X,0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017i():
+    '''Quadrilaters del Median Tangram - Figura 9'''
+
+    name = "figures/figure017i"
+
+    X = 1 # Scale #
+    A = ( 0*X,0*X)
+    B = ( 4*X,2*X)
+    C = ( 8*X,2*X)
+    D = (12*X,0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017j():
+    '''Quadrilaters del Median Tangram - Figura 10'''
+
+    name = "figures/figure017j"
+
+    X = 1 # Scale #
+    A = ( 0*X,0*X)
+    B = ( 4*X,2*X)
+    C = (12*X,2*X)
+    D = ( 8*X,0*X)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017k():
+    '''Quadrilaters del Median Tangram - Figura 11'''
+
+    name = "figures/figure017k"
+
+    X = 1 # Scale #
+    A =         (0*X,0*X)
+    B = r_point((0*X,2*X), A, -atan2(1,2))
+    C = r_point((8*X,6*X), A, -atan2(1,2))
+    D = r_point((8*X,4*X), A, -atan2(1,2))
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017l():
+    '''Quadrilaters del Median Tangram - Figura 12'''
+
+    name = "figures/figure017l"
+
+    X = 1 # Scale #
+    A =         ( 0*X,0*X)
+    B = r_point((-4*X,0*X), A, -atan2(1,2))
+    C = r_point(( 4*X,4*X), A, -atan2(1,2))
+    D = r_point(( 8*X,4*X), A, -atan2(1,2))
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017m():
+    '''Quadrilaters del Median Tangram - Figura 13'''
+
+    name = "figures/figure017m"
+
+    X = 1 # Scale #
+    A = (0, 0)
+    C = (2*X*R5, 0)
+    B = r_point((4*X*R5, 0), C,  atan2(4,3))
+    D = r_point((4*X*R5, 0), C, -atan2(4,3))
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017n():
+    '''Quadrilaters del Median Tangram - Figura 14'''
+
+    name = "figures/figure017n"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (8*X, 0*X)
+    C = (4*X, 2*X)
+    D = (0*X, 4*X)
+    D = flip(D, A, C)
+
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017o():
+    '''Quadrilaters del Median Tangram - Figura 15'''
+
+    name = "figures/figure017o"
+
+    X = 1 # Scale #
+    A = (0*X, 0*X)
+    B = (0*X, 4*X)
+    C = (2*X, 4*X)
+    D = ((1+R5)*2*X, 4*X)
+    E = ((1+R5)*2*X, 0*X)
+    F = (R5*2*X, 0*X)
+    G = (0*X, R5*X)
+    H = ((1+R5)*2*X, (4-R5)*X)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath(),
+                              path.moveto(*C),
+                              path.lineto(*D),
+                              path.lineto(*H),
+                              path.closepath(),
+                              path.moveto(*D),
+                              path.lineto(*E),
+                              path.lineto(*F),
+                              path.closepath(),
+                              path.moveto(*F),
+                              path.lineto(*A),
+                              path.lineto(*G),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+    
+def figure017p():
+    '''Quadrilaters del Median Tangram - Figura 16'''
+
+    name = "figures/figure017p"
+
+    X = 1 # Scale #
+    Y = (1+R5)/2
+    A = (     0*X,      0*X)
+    B = (     0*X, (1+R5)*X)
+    C = ((3+R5)*X, (1+R5)*X)
+    D = ((3+R5)*X,      0*X)
+    E = (     0*X,     R5*X)
+    F = ((3+R5)*X,      1*X)
+    G = ((3-R5)*X, (1+R5)*X)
+    H = (     3*X, (1+R5)*X)
+    I = ((R5+Y)*X, (1+R5)*X)
+    J = ( (3-Y)*X,      0*X)
+    K = (    R5*X,      0*X)
+    L = (  2*R5*X,      0*X)
+    
+    drawing = []
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*E),
+                              path.lineto(*L),
+                              path.closepath(),
+                              path.moveto(*C),
+                              path.lineto(*F),
+                              path.lineto(*G),
+                              path.closepath(),
+                              path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*H),
+                              path.lineto(*J),
+                              path.closepath(),
+                              path.moveto(*C),
+                              path.lineto(*D),
+                              path.lineto(*K),
+                              path.lineto(*I),
+                              path.closepath()), BASE+COLOR(CHALK)+FILLED(CHALK)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure017aa():
+    '''T4'''
+
+    name = "figures/figure017aa"
+
+    X   = 1.0 # Scale #
+    A   = (   0,   0)
+    B   = (   0, 2*X)
+    C   = (4*X,   0)
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.closepath()), BASE+FILLED(BLUE)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+def figure017ab():
+    '''Q4'''
+
+    name = "figures/figure017ab"
+
+    X = 1.0 # Scale #
+    A = (0*X, 0*X)
+    B = (1*X, 2*X)
+    C = (3*X, 1*X)
+    D = (3*X, 0*X)
+    
+    drawing = []
+
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+FILLED(ORANGE)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+figure017a()
+figure017b()
+figure017c()
+figure017d()
+figure017e()
+figure017f()
+figure017g()
+figure017h()
+figure017i()
+figure017j()
+figure017k()
+figure017l()
+figure017m()
+figure017n()
+figure017o()
+figure017p()
+figure017aa()
+figure017ab()
+
+
 def figure018a():
     '''Quadrilaters del Tangram Egípci - Figura 1'''
 
@@ -15696,6 +16204,7 @@ if __name__ == "__main__":
     figure006j()
     figure006k()
     figure006l()
+    figure006m()
     figure007a()
     figure007b()
     figure008ag()
@@ -15934,6 +16443,7 @@ if __name__ == "__main__":
     figure016cf()
     figure016cg()
     figure016ch()
+    
     figure018a()
     figure018b()
     figure018c()
