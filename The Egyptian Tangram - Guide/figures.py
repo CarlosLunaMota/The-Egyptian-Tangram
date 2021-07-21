@@ -8241,10 +8241,10 @@ def figure013x():
                               path.lineto(*G)), BASE+DOTTED))
     drawing.append((path.path(path.moveto(*A),
                               path.lineto(*B),
-                              path.lineto(*E),
+                              path.lineto(*G),
                               path.closepath()), BASE+VERYTHICK))
     drawing.append((path.path(path.moveto(*B),
-                              path.lineto(*E),
+                              path.lineto(*G),
                               path.lineto(*H),
                               path.lineto(*CC),
                               path.closepath()), BASE+VERYTHICK))
