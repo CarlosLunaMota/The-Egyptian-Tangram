@@ -12,6 +12,7 @@
 # LIBRARIES
 from pyx import *
 from math import *
+from random import random, seed
 from itertools import product
 
 # CONSTANTS
@@ -95,6 +96,33 @@ def flip(P, A, B):
     k = (V[0]*W[0] + V[1]*W[1]) / (V[0]*V[0] + V[1]*V[1])
     PPP = (M[0] + k*V[0], M[1] + k*V[1])  # Perpendicular Projection of P
     return (P[0] + 2*(PPP[0]-P[0]), P[1] + 2*(PPP[1]-P[1]))
+
+def matchstick(P, Q, width=0.075, s=3, t=0, angle=None):
+
+    WOOD = ULTRATHIN+FILLED(L_YELLOW)+COLOR(L_YELLOW)
+    HEAD = ULTRATHIN+FILLED(L_RED)+COLOR(L_RED)
+
+    # Rotate frame of reference randomly
+    if angle==None: angle = 0.1*random() - 0.05
+    M = ((P[0]+Q[0])/2, (P[1]+Q[1])/2)
+    P = r_point(P, M, angle)
+    Q = r_point(Q, M, angle)
+
+    # Find additional reference points
+    PQ = (Q[0]-P[0], Q[1]-P[1])
+    X  = width/(2*hypot(*PQ))
+    N  = (-PQ[1]*X, PQ[0]*X) 
+    PP = (P[0] + PQ[0]*X*s, P[1] + PQ[1]*X*s)
+    QQ = (Q[0] - PQ[0]*X*t, Q[1] - PQ[1]*X*t)
+
+    # Return simple matchstick
+    return ((path.path(path.moveto(PP[0]+N[0], PP[1]+N[1]),
+                       path.lineto(PP[0]-N[0], PP[1]-N[1]),
+                       path.lineto(QQ[0]-N[0], QQ[1]-N[1]),
+                       path.lineto(QQ[0]+N[0], QQ[1]+N[1]),
+                       path.closepath()), WOOD),
+            (path.circle(QQ[0], QQ[1], width*0.75),
+                         HEAD))
 
 ################################################################################
 
@@ -16207,6 +16235,403 @@ def figure024b():
     mycanvas.writePDFfile(name)
 
 
+def figure025a():
+    '''Matchstick 1'''
+
+    name = "figures/figure025a"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+def figure025b():
+    '''Matchstick 2'''
+
+    name = "figures/figure025b"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    M = (1*X, 2*X)
+    N = (1*X, 1*X)
+    O = (2*X, 1*X)
+
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    for elem in matchstick(N,O):        drawing.append(elem)
+    for elem in matchstick(M,N):        drawing.append(elem)
+    for elem in matchstick(B,M):        drawing.append(elem)
+    for elem in matchstick(O,F, t=3.5): drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+def figure025c():
+    '''Matchstick 3'''
+
+    name = "figures/figure025c"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    M = flip(D,C,G)
+    M = r_point(M, w_point(C,G,1,1), pi)
+    N = w_point(M, G, 2, 1)
+    O = w_point(M, G, 1, 2)
+
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    for elem in matchstick(G,O, s=4.5): drawing.append(elem)
+    for elem in matchstick(O,N):        drawing.append(elem)
+    for elem in matchstick(N,M, t=2):   drawing.append(elem)
+    for elem in matchstick(C,M, s=4, t=2): drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+def figure025d():
+    '''Matchstick 4'''
+
+    name = "figures/figure025d"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    M = flip(D,A,E)
+    M = r_point(M, w_point(A,E,1,1), pi)
+    N = w_point(M, A, 2, 1)
+    O = w_point(M, A, 1, 2)
+
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    for elem in matchstick(A,O, s=7.0, angle=0.05): drawing.append(elem)
+    for elem in matchstick(N,M, t=2.5): drawing.append(elem)
+    for elem in matchstick(O,N):        drawing.append(elem)
+    for elem in matchstick(E,M, s=3.5, t=2.5): drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+def figure025e():
+    '''Matchstick 5'''
+
+    name = "figures/figure025e"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    M = (1*X, 1*X)
+    N = (2*X, 1*X)
+    O = r_point(N,M, pi-atan(3/4))
+
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    
+    for elem in matchstick(L,O):        drawing.append(elem)
+    for elem in matchstick(O,M, t=2.0): drawing.append(elem)
+    for elem in matchstick(N,M, t=2.0): drawing.append(elem)
+    for elem in matchstick(F,N):        drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+def figure025f():
+    '''Matchstick 6'''
+
+    name = "figures/figure025f"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    
+    M = (1*X, 1*X)
+    
+    N = r_point(E,M, -pi/3)
+    O = r_point(N,M, pi-atan(3/4))
+
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    
+    for elem in matchstick(K,O):        drawing.append(elem)
+    for elem in matchstick(O,M, t=2.0): drawing.append(elem)
+    for elem in matchstick(N,M, t=2.0): drawing.append(elem)
+    for elem in matchstick(E,N, s=4.5): drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+def figure025g():
+    '''Matchstick 7'''
+
+    name = "figures/figure025g"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    
+    M = (1*X, 1*X)
+
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    
+    for elem in matchstick(E,M, t=2.0): drawing.append(elem)
+    for elem in matchstick(K,M, t=2.0): drawing.append(elem)
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+def figure025h():
+    '''Matchstick 8'''
+
+    name = "figures/figure025h"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    
+    M = (1*X, 1*X)
+    N = r_point(E,M, atan(4/3))
+
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    
+    for elem in matchstick(C,M): drawing.append(elem)
+    for elem in matchstick(M,N, t=2.5): drawing.append(elem)
+    for elem in matchstick(J,N, t=3.5):        drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
 ################################################################################
 
 
@@ -16622,3 +17047,12 @@ if __name__ == "__main__":
     figure023f()
     figure024a()
     figure024b()
+    figure025a()
+    figure025b()
+    figure025c()
+    figure025d()
+    figure025e()
+    figure025f()
+    figure025g()
+    figure025h()
+
