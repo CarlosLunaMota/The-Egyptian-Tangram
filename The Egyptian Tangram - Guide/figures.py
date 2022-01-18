@@ -97,7 +97,7 @@ def flip(P, A, B):
     PPP = (M[0] + k*V[0], M[1] + k*V[1])  # Perpendicular Projection of P
     return (P[0] + 2*(PPP[0]-P[0]), P[1] + 2*(PPP[1]-P[1]))
 
-def matchstick(P, Q, width=0.075, s=3, t=0, angle=None):
+def matchstick(P, Q, width=0.07, s=3, t=0, angle=None):
 
     WOOD = ULTRATHIN+FILLED(L_YELLOW)+COLOR(L_YELLOW)
     HEAD = ULTRATHIN+FILLED(L_RED)+COLOR(L_RED)
@@ -121,8 +121,7 @@ def matchstick(P, Q, width=0.075, s=3, t=0, angle=None):
                        path.lineto(QQ[0]-N[0], QQ[1]-N[1]),
                        path.lineto(QQ[0]+N[0], QQ[1]+N[1]),
                        path.closepath()), WOOD),
-            (path.circle(QQ[0], QQ[1], width*0.75),
-                         HEAD))
+            (path.circle(QQ[0], QQ[1], width*0.75),HEAD))
 
 ################################################################################
 
@@ -16632,10 +16631,171 @@ def figure025h():
     mycanvas.writePDFfile(name)
 
 
+def figure025i():
+    '''Matchstick 9'''
+
+    name = "figures/figure025i"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    
+    M = (1*X, 1*X)
+    N = (1*X, 2*X)
+    O = r_point(E,M, atan(4/3))
+
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    
+    for elem in matchstick(B,N):        drawing.append(elem)
+    for elem in matchstick(N,M, angle=0.0):        drawing.append(elem)
+    for elem in matchstick(E,M, t=4.0, angle=0.05): drawing.append(elem)
+    for elem in matchstick(O,M, t=4.0): drawing.append(elem)
+    for elem in matchstick(J,O):        drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+def figure025j():
+    '''Matchstick 10'''
+
+    name = "figures/figure025j"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    
+    M = (1*X, 1*X)
+    N = r_point(E,M, atan(4/3)+pi)
+    O = r_point(E,M, atan(4/3))
+    
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    
+    for elem in matchstick(L,N):        drawing.append(elem)
+    for elem in matchstick(N,M, t=1.0): drawing.append(elem)
+    for elem in matchstick(E,M, t=3.0, angle=0.05): drawing.append(elem)
+    for elem in matchstick(O,M, t=3.0): drawing.append(elem)
+    for elem in matchstick(J,O):        drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+def figure025k():
+    '''Matchstick 11'''
+
+    name = "figures/figure025k"
+
+    seed(1337)
+
+    X = 1
+
+    A = (0*X, 3*X)
+    B = (0*X, 2*X)
+    C = (0*X, 1*X)
+    D = (0*X, 0*X)
+    E = (1*X, 0*X)
+    F = (2*X, 0*X)
+    G = (3*X, 0*X)
+    H = (4*X, 0*X)
+    I = w_point(A, H, 1, 4)
+    J = w_point(A, H, 2, 3)
+    K = w_point(A, H, 3, 2)
+    L = w_point(A, H, 4, 1)
+    
+    M = (1*X, 1*X)
+    N = (2*X, 1*X)
+    
+    drawing = []
+
+    for elem in matchstick(A,B, s=3.5): drawing.append(elem)
+    for elem in matchstick(B,C):        drawing.append(elem)
+    for elem in matchstick(C,D):        drawing.append(elem)
+    for elem in matchstick(D,E):        drawing.append(elem)
+    for elem in matchstick(E,F):        drawing.append(elem)
+    for elem in matchstick(F,G):        drawing.append(elem)
+    for elem in matchstick(H,I, s=4.0): drawing.append(elem)
+    for elem in matchstick(I,J):        drawing.append(elem)
+    for elem in matchstick(J,K):        drawing.append(elem)
+    for elem in matchstick(K,L):        drawing.append(elem)
+    for elem in matchstick(L,A):        drawing.append(elem)
+    for elem in matchstick(G,H):        drawing.append(elem)
+    
+    for elem in matchstick(N,M, t=2.5, angle=0.05): drawing.append(elem)
+    for elem in matchstick(C,M, t=2.0): drawing.append(elem)
+    for elem in matchstick(K,M, t=3.5, angle=-0.05): drawing.append(elem)
+    for elem in matchstick(F,N):        drawing.append(elem)
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    mycanvas.writePDFfile(name)
+
+
+figure025i()
+figure025j()
+figure025k()
+
 ################################################################################
 
 
-if __name__ == "__main__":
+if __name__ == "__main__1":
 
     figure000a()
     figure000b()
@@ -17055,4 +17215,7 @@ if __name__ == "__main__":
     figure025f()
     figure025g()
     figure025h()
+    figure025i()
+    figure025j()
+    figure025k()
 
