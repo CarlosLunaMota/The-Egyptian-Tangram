@@ -13,6 +13,7 @@
     \usepackage[euler]{textgreek}
     \usepackage{xfrac}
     \mathchardef\mhyphen="2D
+    \usepackage{multirow}
 
     %% Set the left and right margins
     \setbeamersize{text margin left=1em,text margin right=1em}
@@ -469,6 +470,42 @@
 
             \bigskip
 
+            {\normalsize Complete the cycle moving a different piece at a time}
+
+            \bigskip\medskip
+
+            \begin{tabular}{ccccccc}
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026l.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\rightarrow}$}\!\! &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026m.pdf}} &  &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026b.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\rightarrow}$}\!\! &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026c.pdf}} \\
+                $\boldsymbol{\uparrow}$ & & $\boldsymbol{\downarrow}$ & & $\boldsymbol{\uparrow}$ & & $\boldsymbol{\downarrow}$ \\
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026k.pdf}} & & \multicolumn{3}{c}{\multirow{3}{*}{\raisebox{2.0ex}{\includegraphics[scale=0.60]{figures/figure026.pdf}}}} & &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026d.pdf}} \\
+                $\boldsymbol{\uparrow}$ & & \multicolumn{3}{c}{} & & $\boldsymbol{\downarrow}$ \\
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026j.pdf}} & &
+                & \multicolumn{3}{c}{} &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026e.pdf}} \\
+                $\boldsymbol{\uparrow}$ & & & & & & $\boldsymbol{\downarrow}$ \\
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026i.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\leftarrow}$}\!\! &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026h.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\leftarrow}$}\!\! &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026g.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\leftarrow}$}\!\! &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026f.pdf}} \\
+            \end{tabular}
+
+            \smallskip
+        \end{center}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}{Geometric figures}
+
+        \vspace{-1em}
+        \begin{center}
+
+            \bigskip
+
             {\normalsize Use all five pieces to make these figures:}
 
             \bigskip\medskip
@@ -546,26 +583,53 @@
 
     \begin{frame}{Geometric figures}
         \begin{center}
-            \begin{minipage}{0.5\textwidth}%\vspace{2ex}
+            You can draw many of these geometric figures\\with all their vertices lying on a square grid...
+
+            \bigskip
+
+            \includegraphics[width=0.9\textwidth]{figures/figure022d.pdf}
+        \end{center}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}{Geometric figures}
+        \begin{center}
+            \begin{minipage}{0.5\textwidth}
+                \centering \includegraphics[scale=0.70]{figures/figure022b.pdf}
+            \end{minipage}\hfill\begin{minipage}{0.49\textwidth}
                 \centering \includegraphics[scale=0.70]{figures/figure022a.pdf}
-            \end{minipage}\hfill\begin{minipage}{0.49\textwidth} \small
-                All the figures from the previous page, but one, can be drawn with their vertices lying on this lattice.
-
-                \bigskip
-
-                Moreover, they can be drawn with the vertices of all 5 pieces lying on the same lattice.
-
-                \bigskip
-
-                These conditions simplify the task of finding perimeters and areas.
             \end{minipage}
-
+            
             \bigskip \bigskip
 
-            Could you find which is the only figure\\that requires a finer-grained lattice?
+            ...and then try to find the solution that also has\\the vertices of all 5 pieces lying on the same grid.
         \end{center}
-
     \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    %\begin{frame}{Geometric figures}
+    %    \begin{center}
+    %        \begin{minipage}{0.5\textwidth}%\vspace{2ex}
+    %            \centering \includegraphics[scale=0.70]{figures/figure022a.pdf}
+    %        \end{minipage}\hfill\begin{minipage}{0.49\textwidth} \small
+    %            All the figures from the previous page, but one, can be drawn with their vertices lying on this lattice.
+    %
+    %            \bigskip
+    %
+    %            Moreover, they can be drawn with the vertices of all 5 pieces lying on the same lattice.
+    %
+    %            \bigskip
+    %
+    %            These conditions simplify the task of finding perimeters and areas.
+    %        \end{minipage}
+    %
+    %        \bigskip \bigskip
+    %
+    %        Could you find which is the only figure\\that requires a finer-grained lattice?
+    %    \end{center}
+    %\end{frame}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -587,9 +651,8 @@
 
             \bigskip \bigskip
 
-            Could you use the Pythagorean theorem\\to compute the perimeter of these figures?
+            You could use the Pythagorean theorem\\to compute the perimeter of these figures...
         \end{center}
-
     \end{frame}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -616,9 +679,8 @@
 
             \bigskip \bigskip
 
-            Could you use Pick's theorem\\to compute the area of these figures?
+            ...and Pick's theorem to compute their area.\\\phantom{pfht}
         \end{center}
-
     \end{frame}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -791,6 +853,20 @@
             \includegraphics[scale=0.3]{figures/figure012f.pdf}\quad\;\;\;
             \includegraphics[scale=0.3]{figures/figure012ac.pdf}\quad
             \includegraphics[scale=0.3]{figures/figure012ab.pdf}\;\;\; \\
+        \end{center}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}{Figures with no solution}
+        \begin{center}
+            {Could you explain why some of these rectangles can not be solved?}
+        
+            \bigskip
+
+            \includegraphics[width=0.9\textwidth]{figures/figure022g.pdf}
+
+            \bigskip
         \end{center}
     \end{frame}
 
@@ -1783,7 +1859,7 @@
             \includegraphics[scale=0.45]{figures/figure017aa.pdf}\qquad
             \includegraphics[scale=0.45]{figures/figure017aa.pdf}\bigskip
 
-            {\footnotesize See also: \textbf{\href{donsteward.blogspot.com.es/2012/03/four-triangles.html}{Four Triangles}} by Don Steward}
+            {\footnotesize See also: \textbf{\href{https://donsteward.blogspot.com.es/2012/03/four-triangles.html}{Four Triangles}} by Don Steward}
         \end{center}
     \end{frame}
 
@@ -1813,7 +1889,7 @@
     
             ...including 13 different quadrilaterals!\bigskip
     
-            {\footnotesize See also: \textbf{\href{donsteward.blogspot.com.es/2012/03/four-triangles.html}{Four Triangles}} by Don Steward}
+            {\footnotesize See also: \textbf{\href{https://donsteward.blogspot.com.es/2012/03/four-triangles.html}{Four Triangles}} by Don Steward}
         \end{center}
     \end{frame}
 
@@ -2618,6 +2694,16 @@
             \colorbox{white}{\includegraphics[height=25ex]{pictures/El Tangram Egipcio 2021 - p01.pdf}} \\\medskip
 
             On-line talks for \href{https://www.fundapromat.org/}{FUNDAPROMAT} and\\ \href{https://www.youtube.com/watch?v=Tf-mPWFS3ik&t=7332s}{MMACA's 7th anniversary} (2021)
+        \end{center}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}{Divulgation of the Egyptian Tangram}
+        \begin{center}
+            \colorbox{white}{\includegraphics[height=25ex]{pictures/El diseño del Tangram Egipcio - JAEM 20 - p01.pdf}} \\\medskip
+
+            Talk at the math-teaching conference \href{https://20.jaem.es/}{JAEM 20} (2022)\\\phantom{()}
         \end{center}
     \end{frame}
 
