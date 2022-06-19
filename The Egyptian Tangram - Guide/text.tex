@@ -14,6 +14,8 @@
     \usepackage{xfrac}
     \mathchardef\mhyphen="2D
     \usepackage{multirow}
+    \usepackage{tikz}
+    \usetikzlibrary{arrows,calc}
 
     %% Set the left and right margins
     \setbeamersize{text margin left=1em,text margin right=1em}
@@ -470,27 +472,56 @@
 
             \bigskip
 
-            {\normalsize Complete the cycle moving a different piece at a time}
+            {\normalsize Complete the cycle moving a different piece each time}
 
             \bigskip\medskip
 
             \begin{tabular}{ccccccc}
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026l.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\rightarrow}$}\!\! &
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026m.pdf}} &  &
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026b.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\rightarrow}$}\!\! &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026l.pdf}} &
+                \!\!\raisebox{1.5ex}{$\boldsymbol{\rightarrow}$}\!\!                  &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026m.pdf}} &
+                                                                                      &
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026b.pdf}} &
+                \!\!\raisebox{1.5ex}{$\boldsymbol{\rightarrow}$}\!\!                  &
                 \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026c.pdf}} \\
-                $\boldsymbol{\uparrow}$ & & $\boldsymbol{\downarrow}$ & & $\boldsymbol{\uparrow}$ & & $\boldsymbol{\downarrow}$ \\
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026k.pdf}} & & \multicolumn{3}{c}{\multirow{3}{*}{\raisebox{2.0ex}{\includegraphics[scale=0.60]{figures/figure026.pdf}}}} & &
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026d.pdf}} \\
-                $\boldsymbol{\uparrow}$ & & \multicolumn{3}{c}{} & & $\boldsymbol{\downarrow}$ \\
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026j.pdf}} & &
-                & \multicolumn{3}{c}{} &
+                $\boldsymbol{\uparrow}$   &
+                                          &
+                $\boldsymbol{\downarrow}$ &
+                                          &
+                $\boldsymbol{\uparrow}$   &
+                                          &
+                $\boldsymbol{\downarrow}$ \\
+                \raisebox{1.0ex}{\includegraphics[scale=0.2]{figures/figure026k.pdf}}                   &
+                                                                                                        &
+                \multicolumn{3}{c}{\raisebox{3ex}{\multirow{2}{*}{\includegraphics[scale=0.6]{figures/figure026.pdf}}}} &
+                                                                                                        &
+                \includegraphics[scale=0.2]{figures/figure026d.pdf}                                     \\[-1.0ex]
+                $\boldsymbol{\uparrow}$   &
+                                          &
+                \multicolumn{3}{c}{}      &
+                                          &
+                $\boldsymbol{\downarrow}$ \\[0.5ex]
+                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026j.pdf}} &
+                                                                                      &
+                                                                                      &
+                                                                                      &
+                                                                                      &
+                                                                                      &
                 \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026e.pdf}} \\
-                $\boldsymbol{\uparrow}$ & & & & & & $\boldsymbol{\downarrow}$ \\
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026i.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\leftarrow}$}\!\! &
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026h.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\leftarrow}$}\!\! &
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026g.pdf}} & \!\!\raisebox{1.5ex}{$\boldsymbol{\leftarrow}$}\!\! &
-                \raisebox{0.0ex}{\includegraphics[scale=0.2]{figures/figure026f.pdf}} \\
+                $\boldsymbol{\uparrow}$   &
+                                          &
+                                          &
+                                          &
+                                          &
+                                          &
+                $\boldsymbol{\downarrow}$ \\[0.5ex]
+                \includegraphics[scale=0.2]{figures/figure026i.pdf} &
+                \!\!\raisebox{1.5ex}{$\boldsymbol{\leftarrow}$}\!\! &
+                \includegraphics[scale=0.2]{figures/figure026h.pdf} &
+                \!\!\raisebox{1.5ex}{$\boldsymbol{\leftarrow}$}\!\! &
+                \includegraphics[scale=0.2]{figures/figure026g.pdf} &
+                \!\!\raisebox{1.5ex}{$\boldsymbol{\leftarrow}$}\!\! &
+                \includegraphics[scale=0.2]{figures/figure026f.pdf} \\
             \end{tabular}
 
             \smallskip
@@ -540,54 +571,56 @@
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    \begin{frame}{Geometric figures}
-
-        \vspace{-1em}
-        \begin{center}
-
-            \bigskip
-
-            {\normalsize All of these figures, but one, have multiple solutions:}
-
-            \bigskip\medskip
-
-            \begin{tabular}{ccccccc}
-                \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012a.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\Rightarrow}$}}\!\! &
-                \scalebox{-1}[1]{\includegraphics[scale=0.21]{figures/figure012k.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\rightarrow}$}}\!\! &
-                \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012d.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\rightarrow}$}}\!\! &
-                \!\!\scalebox{-1}[1]{\includegraphics[scale=0.21]{figures/figure012c.pdf}} \\[-0.25ex]
-                & & & & & & \!\!\phantom{$\boldsymbol{\Downarrow}$} \\[-1.25ex]
-                \raisebox{5.3ex}{\rotatebox{180}{\scalebox{-1}[1]{\includegraphics[scale=0.21]{figures/figure012l.pdf}}}}\hspace{-2ex} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\Leftarrow}$}}\!\! &
-                \raisebox{0.8ex}{\includegraphics[scale=0.21]{figures/figure012u.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\leftarrow}$}}\!\! &
-                \raisebox{0.8ex}{\includegraphics[scale=0.21]{figures/figure012e.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\Leftarrow}$}}\!\! &
-                \scalebox{-1}[1]{\includegraphics[scale=0.21]{figures/figure012p.pdf}} \\[-1.20ex]
-                \phantom{$\boldsymbol{\Downarrow}$} & & & & & & \\[0.3ex]
-                \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012i.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\Rightarrow}$}}\!\! &
-                \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012j.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\rightarrow}$}}\!\! &
-                \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012b.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\rightarrow}$}}\!\! &
-                \!\!\raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012h.pdf}} \\[-0.25ex]
-                & & & & & & \!\!\phantom{$\boldsymbol{\Downarrow}$} \\[0.20ex]
-                \raisebox{0.5ex}{\includegraphics[scale=0.21]{figures/figure012o.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\leftarrow}$}}\!\! &
-                \raisebox{0.2ex}{\includegraphics[scale=0.21]{figures/figure012n.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\Leftarrow}$}}\!\! &
-                \raisebox{0.8ex}{\includegraphics[scale=0.21]{figures/figure012m.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\leftarrow}$}}\!\! &
-                \!\!\raisebox{0.8ex}{\includegraphics[scale=0.21]{figures/figure012g.pdf}} \\
-            \end{tabular}
-
-            \smallskip
-
-            {\small Could you find which is the only figure with unique solution?}
-        \end{center}
-    \end{frame}
+    %\begin{frame}{Geometric figures}
+    %
+    %    \vspace{-1em}
+    %    \begin{center}
+    %
+    %        \bigskip
+    %
+    %        {\normalsize All of these figures, but one, have multiple solutions:}
+    %
+    %        \bigskip\medskip
+    %
+    %        \begin{tabular}{ccccccc}
+    %            \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012a.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\Rightarrow}$}}\!\! &
+    %            \scalebox{-1}[1]{\includegraphics[scale=0.21]{figures/figure012k.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\rightarrow}$}}\!\! &
+    %            \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012d.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\rightarrow}$}}\!\! &
+    %            \!\!\scalebox{-1}[1]{\includegraphics[scale=0.21]{figures/figure012c.pdf}} \\[-0.25ex]
+    %            & & & & & & \!\!\phantom{$\boldsymbol{\Downarrow}$} \\[-1.25ex]
+    %            \raisebox{5.3ex}{\rotatebox{180}{\scalebox{-1}[1]{\includegraphics[scale=0.21]{figures/figure012l.pdf}}}}\hspace{-2ex} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\Leftarrow}$}}\!\! &
+    %            \raisebox{0.8ex}{\includegraphics[scale=0.21]{figures/figure012u.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\leftarrow}$}}\!\! &
+    %            \raisebox{0.8ex}{\includegraphics[scale=0.21]{figures/figure012e.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\Leftarrow}$}}\!\! &
+    %            \scalebox{-1}[1]{\includegraphics[scale=0.21]{figures/figure012p.pdf}} \\[-1.20ex]
+    %            \phantom{$\boldsymbol{\Downarrow}$} & & & & & & \\[0.3ex]
+    %            \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012i.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\Rightarrow}$}}\!\! &
+    %            \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012j.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\rightarrow}$}}\!\! &
+    %            \raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012b.pdf}} & \!\!\raisebox{1.5ex}{\phantom{$\boldsymbol{\rightarrow}$}}\!\! &
+    %            \!\!\raisebox{0.0ex}{\includegraphics[scale=0.21]{figures/figure012h.pdf}} \\[-0.25ex]
+    %            & & & & & & \!\!\phantom{$\boldsymbol{\Downarrow}$} \\[0.20ex]
+    %            \raisebox{0.5ex}{\includegraphics[scale=0.21]{figures/figure012o.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\leftarrow}$}}\!\! &
+    %            \raisebox{0.2ex}{\includegraphics[scale=0.21]{figures/figure012n.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\Leftarrow}$}}\!\! &
+    %            \raisebox{0.8ex}{\includegraphics[scale=0.21]{figures/figure012m.pdf}} & \!\!\raisebox{2.5ex}{\phantom{$\boldsymbol{\leftarrow}$}}\!\! &
+    %            \!\!\raisebox{0.8ex}{\includegraphics[scale=0.21]{figures/figure012g.pdf}} \\
+    %        \end{tabular}
+    %
+    %        \smallskip
+    %
+    %        {\small Could you find which is the only figure with unique solution?}
+    %    \end{center}
+    %\end{frame}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \begin{frame}{Geometric figures}
         \begin{center}
-            You can draw many of these geometric figures\\with all their vertices lying on a square grid...
+            \includegraphics[width=0.8\textwidth]{figures/figure022d.pdf}
 
             \bigskip
 
-            \includegraphics[width=0.9\textwidth]{figures/figure022d.pdf}
+            You can draw many of these geometric figures\\with all their vertices lying on a square grid...
+
+            \bigskip
         \end{center}
     \end{frame}
 
@@ -603,7 +636,7 @@
             
             \bigskip \bigskip
 
-            ...and then try to find the solution that also has\\the vertices of all 5 pieces lying on the same grid.
+            ...and then try to find a solution that also has\\the vertices of all 5 pieces lying on the same grid.
         \end{center}
     \end{frame}
 
@@ -680,6 +713,30 @@
             \bigskip \bigskip
 
             ...and Pick's theorem to compute their area.\\\phantom{pfht}
+        \end{center}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}{Sum of similar figures}
+        \begin{center}
+            Use all 5 pieces to make the single figure in the LHS,
+            then use them to make the two figures on the RHS
+
+            \bigskip\bigskip
+
+            {\Huge \begin{tabular}{ccccc}
+                \includegraphics[scale=0.35]{figures/figure015a.pdf} & $=$ &
+                \includegraphics[scale=0.35]{figures/figure015b.pdf} & $\!+\!$ &
+                \includegraphics[scale=0.35]{figures/figure015c.pdf}\\[1ex]
+                \includegraphics[scale=0.35]{figures/figure015d.pdf} & $=$ &
+                \includegraphics[scale=0.35]{figures/figure015e.pdf} & $\!+\!$ &
+                \includegraphics[scale=0.35]{figures/figure015f.pdf}\\
+            \end{tabular}}
+
+            \bigskip\bigskip
+
+            {\footnotesize In both equations, the figures are similar and areas are in ratio $5:4:1$}
         \end{center}
     \end{frame}
 
@@ -800,6 +857,53 @@
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+    \begin{frame}{Quadrilaterals}
+        \vspace{-0.5ex}
+        \begin{center}
+            \scriptsize
+            \begin{tikzpicture}[auto]
+                \node (qua) at ( 0,-0.0) {\begin{tabular}{c}Quadrilaterals  \\[-0.5ex]\tiny $a,b,c,d,\alpha,\beta,\gamma,\delta$             \end{tabular} \includegraphics[scale=0.075]{figures/figure019s.pdf}};
+                \node (sim) at ( 0,-1.2) {\begin{tabular}{c}Simple Quad.    \\[-0.5ex]\tiny $\alpha+\beta+\gamma+\delta=2\pi$                \end{tabular} \includegraphics[scale=0.075]{figures/figure019ab.pdf}};  
+                \node (con) at ( 0,-2.4) {\begin{tabular}{c}Convex Quad.    \\[-0.5ex]\tiny $\alpha,\beta,\gamma,\delta < \pi$               \end{tabular} \includegraphics[scale=0.075]{figures/figure019f.pdf}};  
+                \node (tra) at ( 0,-3.6) {\begin{tabular}{c}Trapezoids      \\[-0.5ex]\tiny $a\parallel c$                                   \end{tabular} \scalebox{-1}[1]{\includegraphics[scale=0.075]{figures/figure019d.pdf}}};
+                \node (cyc) at ( 4,-3.6) {\begin{tabular}{c}Cyclic Quad.    \\[-0.5ex]\tiny $\alpha + \gamma = \beta + \delta$               \end{tabular} \includegraphics[scale=0.075]{figures/figure019k.pdf}};  
+                \node (par) at ( 0,-4.8) {\begin{tabular}{c}Parallelograms  \\[-0.5ex]\tiny $a\parallel c\quad\&\quad b\parallel d$          \end{tabular} \includegraphics[scale=0.075]{figures/figure019j.pdf}};
+                \node (iso) at ( 4,-4.8) {\begin{tabular}{c}Isosceles Trap. \\[-0.5ex]\tiny $\alpha=\beta\quad\&\quad\gamma=\delta$          \end{tabular} \includegraphics[scale=0.075]{figures/figure019i.pdf}};
+                \node (bic) at ( 0,-6.0) {\begin{tabular}{c}\;\;Bicentrinc Quad.\\[-0.5ex]\tiny $a+c=b+d\quad\&\quad\alpha+\gamma=\beta+\delta$  \end{tabular} \includegraphics[scale=0.075]{figures/figure019g.pdf}};
+                \node (rec) at ( 4,-6.0) {\begin{tabular}{c}Rectangles      \\[-0.5ex]\tiny $\alpha=\beta=\gamma=\delta$                     \end{tabular} \includegraphics[scale=0.075]{figures/figure019b.pdf}};
+                \node (reg) at ( 0,-7.2) {\begin{tabular}{c}Regular Quad.   \\[-0.5ex]\tiny $a=b=c=d \quad\&\quad\alpha=\beta=\gamma=\delta$ \end{tabular} \includegraphics[scale=0.075]{figures/figure019a.pdf}};
+                \node (tan) at (-4,-3.6) {\phantom{\includegraphics[scale=0.075]{figures/figure019n.pdf}} \begin{tabular}{c}Tangent Quad.\\[-0.5ex]\tiny $a+c = b+d$            \end{tabular}}; 
+                \node (kit) at (-4,-4.8) {\includegraphics[scale=0.075]{figures/figure019n.pdf}           \begin{tabular}{c}Kites        \\[-0.5ex]\tiny $a=b \quad\&\quad c=d$ \end{tabular}};  
+                \node (rho) at (-4,-6.0) {\includegraphics[scale=0.075]{figures/figure019m.pdf}           \begin{tabular}{c}Rhombi       \\[-0.5ex]\tiny $a=b=c=d$              \end{tabular}};  
+
+                \draw[-latex] ($(qua.south)-(0.42,0)$) -- ($(sim.north)-(0.42,0)$);
+                \draw[-latex] ($(sim.south)-(0.42,0)$) -- ($(con.north)-(0.42,0)$);
+                \draw[-latex] ($(con.south)-(0.42,0)$) -- ($(tra.north)-(0.42,0)$);
+                \draw[-latex] ($(tra.south)-(0.42,0)$) -- ($(par.north)-(0.42,0)$);
+                \draw[-latex] ($(bic.south)-(0.42,0)$) -- ($(reg.north)-(0.42,0)$);
+
+                \draw[-latex] ($(cyc.south)-(0.3,0)$) -- ($(iso.north)-(0.3,0)$);
+                \draw[-latex] ($(iso.south)-(0.3,0)$) -- ($(rec.north)-(0.3,0)$);
+
+                \draw[-latex] ($(tan.south)+(0.32,0)$) -- ($(kit.north)+(0.32,0)$);
+                \draw[-latex] ($(kit.south)+(0.32,0)$) -- ($(rho.north)+(0.32,0)$);
+                
+                \draw[-latex] (con.west)  -- (tan);
+                \draw[-latex] (con.east)  -- (cyc);
+                \draw[-latex] (tra.east)  -- (iso);
+                \draw[-latex] (par.west)  -- (rho);
+                \draw[-latex] (par.east)  -- (rec);
+                \draw[-latex] (rec) -- (reg.east);
+                \draw[-latex] (rho) -- (reg.west);
+                \draw[-latex] ($(tan.south east)+(-0.2,0.3)$)  -- ($(bic.north)+(-1.7,-0.2)$);
+                \draw[-latex] ($(cyc.south west)+( 0.1,0.3)$)  -- ($(bic.north)+( 1.2,-0.2)$);
+            \end{tikzpicture}
+        \end{center}
+        \vspace{4pt}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     \begin{frame}{The three solutions of the square}
 
         \vspace{-1em}
@@ -858,9 +962,9 @@
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    \begin{frame}{Figures with no solution}
+    \begin{frame}{Figures without solution}
         \begin{center}
-            {Could you explain why some of these rectangles can not be solved?}
+            {Could you explain why some of these rectangles\\can not be made with these 5 pieces?}
         
             \bigskip
 
@@ -1299,30 +1403,6 @@
             Where is the missing square?
 
             \vspace{1ex}
-        \end{center}
-    \end{frame}
-
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-    \begin{frame}{Sum of similar figures}
-        \begin{center}
-            Use all 5 pieces to make the single figure in the LHS,
-            then use them to make the two figures on the RHS
-
-            \bigskip\bigskip
-
-            {\Huge \begin{tabular}{ccccc}
-                \includegraphics[scale=0.35]{figures/figure015a.pdf} & $=$ &
-                \includegraphics[scale=0.35]{figures/figure015b.pdf} & $\!+\!$ &
-                \includegraphics[scale=0.35]{figures/figure015c.pdf}\\[1ex]
-                \includegraphics[scale=0.35]{figures/figure015d.pdf} & $=$ &
-                \includegraphics[scale=0.35]{figures/figure015e.pdf} & $\!+\!$ &
-                \includegraphics[scale=0.35]{figures/figure015f.pdf}\\
-            \end{tabular}}
-
-            \bigskip\bigskip
-
-            {\footnotesize In both equations, the figures are similar and areas are in ratio $5:4:1$}
         \end{center}
     \end{frame}
 
