@@ -14,6 +14,8 @@ In this repository you can find:
 
 * The slides used in the virtual talk [**El Tangram Egipcio: el nuevo rompecabezas del MMACA**](/The%20Egyptian%20Tangram%20-%20Presentaci%C3%B3n%202021/El%20Tangram%20Egipcio%20-%202021.pdf) (in spanish, *The Egyptian Tangram: The new puzzle from MMACA*) that was performed in cooperation with [Fundapromat](https://www.fundapromat.org/) on March 10th 2021.
 
+* The slides used in the talk [**El diseño del Tangram Egipcio**](/El%20dise%C3%B1o%20del%20Tangram%20Egipcio%20-%20JAEM%2020/El%20dise%C3%B1o%20del%20Tangram%20Egipcio%20-%20JAEM%2020.pdf) (in spanish, *The design of the Egyptian Tangram*) that was performed JAEM 20 congress ([MMACA](http://mmaca.cat/)) on July 6th 2022.
+
 * The [**Egyptian Tangram Guide**](/The%20Egyptian%20Tangram%20-%20Guide/The%20Egyptian%20Tangram%20Guide.pdf) (*work in progress*) an exhaustive compilation of all the mathematical properties of the Egyptian Tangram we are aware of (please submit new properties for inclusion in future versions of this guide).
 
 * The [**Egyptian Tangram Print & Play flyer**](/The%20Egyptian%20Tangram%20-%20Printable%20Edition/The%20Egyptian%20Tangram%20-%20Printable%20Edition.pdf) (permission granted for personal or educational use only).
