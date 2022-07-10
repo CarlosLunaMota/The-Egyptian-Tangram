@@ -17494,10 +17494,477 @@ def figure026m():
     mycanvas.writePDFfile(name)
 
 
+def figure027a():
+    '''El Tangram Egípci - Triangle 6:8:10 incomplet'''
+
+    name = "figures/figure027a"
+
+    X = 1
+    P = w_point((0,R5*X), (2*R5*X,0), 2, 3)
+
+    drawing = []    
+    
+    """drawing.append((path.path(path.moveto(-2*R5*X-X,    0*X-X),
+                              path.lineto(-2*R5*X-X, 2*R5*X+X),
+                              path.lineto( 2*R5*X+X, 2*R5*X+X),
+                              path.lineto( 2*R5*X+X,    0*X-X),
+                              path.closepath()), BASE+FILLED(BLACK)))"""
+
+    drawing.append((path.path(path.moveto(-2*R5*X,    0*X),
+                              path.lineto(-2*R5*X, 2*R5*X),
+                              path.lineto( 2*R5*X, 2*R5*X),
+                              path.lineto( 2*R5*X,    0*X),
+                              path.closepath()), BASE+DASHED+THIN))
+                              
+    drawing.append((path.path(path.moveto(*P),
+                              path.lineto(   0*X,   R5*X),
+                              path.lineto(2*R5*X, 2*R5*X),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto( 0*X,  0*X),
+                              path.lineto( 0*X, R5*X),
+                              path.lineto(*P),
+                              path.lineto(R5*X,  0*X),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(  R5*X, 0*X),
+                              path.lineto(2*R5*X, 0*X),
+                              path.lineto(*P),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(    0*X,  0*X),
+                              path.lineto(    0*X, R5*X),
+                              path.lineto(-2*R5*X,  0*X),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(*P),
+                              path.lineto(2*R5*X, 2*R5*X),
+                              path.lineto(2*R5*X,    0*X),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure027b():
+    '''El Tangram Egípci - Triangle 6:8:10 incomplet'''
+
+    name = "figures/figure027b"
+
+    X = 1
+    
+    drawing = []
+
+
+    """drawing.append((path.path(path.moveto(-2*R5*X-X,        0*X-X),
+                              path.lineto(-2*R5*X-X, R5*X + 3*X+X),
+                              path.lineto(    4*X+X, R5*X + 3*X+X),
+                              path.lineto(    4*X+X,        0*X-X),
+                              path.closepath()), BASE+FILLED(BLACK)))"""
+
+    drawing.append((path.path(path.moveto(-2*R5*X,        0*X),
+                              path.lineto(-2*R5*X, R5*X + 3*X),
+                              path.lineto(    4*X, R5*X + 3*X),
+                              path.lineto(    4*X,        0*X),
+                              path.closepath()), BASE+DASHED+THIN))
+
+    """drawing.append((path.path(path.moveto(-2*R5*X,  0*X),
+                              path.lineto(-2*R5*X, R5*X),
+                              path.lineto(    0*X, R5*X),
+                              path.lineto(    0*X, R5*X + 3*X),
+                              path.lineto(    4*X, R5*X + 3*X),
+                              path.lineto(    4*X,        0*X),
+                              path.closepath()), BASE+DASHED+THIN))"""
+                              
+    drawing.append((path.path(path.moveto(0*X, R5*X),
+                              path.lineto(4*X, R5*X),
+                              path.lineto(4*X, R5*X + 3*X),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto( 0*X,  0*X),
+                              path.lineto( 0*X, R5*X),
+                              path.lineto(*w_point((0,R5*X), (2*R5*X,0), 2, 3)),
+                              path.lineto(R5*X,  0*X),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(  R5*X, 0*X),
+                              path.lineto(2*R5*X, 0*X),
+                              path.lineto(*w_point((0,R5*X), (2*R5*X,0), 2, 3)),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(    0*X,  0*X),
+                              path.lineto(    0*X, R5*X),
+                              path.lineto(-2*R5*X,  0*X),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(0*X, R5*X),
+                              path.lineto(4*X, R5*X),
+                              path.lineto(4*X, R5*X - 2*X),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure027c():
+    '''El Tangram Egípci - Triangle 6:8:10 incomplet'''
+
+    name = "figures/figure027c"
+
+    X = 1
+    
+    drawing = []
+
+
+    """drawing.append((path.path(path.moveto(  -4*X-X,        0*X-X),
+                              path.lineto(  -4*X-X, R5*X + 3*X+X),
+                              path.lineto(2*R5*X+X, R5*X + 3*X+X),
+                              path.lineto(2*R5*X+X,        0*X-X),
+                              path.closepath()), BASE+FILLED(BLACK)))"""
+
+    drawing.append((path.path(path.moveto(  -4*X,        0*X),
+                              path.lineto(  -4*X, R5*X + 3*X),
+                              path.lineto(2*R5*X, R5*X + 3*X),
+                              path.lineto(2*R5*X,        0*X),
+                              path.closepath()), BASE+DASHED+THIN))
+
+    """drawing.append((path.path(path.moveto(  -4*X,        0*X),
+                              path.lineto(  -4*X,        3*X),
+                              path.lineto(   0*X,        3*X),
+                              path.lineto(   0*X, R5*X + 3*X),
+                              path.lineto(2*R5*X, R5*X + 3*X),
+                              path.lineto(2*R5*X,        0*X),
+                              path.closepath()), BASE+DASHED+THIN))"""
+
+    drawing.append((path.path(path.moveto( 0*X, 0*X),
+                              path.lineto(-4*X, 0*X),
+                              path.lineto( 0*X, 3*X),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(0*X, 0*X),
+                              path.lineto(1*X, 0*X),
+                              path.lineto(2*X, 2*X),
+                              path.lineto(0*X, 3*X),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(2*R5*X, 3*X),
+                              path.lineto(2*R5*X, 3*X-R5*X),
+                              path.lineto(*w_point((2*R5*X, 3*X-R5*X), (0,3*X), 4, 1)),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(   0*X, 3*X),
+                              path.lineto(2*R5*X, 3*X + R5*X),
+                              path.lineto(2*R5*X, 3*X),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(   0*X, 3*X),
+                              path.lineto(2*R5*X, 3*X),
+                              path.lineto(*w_point((2*R5*X, 3*X-R5*X), (0,3*X), 4, 1)),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure027d():
+    '''El Tangram Egípci - Triangle 6:8:10 incomplet'''
+
+    name = "figures/figure027d"
+
+    X = 1
+    
+    drawing = []
+
+
+    """drawing.append((path.path(path.moveto( -X,  -X),
+                              path.lineto( -X, 7*X),
+                              path.lineto(9*X, 7*X),
+                              path.lineto(9*X,  -X),
+                              path.closepath()), BASE+FILLED(BLACK)))"""
+
+    drawing.append((path.path(path.moveto(0*X, 0*X),
+                              path.lineto(8*X, 0*X),
+                              path.lineto(8*X, 6*X),
+                              path.lineto(0*X, 6*X),
+                              path.closepath()), BASE+DASHED+THIN))
+
+    """drawing.append((path.path(path.moveto(  -4*X,        0*X),
+                              path.lineto(  -4*X,        3*X),
+                              path.lineto(   0*X,        3*X),
+                              path.lineto(   0*X, R5*X + 3*X),
+                              path.lineto(2*R5*X, R5*X + 3*X),
+                              path.lineto(2*R5*X,        0*X),
+                              path.closepath()), BASE+DASHED+THIN))"""
+
+    drawing.append((path.path(path.moveto(0*X, 0*X),
+                              path.lineto(4*X, 0*X),
+                              path.lineto(4*X, 3*X),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(4*X, 0*X),
+                              path.lineto(5*X, 0*X),
+                              path.lineto(6*X, 2*X),
+                              path.lineto(4*X, 3*X),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(4*X, 3*X),
+                              path.lineto(6*X, 2*X),
+                              path.lineto(8*X, 6*X),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(5*X, 0*X),
+                              path.lineto(6*X, 0*X),
+                              path.lineto(6*X, 2*X),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(6*X, 2*X),
+                              path.lineto(8*X, 2*X),
+                              path.lineto(8*X, 6*X),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure028a():
+    '''El Tangram Egípci - Triangle 6:8:10 incomplet'''
+
+    name = "figures/figure028a"
+
+    X = 1
+    
+    drawing = []
+
+    """drawing.append((path.path(path.moveto( -X,  -X),
+                              path.lineto( -X, 7*X),
+                              path.lineto(9*X, 7*X),
+                              path.lineto(9*X,  -X),
+                              path.closepath()), BASE+FILLED(BLACK)))"""
+
+    for i in range(9):
+        drawing.append((path.path(path.moveto(i*X,-0.5*X),
+                                  path.lineto(i*X, 6.5*X)), BASE+DOTTED+THIN))
+
+    for j in range(7):
+        drawing.append((path.path(path.moveto(-0.5*X,j*X),
+                                  path.lineto( 8.5*X,j*X)), BASE+DOTTED+THIN))
+
+    drawing.append((path.path(path.moveto(0*X, 0*X),
+                              path.lineto(8*X, 0*X),
+                              path.lineto(8*X, 6*X),
+                              path.closepath()), BASE+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(0*X, 0*X),
+                              path.lineto(4*X, 0*X),
+                              path.lineto(4*X, 3*X),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(4*X, 0*X),
+                              path.lineto(5*X, 0*X),
+                              path.lineto(6*X, 2*X),
+                              path.lineto(4*X, 3*X),
+                              path.closepath()), BASE+THICK+FILLED(ORANGE)))
+    drawing.append((path.path(path.moveto(4*X, 3*X),
+                              path.lineto(6*X, 2*X),
+                              path.lineto(8*X, 6*X),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(5*X, 0*X),
+                              path.lineto(6*X, 0*X),
+                              path.lineto(6*X, 2*X),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+    drawing.append((path.path(path.moveto(6*X, 2*X),
+                              path.lineto(8*X, 2*X),
+                              path.lineto(8*X, 6*X),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure028b():
+    '''Areas and Perimeters'''
+
+    name = "figures/figure028b"
+
+    X = 1
+
+    drawing = []
+
+    """drawing.append((path.path(path.moveto(  -X, -X),
+                              path.lineto(15*X, -X),
+                              path.lineto(15*X,9*X),
+                              path.lineto(  -X,9*X),
+                              path.closepath()), BASE+THIN+FILLED(BLACK)))"""
+
+    for i in range(15):
+        drawing.append((path.path(path.moveto(i*X,-0.5*X),
+                                  path.lineto(i*X, 8.5*X)), BASE+DOTTED+THIN))
+
+    for j in range(9):
+        drawing.append((path.path(path.moveto(-0.5*X,j*X),
+                                  path.lineto(14.5*X,j*X)), BASE+DOTTED+THIN))
+
+    drawing.append((path.path(path.moveto(0*X,6*X),
+                              path.lineto(2*X,6*X),
+                              path.lineto(2*X,8*X),
+                              path.lineto(0*X,8*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(2*X,2*X),
+                              path.lineto(6*X,2*X),
+                              path.lineto(4*X,3*X),
+                              path.lineto(0*X,3*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(0*X,4*X),
+                              path.lineto(4*X,4*X),
+                              path.lineto(4*X,5*X),
+                              path.lineto(0*X,5*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(0*X,0*X),
+                              path.lineto(6*X,0*X),
+                              path.lineto(4*X,1*X),
+                              path.lineto(2*X,1*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(3*X,8*X),
+                              path.lineto(7*X,6*X),
+                              path.lineto(9*X,6*X),
+                              path.lineto(5*X,8*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(6*X,5*X),
+                              path.lineto(7*X,5*X),
+                              path.lineto(9*X,1*X),
+                              path.lineto(8*X,1*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(10*X,0*X),
+                              path.lineto(13*X,0*X),
+                              path.lineto(12*X,2*X),
+                              path.lineto(11*X,2*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(10*X,3*X),
+                              path.lineto(12*X,3*X),
+                              path.lineto(11*X,5*X),
+                              path.lineto( 9*X,5*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(11*X,6*X),
+                              path.lineto(12*X,8*X),
+                              path.lineto( 9*X,8*X),
+                              path.lineto( 9*X,7*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    drawing.append((path.path(path.moveto(12*X,6*X),
+                              path.lineto(14*X,6*X),
+                              path.lineto(14*X,2*X),
+                              path.closepath()), BASE+THIN+FILLED(WHITE)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
+def figure029():
+    '''Formula d'Heró'''
+
+    name = "figures/figure029"
+
+    X = 1 # Scale #
+
+    drawing = []
+
+    drawing.append((path.path(path.moveto( 0*X, 0*X),
+                              path.lineto(32*X, 0*X),
+                              path.lineto(32*X,24*X),
+                              path.lineto( 0*X,24*X),
+                              path.closepath()), BASE+FILLED(BLACK)))
+
+    
+    drawing.append((path.path(path.moveto( 1*X,15*X),
+                              path.lineto( 7*X,18*X),
+                              path.moveto(13*X,15*X),
+                              path.lineto( 7*X,18*X),
+                              path.moveto( 7*X,23*X),
+                              path.lineto( 7*X,15*X),
+                              path.moveto(*w_point((1*X,15*X),(7*X,23*X),2,3)),
+                              path.lineto( 7*X,18*X),
+                              path.moveto(*w_point((13*X,15*X),(7*X,23*X),2,3)),
+                              path.lineto( 7*X,18*X)), BASE+DASHED))
+
+    drawing.append((path.circle(7*X,18*X, 3*X), BASE+DOTTED))
+
+    drawing.append((path.path(path.moveto( 1*X,15*X),
+                              path.lineto( 7*X,23*X),
+                              path.lineto(13*X,15*X),
+                              path.closepath()), BASE+VERYTHICK))
+
+    drawing.append((path.path(path.moveto(15*X,18*X),
+                              path.lineto(21*X,21*X),
+                              path.lineto(21*X,18*X),
+                              path.lineto(27*X,21*X),
+                              path.lineto(27*X,18*X),
+                              path.lineto(31*X,21*X)), BASE+THICK))
+
+    drawing.append((path.path(path.moveto(15*X,18*X),
+                              path.lineto(15*X,21*X),
+                              path.lineto(31*X,21*X),
+                              path.lineto(31*X,18*X),
+                              path.closepath()), BASE+THICK))
+
+    drawing.append((path.path(path.moveto(15*X,11*X),
+                              path.lineto(15*X,15*X),
+                              path.lineto(17*X,15*X),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto(22*X,11*X),
+                              path.lineto(24*X,15*X),
+                              path.lineto(26*X,14*X),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto(27*X,11*X),
+                              path.lineto(31*X,11*X),
+                              path.lineto(31*X,14*X),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(19*X,15*X),
+                              path.lineto(21*X,15*X),
+                              path.lineto(21*X,14*X),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+
+    drawing.append((path.path(path.moveto(2*X, 2*X),
+                              path.lineto(6*X,10*X),
+                              path.lineto(2*X,10*X),
+                              path.closepath()), BASE+THICK+FILLED(BLUE)))
+    drawing.append((path.path(path.moveto( 2*X, 2*X),
+                              path.lineto(10*X, 8*X),
+                              path.lineto( 6*X,10*X),
+                              path.closepath()), BASE+THICK+FILLED(GREEN)))
+    drawing.append((path.path(path.moveto( 2*X, 2*X),
+                              path.lineto(10*X, 2*X),
+                              path.lineto(10*X, 8*X),
+                              path.closepath()), BASE+THICK+FILLED(YELLOW)))
+    drawing.append((path.path(path.moveto(10*X, 8*X),
+                              path.lineto(10*X,10*X),
+                              path.lineto( 6*X,10*X),
+                              path.closepath()), BASE+THICK+FILLED(RED)))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+
+    """mycanvas.draw(*put_text(0.35*X, 0.95*X, r"\color{white}{\textalpha--\textbeta}"))
+    mycanvas.draw(*put_text(0.80*X, 0.60*X, r"\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text(3.65*X, 1.35*X, r"\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text(4.20*X, 0.95*X, r"\small\color{white}{1}"))
+
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(E[0]-0.1*X, E[1]+0.2*X)),
+                  [deco.curvedtext(r"\footnotesize\raisebox{-2ex}{\color{white}{sec\,\textalpha\,\,tan\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(0.25*E[0],0.25*E[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{sec\,\textalpha}}")])
+    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(C[0],C[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(C[0],C[1]),path.lineto(E[0],E[1])),
+                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textalpha\,\,tan\,\textbeta}}")])
+    mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
+                  [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{tan\,\textalpha}}")])"""
+
+    mycanvas.writePDFfile(name)
+
+figure029()
+
+
 ################################################################################
 
 
-if __name__ == "__main__":
+if __name__ == "__main__1":
 
     figure000a()
     figure000b()
@@ -17938,4 +18405,11 @@ if __name__ == "__main__":
     figure026k()
     figure026l()
     figure026m()
+    figure027a()
+    figure027b()
+    figure027c()
+    figure027d()
+    figure028a()
+    figure028b()
+    figure029()
 
