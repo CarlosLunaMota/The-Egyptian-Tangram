@@ -75,6 +75,9 @@ text.preamble(r"\usepackage{textcomp}")
 text.preamble(r"\usepackage[cm]{sfmath}")
 text.preamble(r"\usepackage[euler]{textgreek}")
 text.preamble(r"\renewcommand{\familydefault}{\sfdefault}")
+text.preamble(r"\usepackage{amsmath}")
+text.preamble(r"\usepackage{fontawesome}")
+text.preamble(r"\usepackage{graphics}")
 
 text.preamble(r"\setlength{\fboxsep}{4pt}")
 text.preamble(r"\setlength{\fboxrule}{0.75pt}")
@@ -17863,14 +17866,16 @@ def figure029():
 
     X = 1 # Scale #
 
+    a = atan2(1,2)*180/pi
+    b = atan2(3,4)*180/pi
+
     drawing = []
 
-    drawing.append((path.path(path.moveto( 0*X, 0*X),
+    """drawing.append((path.path(path.moveto( 0*X, 0*X),
                               path.lineto(32*X, 0*X),
                               path.lineto(32*X,24*X),
                               path.lineto( 0*X,24*X),
-                              path.closepath()), BASE+FILLED(BLACK)))
-
+                              path.closepath()), BASE+FILLED(BLACK)))"""
     
     drawing.append((path.path(path.moveto( 1*X,15*X),
                               path.lineto( 7*X,18*X),
@@ -17881,14 +17886,54 @@ def figure029():
                               path.moveto(*w_point((1*X,15*X),(7*X,23*X),2,3)),
                               path.lineto( 7*X,18*X),
                               path.moveto(*w_point((13*X,15*X),(7*X,23*X),2,3)),
-                              path.lineto( 7*X,18*X)), BASE+DASHED))
+                              path.lineto( 7*X,18*X)), BASE))
 
     drawing.append((path.circle(7*X,18*X, 3*X), BASE+DOTTED))
+
+    drawing.append((path.path(path.moveto(15.0*X,20.5*X),
+                              path.lineto(15.5*X,20.5*X),
+                              path.lineto(15.5*X,21.0*X),
+                              path.moveto(20.5*X,18.0*X),
+                              path.lineto(20.5*X,18.5*X),
+                              path.lineto(21.0*X,18.5*X),
+                              path.moveto(21.0*X,20.5*X),
+                              path.lineto(21.5*X,20.5*X),
+                              path.lineto(21.5*X,21.0*X),
+                              path.moveto(26.5*X,18.0*X),
+                              path.lineto(26.5*X,18.5*X),
+                              path.lineto(27.0*X,18.5*X),
+                              path.moveto(27.0*X,20.5*X),
+                              path.lineto(27.5*X,20.5*X),
+                              path.lineto(27.5*X,21.0*X),
+                              path.moveto(30.5*X,18.0*X),
+                              path.lineto(30.5*X,18.5*X),
+                              path.lineto(31.0*X,18.5*X)), BASE))
+
+    drawing.append((path.path(path.moveto(16.5*X, 18*X),
+                    path.arc(15*X,18*X, 1.5*X,   0, a)), BASE))
+    drawing.append((path.path(path.moveto(19.5*X, 21*X),
+                    path.arc(21*X,21*X, 1.5*X, 180, 180+a)), BASE))
+    drawing.append((path.path(path.moveto(22.5*X, 18*X),
+                    path.arc(21*X,18*X, 1.5*X,   0, a)), BASE))
+    drawing.append((path.path(path.moveto(25.5*X, 21*X),
+                    path.arc(27*X,21*X, 1.5*X, 180, 180+a)), BASE))
+    drawing.append((path.path(path.moveto(28.5*X, 18*X),
+                    path.arc(27*X,18*X, 1.5*X,   0, b)), BASE))
+    drawing.append((path.path(path.moveto(29.5*X, 21*X),
+                    path.arc(31*X,21*X, 1.5*X, 180, 180+b)), BASE))
+
+    drawing.append((path.path(path.moveto(2.5*X, 15*X),
+                    path.arc(1*X,15*X, 1.5*X, 0, 2*a)), BASE))
+    drawing.append((path.path(path.moveto(*w_point((13*X,15*X), (7*X,23*X), 1.5, 8.5)),
+                    path.arc(13*X,15*X, 1.5*X, 180-2*a, 180)), BASE))
+    drawing.append((path.path(path.moveto(*w_point((1*X,15*X), (7*X,23*X), 1, 9)),
+                    path.arc(7*X,23*X, 1*X, 270-b, 270+b)), BASE))
+
 
     drawing.append((path.path(path.moveto( 1*X,15*X),
                               path.lineto( 7*X,23*X),
                               path.lineto(13*X,15*X),
-                              path.closepath()), BASE+VERYTHICK))
+                              path.closepath()), BASE+ULTRATHICK))
 
     drawing.append((path.path(path.moveto(15*X,18*X),
                               path.lineto(21*X,21*X),
@@ -17903,68 +17948,122 @@ def figure029():
                               path.lineto(31*X,18*X),
                               path.closepath()), BASE+THICK))
 
-    drawing.append((path.path(path.moveto(15*X,11*X),
-                              path.lineto(15*X,15*X),
-                              path.lineto(17*X,15*X),
+    drawing.append((path.path(path.moveto(15.5*X,11*X),
+                              path.lineto(15.5*X,15*X),
+                              path.lineto(17.5*X,15*X),
                               path.closepath()), BASE+THICK+FILLED(BLUE)))
     drawing.append((path.path(path.moveto(22*X,11*X),
                               path.lineto(24*X,15*X),
                               path.lineto(26*X,14*X),
                               path.closepath()), BASE+THICK+FILLED(GREEN)))
-    drawing.append((path.path(path.moveto(27*X,11*X),
-                              path.lineto(31*X,11*X),
-                              path.lineto(31*X,14*X),
+    drawing.append((path.path(path.moveto(27*X,12*X),
+                              path.lineto(31*X,12*X),
+                              path.lineto(31*X,15*X),
                               path.closepath()), BASE+THICK+FILLED(YELLOW)))
     drawing.append((path.path(path.moveto(19*X,15*X),
                               path.lineto(21*X,15*X),
                               path.lineto(21*X,14*X),
                               path.closepath()), BASE+THICK+FILLED(RED)))
 
-    drawing.append((path.path(path.moveto(2*X, 2*X),
-                              path.lineto(6*X,10*X),
-                              path.lineto(2*X,10*X),
+    drawing.append((path.path(path.moveto(3*X, 2*X),
+                              path.lineto(7*X,10*X),
+                              path.lineto(3*X,10*X),
                               path.closepath()), BASE+THICK+FILLED(BLUE)))
-    drawing.append((path.path(path.moveto( 2*X, 2*X),
-                              path.lineto(10*X, 8*X),
-                              path.lineto( 6*X,10*X),
+    drawing.append((path.path(path.moveto( 3*X, 2*X),
+                              path.lineto(11*X, 8*X),
+                              path.lineto( 7*X,10*X),
                               path.closepath()), BASE+THICK+FILLED(GREEN)))
-    drawing.append((path.path(path.moveto( 2*X, 2*X),
-                              path.lineto(10*X, 2*X),
-                              path.lineto(10*X, 8*X),
+    drawing.append((path.path(path.moveto( 3*X, 2*X),
+                              path.lineto(11*X, 2*X),
+                              path.lineto(11*X, 8*X),
                               path.closepath()), BASE+THICK+FILLED(YELLOW)))
-    drawing.append((path.path(path.moveto(10*X, 8*X),
-                              path.lineto(10*X,10*X),
-                              path.lineto( 6*X,10*X),
+    drawing.append((path.path(path.moveto(11*X, 8*X),
+                              path.lineto(11*X,10*X),
+                              path.lineto( 7*X,10*X),
                               path.closepath()), BASE+THICK+FILLED(RED)))
+
+    drawing.append((path.path(path.moveto(4.5*X, 2*X),
+                    path.arc(3*X,2*X, 1.5*X, 0, 90)), BASE))
+    drawing.append((path.path(path.moveto(8.5*X, 10*X),
+                    path.arcn(7*X,10*X, 1.5*X, 0, -a)), BASE))
+    drawing.append((path.path(path.moveto(3.0*X,9.5*X),
+                              path.lineto(3.5*X,9.5*X),
+                              path.lineto(3.5*X,10.0*X),
+                              path.moveto(11.0*X,9.5*X),
+                              path.lineto(10.5*X,9.5*X),
+                              path.lineto(10.5*X,10.0*X),
+                              path.moveto(*r_point((7.0*X, 9.5*X),(7*X,10*X),-atan2(1,2))),
+                              path.lineto(*r_point((7.5*X, 9.5*X),(7*X,10*X),-atan2(1,2))),
+                              path.lineto(*r_point((7.5*X,10.0*X),(7*X,10*X),-atan2(1,2))),
+                              path.moveto(10.5*X,2.0*X),
+                              path.lineto(10.5*X,2.5*X),
+                              path.lineto(11.0*X,2.5*X)), BASE))
 
     mycanvas = canvas.canvas()
     for (p, s) in drawing: mycanvas.stroke(p, s)
 
-    """mycanvas.draw(*put_text(0.35*X, 0.95*X, r"\color{white}{\textalpha--\textbeta}"))
-    mycanvas.draw(*put_text(0.80*X, 0.60*X, r"\color{white}{\textbeta}"))
-    mycanvas.draw(*put_text(3.65*X, 1.35*X, r"\color{white}{\textalpha}"))
-    mycanvas.draw(*put_text(4.20*X, 0.95*X, r"\small\color{white}{1}"))
+    mycanvas.draw(*put_text(22.0*X, 22.75*X, r"\huge\color{white}{$\displaystyle\Rightarrow\quad\text{AREA}\;=\;(x+y+z)\,r$}"))
+    mycanvas.draw(*put_text(18.0*X, 21.35*X, r"\huge\color{white}{$\displaystyle x$}"))
+    mycanvas.draw(*put_text(24.0*X, 21.35*X, r"\huge\color{white}{$\displaystyle y$}"))
+    mycanvas.draw(*put_text(29.0*X, 21.35*X, r"\huge\color{white}{$\displaystyle z$}"))
+    mycanvas.draw(*put_text(14.5*X, 19.25*X, r"\huge\color{white}{$\displaystyle r$}"))
+    mycanvas.draw(*put_text(17.5*X, 19.65*X, r"\huge\color{white}{$\displaystyle h$}"))
+    mycanvas.draw(*put_text( 7.0*X, 12.25*X, r"\huge\color{white}{$\displaystyle\text{\faLongArrowDown}\quad\text{\textalpha\ + \textbeta\ + \textgamma} \;=\; \frac{\pi}{2}$}"))
+    mycanvas.draw(*put_text(16.5*X, 16.25*X, r"\huge\color{white}{$\displaystyle\text{\faLongArrowDown}\;\cdot\;\frac{y\,z}{r}$}"))
+    mycanvas.draw(*put_text(20.0*X, 16.25*X, r"\huge\color{white}{$\displaystyle\text{\faLongArrowDown}\;\cdot\;z$}"))
+    mycanvas.draw(*put_text(24.25*X, 16.25*X, r"\huge\color{white}{$\displaystyle\text{\faLongArrowDown}\;\cdot\;\frac{h\,z}{r}$}"))
+    mycanvas.draw(*put_text(29.0*X, 16.25*X, r"\huge\color{white}{$\displaystyle\text{\faLongArrowDown}\;\cdot\;(x+y)$}"))
+    mycanvas.draw(*put_text(17.0*X, 18.30*X, r"\huge\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text(18.95*X, 20.35*X, r"\huge\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text(23.0*X, 18.30*X, r"\huge\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text(24.95*X, 20.3*X, r"\huge\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text(28.9*X, 18.45*X, r"\huge\color{white}{\textgamma}"))
+    mycanvas.draw(*put_text(29.1*X, 20.32*X, r"\huge\color{white}{\textgamma}"))
 
-    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(E[0]-0.1*X, E[1]+0.2*X)),
-                  [deco.curvedtext(r"\footnotesize\raisebox{-2ex}{\color{white}{sec\,\textalpha\,\,tan\,\textbeta}}")])
-    mycanvas.draw(path.path(path.moveto(0.25*E[0],0.25*E[1]),path.lineto(E[0],E[1])),
-                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{sec\,\textalpha}}")])
-    mycanvas.draw(path.path(path.moveto(F[0],F[1]),path.lineto(C[0],C[1])),
-                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textbeta}}")])
-    mycanvas.draw(path.path(path.moveto(C[0],C[1]),path.lineto(E[0],E[1])),
-                  [deco.curvedtext(r"\small\raisebox{ 1ex}{\color{white}{tan\,\textalpha\,\,tan\,\textbeta}}")])
-    mycanvas.draw(path.path(path.moveto(A[0],A[1]),path.lineto(B[0],B[1])),
-                  [deco.curvedtext(r"\small\raisebox{-2ex}{\color{white}{tan\,\textalpha}}")])"""
+    mycanvas.draw(*put_text( 3.0*X, 15.3*X, r"\huge\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text( 2.5*X, 16.1*X, r"\huge\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text(11.0*X, 15.3*X, r"\huge\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text(11.4*X, 16.2*X, r"\huge\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text( 6.5*X, 21.4*X, r"\huge\color{white}{\textgamma}"))
+    mycanvas.draw(*put_text( 7.5*X, 21.4*X, r"\huge\color{white}{\textgamma}"))
+
+    mycanvas.draw(*put_text(22.0*X, 9.5*X, r"\huge\color{white}{$\displaystyle\Rightarrow\quad\text{AREA}\;=\;(x+y+z)\,r\;=\;\frac{x\,y\,z}{r}$}"))
+    mycanvas.draw(*put_text(22.0*X, 7.75*X, r"\huge\color{white}{$\displaystyle\Rightarrow\quad\text{AREA}^2\;=\;(x+y+z)\,x\,y\,z$}"))
+    mycanvas.draw(*put_text(22.0*X, 5.0*X, r"\huge\color{white}{$\displaystyle{\left\{\begin{array}{ccl}s&=&x+y+z\\a&=&y+z\\b&=&x+z\\c&=&x+y\end{array}\right\}}\quad\Rightarrow\quad{\left\{\begin{array}{ccl}s&=&\frac{a+b+c}{2}\\x&=&s-a\\y&=&s-b\\z&=&s-c\end{array}\right\}}$}"))
+
+    mycanvas.draw(*put_text(22.0*X, 2*X, r"\huge\color{white}{$\displaystyle\Rightarrow\quad\text{AREA}\;=\;\sqrt{\,s\,(s-a)\,(s-b)\,(s-c)\,}$}"))
+
+    mycanvas.draw(*put_text( 5.0*X, 10.3*X, r"\huge\color{white}{$\displaystyle y\,z$}"))
+    mycanvas.draw(*put_text( 9.3*X, 10.3*X, r"\huge\color{white}{$\displaystyle x\,z$}"))
+    mycanvas.draw(*put_text( 7.0*X,  1.2*X, r"\huge\color{white}{$\displaystyle (x+y)\,z$}"))
+    mycanvas.draw(*put_text( 1.9*X,  6.0*X, r"\huge\color{white}{$\displaystyle \frac{x\,y\,z}{r}$}"))
+    mycanvas.draw(*put_text(12.7*X,  5.0*X, r"\huge\color{white}{$\displaystyle (x+y)\,r$}"))
+    mycanvas.draw(*put_text(11.8*X,  9.0*X, r"\huge\color{white}{$\displaystyle z\,r$}"))
+    mycanvas.draw(*put_text( 8.5*X,  8.5*X, r"\huge\color{white}{$\displaystyle h\,z$}"))
+    mycanvas.draw(*put_text( 6.5*X,  6.4*X, r"\huge\color{white}{$\displaystyle \frac{h\,y\,z}{r}$}"))
+    mycanvas.draw(*put_text( 9.0*X,  9.4*X, r"\huge\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text( 3.4*X,  4.0*X, r"\huge\color{white}{\textalpha}"))
+    mycanvas.draw(*put_text( 4.5*X,  3.7*X, r"\huge\color{white}{\textbeta}"))
+    mycanvas.draw(*put_text( 5.2*X,  2.5*X, r"\huge\color{white}{\textgamma}"))
+    mycanvas.draw(*put_text( 7.4*X, 16.2*X, r"\huge\color{white}{$\displaystyle r$}"))
+    mycanvas.draw(*put_text( 6.0*X, 19.0*X, r"\huge\color{white}{$\displaystyle r$}"))
+    mycanvas.draw(*put_text( 8.0*X, 19.0*X, r"\huge\color{white}{$\displaystyle r$}"))
+    mycanvas.draw(*put_text( 2.5*X, 18.0*X, r"\huge\color{white}{$\displaystyle x$}"))
+    mycanvas.draw(*put_text( 4.0*X, 14.2*X, r"\huge\color{white}{$\displaystyle x$}"))
+    mycanvas.draw(*put_text(10.0*X, 14.2*X, r"\huge\color{white}{$\displaystyle y$}"))
+    mycanvas.draw(*put_text(11.5*X, 18.0*X, r"\huge\color{white}{$\displaystyle y$}"))
+    mycanvas.draw(*put_text( 5.0*X, 21.5*X, r"\huge\color{white}{$\displaystyle z$}"))
+    mycanvas.draw(*put_text( 9.0*X, 21.5*X, r"\huge\color{white}{$\displaystyle z$}"))
+    mycanvas.draw(*put_text(13.0*X, 19.3*X, r"\Huge\color{white}{\faLongArrowRight}"))
+    mycanvas.draw(*put_text(13.0*X, 12.5*X, r"\Huge\color{white}{\rotatebox{225}{\faLongArrowRight}}"))
 
     mycanvas.writePDFfile(name)
-
-figure029()
 
 
 ################################################################################
 
 
-if __name__ == "__main__1":
+if __name__ == "__main__":
 
     figure000a()
     figure000b()
