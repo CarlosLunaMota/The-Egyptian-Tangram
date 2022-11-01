@@ -6172,6 +6172,46 @@ def figure009l():
     mycanvas.writePDFfile(name)
 
 
+def figure009m():
+    '''El Tangram Egípci - 1 tangent circle'''
+
+    name = "figures/figure009m"
+
+    X = 2.0*R5
+    A = (0,0)
+    B = (0,X)
+    C = (X,X)
+    D = (X,0)
+    E = w_point(A, D, 1,1)
+    F = w_point(A, B, 1,1)
+    G = w_point(B, C, 1,1)
+    H = w_point(C, D, 1,1)
+    I = w_point(B, E, 3,2)
+    J = w_point(F, B, 1,1)
+    K = (X/2.0, -X/4.0)
+
+    C1 = w_point(C, E, 1,1)
+    C2 = w_point(F, E, 1,1)
+    C3 = G
+    C4 = D
+
+    drawing = []
+    drawing.append((path.circle(X/2.0, X*3.0/8.0, X*5.0/8.0), BASE+COLOR(YELLOW)))
+    drawing.append((path.path(path.moveto(*B),
+                              path.lineto(*E),
+                              path.lineto(*C),
+                              path.lineto(*F)), BASE))
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE))
+
+    mycanvas = canvas.canvas()
+    for (p, s) in drawing: mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+
 def figure010a():
     '''T1+Q4'''
 
@@ -18175,6 +18215,7 @@ if __name__ == "__main__":
     figure009j()
     figure009k()
     figure009l()
+    figure009m()
     figure010a()
     figure010b()
     figure010c()
