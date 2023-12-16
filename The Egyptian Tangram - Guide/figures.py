@@ -18100,10 +18100,55 @@ def figure029():
     mycanvas.writePDFfile(name)
 
 
+def figure030():
+    '''Fractal Tangram'''
+
+    name = "figures/figure030"
+
+    X  = 2*R5
+    A  = (0,0)
+    B  = (0,X)
+    C  = (X,X)
+    D  = (X,0)
+
+    drawing = []
+
+    drawing.append((path.path(path.moveto(*A),
+                              path.lineto(*B),
+                              path.lineto(*C),
+                              path.lineto(*D),
+                              path.closepath()), BASE+THICK))
+
+    for i in range(4):
+
+        AB = w_point(A,B,1,1)
+        BC = w_point(B,C,1,1)
+        CD = w_point(C,D,1,1)
+        DA = w_point(D,A,1,1)
+        O = w_point(AB,CD,1,1)
+
+        drawing.append((path.path(path.moveto(*AB),
+                                  path.lineto(*C),
+                                  path.lineto(*DA),
+                                  path.lineto(*B)), BASE+THICK))
+                                  
+        drawing.append((path.path(path.moveto(*AB),
+                                  path.lineto(*O),
+                                  path.lineto(*BC)), BASE+DOTTED+THIN))
+
+        A,B,C,D = O,AB,B,BC
+
+    drawing.pop()
+
+    mycanvas = canvas.canvas()
+    for (p, s) in reversed(drawing): mycanvas.stroke(p, s)
+    mycanvas.writePDFfile(name)
+
+figure030()
+
 ################################################################################
 
-
-if __name__ == "__main__":
+if __name__ == "__main__1":
 
     figure000a()
     figure000b()
@@ -18552,4 +18597,5 @@ if __name__ == "__main__":
     figure028a()
     figure028b()
     figure029()
+    figure030()
 
